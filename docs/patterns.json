@@ -1,0 +1,250 @@
+{
+    "name": "gorevive",
+    "patterns": [
+        {
+            "patternId": "add-constant",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "argument-limit",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "atomic",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "blank-imports",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "bool-literal-in-expr",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "call-to-gc",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "confusing-naming",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "confusing-results",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "cognitive-complexity",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "constant-logical-expr",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "context-as-argument",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "context-keys-type",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "cyclomatic",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "dot-imports",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "duplicated-imports",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "empty-block",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "empty-lines",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "error-naming",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "error-return",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "error-strings",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "errorf",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "flag-parameter",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "function-result-limit",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "get-return",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "if-return",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "increment-decrement",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "indent-error-flow",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "imports-blacklist",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "import-shadowing",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "line-length-limit",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "max-public-structs",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "modifies-parameter",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "modifies-value-receiver",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "package-comments",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "range",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "receiver-naming",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "redefines-builtin-id",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "struct-tag",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "superfluous-else",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "time-naming",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "var-naming",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "var-declaration",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unexported-return",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unhandled-error",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unnecessary-stmt",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unreachable-code",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unused-parameter",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "unused-receiver",
+            "level": "Info",
+            "category": "CodeStyle"
+        },
+        {
+            "patternId": "waitgroup-by-value",
+            "level": "Info",
+            "category": "CodeStyle"
+        }
+    ]
+}
