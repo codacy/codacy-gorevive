@@ -1,0 +1,149 @@
+[
+    {
+        "patternId": "add-constant"
+    },
+    {
+        "patternId": "argument-limit"
+    },
+    {
+        "patternId": "atomic"
+    },
+    {
+        "patternId": "blank-imports"
+    },
+    {
+        "patternId": "bool-literal-in-expr"
+    },
+    {
+        "patternId": "call-to-gc"
+    },
+    {
+        "patternId": "confusing-naming"
+    },
+    {
+        "patternId": "confusing-results"
+    },
+    {
+        "patternId": "cognitive-complexity"
+    },
+    {
+        "patternId": "constant-logical-expr"
+    },
+    {
+        "patternId": "context-as-argument"
+    },
+    {
+        "patternId": "context-keys-type"
+    },
+    {
+        "patternId": "cyclomatic"
+    },
+    {
+        "patternId": "dot-imports"
+    },
+    {
+        "patternId": "duplicated-imports"
+    },
+    {
+        "patternId": "empty-block"
+    },
+    {
+        "patternId": "empty-lines"
+    },
+    {
+        "patternId": "error-naming"
+    },
+    {
+        "patternId": "error-return"
+    },
+    {
+        "patternId": "error-strings"
+    },
+    {
+        "patternId": "errorf"
+    },
+    {
+        "patternId": "flag-parameter"
+    },
+    {
+        "patternId": "function-result-limit"
+    },
+    {
+        "patternId": "get-return"
+    },
+    {
+        "patternId": "if-return"
+    },
+    {
+        "patternId": "increment-decrement"
+    },
+    {
+        "patternId": "indent-error-flow"
+    },
+    {
+        "patternId": "imports-blacklist"
+    },
+    {
+        "patternId": "import-shadowing"
+    },
+    {
+        "patternId": "line-length-limit"
+    },
+    {
+        "patternId": "max-public-structs"
+    },
+    {
+        "patternId": "modifies-parameter"
+    },
+    {
+        "patternId": "modifies-value-receiver"
+    },
+    {
+        "patternId": "package-comments"
+    },
+    {
+        "patternId": "range"
+    },
+    {
+        "patternId": "receiver-naming"
+    },
+    {
+        "patternId": "redefines-builtin-id"
+    },
+    {
+        "patternId": "struct-tag"
+    },
+    {
+        "patternId": "superfluous-else"
+    },
+    {
+        "patternId": "time-naming"
+    },
+    {
+        "patternId": "var-naming"
+    },
+    {
+        "patternId": "var-declaration"
+    },
+    {
+        "patternId": "unexported-return"
+    },
+    {
+        "patternId": "unhandled-error"
+    },
+    {
+        "patternId": "unnecessary-stmt"
+    },
+    {
+        "patternId": "unreachable-code"
+    },
+    {
+        "patternId": "unused-parameter"
+    },
+    {
+        "patternId": "unused-receiver"
+    },
+    {
+        "patternId": "waitgroup-by-value"
+    }
+]

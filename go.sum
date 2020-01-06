@@ -14,8 +14,8 @@ github.com/fatih/structtag v1.2.0/go.mod h1:mBJUNpUnHmRKrKlQQlmCrh5PuhftFbNv8Ys4
 github.com/go-logr/logr v0.1.0/go.mod h1:ixOQHD9gLJUVQQ2ZOR7zLEifBX6tGkNJF4QyIY7sIas=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
-github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106105933-00236619e563 h1:LmoCpiL4jxF6tvJS5Ce/54md428b4Hyt5lj5EvNcZMY=
-github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106105933-00236619e563/go.mod h1:Qcum+miYk5w1PPrmXbi4FSZvjCxblwyMO0hSTFxokok=
+github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106145204-55184137e8a2 h1:G7G7aRbR95AFYFx7dtAGUySRqRauP1NlVNkCvnlKQv8=
+github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106145204-55184137e8a2/go.mod h1:Qcum+miYk5w1PPrmXbi4FSZvjCxblwyMO0hSTFxokok=
 github.com/josemiguelmelo/gofile v0.0.0-20200102193424-d0d563814b61 h1:OZap9e1za3U0p6b/DoWKggy/K0E6R5tnqNBdd5IitBs=
 github.com/josemiguelmelo/gofile v0.0.0-20200102193424-d0d563814b61/go.mod h1:ABrr35VyN81rpXcUVo6ZEe1SCf5pDSBrdcoelPjSmbw=
 github.com/json-iterator/go v1.1.9/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/uOdHXbAo4=

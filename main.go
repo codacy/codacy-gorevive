@@ -1,14 +1,19 @@
 package main
 
 import (
+	"flag"
 	codacy "github.com/josemiguelmelo/codacy-engine-golang-seed"
 	"os"
 )
 
 func main() {
 	implementation := GoReviveImplementation{}
-	os.Setenv("TOOL_CONFIGS_BASEPATH", "./")
+	sourceDir := flag.String("sourceDir", "/src", "source to analyse folder")
+	toolConfigsBasePath := flag.String("toolConfigLocation", "/", "Location of tool configuration")
 
-	sourceDir := os.Getenv("TOOL_SOURCE_DIR")
-	codacy.StartTool(implementation, sourceDir)
+	flag.Parse()
+
+	os.Setenv("TOOL_CONFIGS_BASEPATH", *toolConfigsBasePath)
+
+	codacy.StartTool(implementation, *sourceDir)
 }

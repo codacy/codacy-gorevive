@@ -1,5 +1,6 @@
 {
     "name": "gorevive",
+    "version": "1.0",
     "patterns": [
         {
             "patternId": "add-constant",

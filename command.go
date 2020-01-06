@@ -7,7 +7,6 @@ import (
 	codacy "github.com/josemiguelmelo/codacy-engine-golang-seed"
 
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -48,13 +47,18 @@ func parseOutput(reviveOutput string) []codacy.Issue {
 		result = append(result, codacy.Issue{
 			PatternID: reviveRes.RuleName,
 			Message:   reviveRes.Failure,
-			Line:      strconv.Itoa(reviveRes.Position.Start.Line),
+			Line:      reviveRes.Position.Start.Line,
 			File:      reviveRes.Position.Start.Filename,
 		})
 	}
 	return result
 }
 
-func command(configFile *os.File, filesToAnalyse []string) *exec.Cmd {
-	return exec.Command("revive", commandParameters(configFile, filesToAnalyse)...)
+func command(configFile *os.File, filesToAnalyse []string, sourceDir string) *exec.Cmd {
+	params := commandParameters(configFile, filesToAnalyse)
+
+	cmd := exec.Command("revive", params...)
+
+	cmd.Dir = "/src"
+	return cmd
 }
