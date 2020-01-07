@@ -30,14 +30,14 @@ func TestPatternToToml(t *testing.T) {
 	}
 }
 
-func TestReviveTomlConfigurationContent(t *testing.T) {
+func TestConfigurationContentGeneration(t *testing.T) {
 	pattern, patternTomlExpected := patternStruct()
 	patterns := []codacy.Pattern{
 		pattern,
 		pattern,
 	}
 
-	configContent := reviveTomlConfigurationContent(patterns)
+	configContent := generateToolConfigurationContent(patterns)
 	expectedContent := fmt.Sprintf("%s\n\n%s\n\n", patternTomlExpected, patternTomlExpected)
 
 	if configContent != expectedContent {

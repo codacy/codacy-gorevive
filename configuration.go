@@ -31,7 +31,7 @@ func patternToToml(pattern codacy.Pattern) string {
 	return fmt.Sprintf("%s\n  %s", ruleString, patternParams)
 }
 
-func reviveTomlConfigurationContent(patterns []codacy.Pattern) string {
+func generateToolConfigurationContent(patterns []codacy.Pattern) string {
 	content := ""
 	for _, p := range patterns {
 		patternsTomlString := patternToToml(p)
@@ -55,7 +55,7 @@ func writeConfigurationToTempFile(content string) (*os.File, error) {
 	return tmpFile, nil
 }
 
-func configurationOnSource(sourceFolder string) (string, error) {
+func getConfigurationFromSourceCode(sourceFolder string) (string, error) {
 	filename := path.Join(sourceFolder, "codacyrc.toml")
 
 	contentByte, err := ioutil.ReadFile(filename)
@@ -67,7 +67,7 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 	// if no patterns, try to use configuration from source code
 	// otherwise default configuration file
 	if len(patterns) == 0 {
-		sourceConfigFileContent, err := configurationOnSource(sourceFolder)
+		sourceConfigFileContent, err := getConfigurationFromSourceCode(sourceFolder)
 		if err == nil {
 			return writeConfigurationToTempFile(sourceConfigFileContent)
 		}
@@ -75,7 +75,7 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 		return nil, nil
 	}
 
-	content := reviveTomlConfigurationContent(patterns)
+	content := generateToolConfigurationContent(patterns)
 
 	return writeConfigurationToTempFile(content)
 }
