@@ -64,13 +64,14 @@ func configurationOnSource(sourceFolder string) (string, error) {
 
 // getConfigurationFile returns file, boolean saying if it is temp and error
 func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.File, error) {
-	sourceConfigFileContent, err := configurationOnSource(sourceFolder)
-	if err == nil {
-		return writeConfigurationToTempFile(sourceConfigFileContent)
-	}
-
-	// if no patterns, use default configuration file
+	// if no patterns, try to use configuration from source code
+	// otherwise default configuration file
 	if len(patterns) == 0 {
+		sourceConfigFileContent, err := configurationOnSource(sourceFolder)
+		if err == nil {
+			return writeConfigurationToTempFile(sourceConfigFileContent)
+		}
+
 		return nil, nil
 	}
 
