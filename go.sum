@@ -6,6 +6,8 @@ github.com/PuerkitoBio/goquery v1.5.0/go.mod h1:qD2PgZ9lccMbQlc7eEOjaeRlFQON7xY8
 github.com/andybalholm/cascadia v1.0.0 h1:hOCXnnZ5A+3eVDX8pvgl4kofXv2ELss0bKcqRySc45o=
 github.com/andybalholm/cascadia v1.0.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9PqHO0sqidkEA4Y=
 github.com/blang/semver v3.6.1+incompatible/go.mod h1:kRBLl5iJ+tD4TcOOxsy/0fnwebNt5EWlYSAyrTnjyyk=
+github.com/client9/misspell v0.3.4 h1:ta993UF76GwbvJcIo3Y68y/M3WxlpEHPWIGDkJYwzJI=
+github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/facebookgo/inject v0.0.0-20180706035515-f23751cae28b/go.mod h1:oO8UHw+fDHjDsk4CTy/E96WDzFUYozAtBAaGNoVL0+c=
@@ -20,8 +22,8 @@ github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfU
 github.com/gomarkdown/markdown v0.0.0-20200105192015-0948ad373b2c h1:YQi5cVUn3bbQSS7fadb1G9LLp+sqYk5bQEw+VYes7MQ=
 github.com/gomarkdown/markdown v0.0.0-20200105192015-0948ad373b2c/go.mod h1:aii0r/K0ZnHv7G0KF7xy1v0A7s2Ljrb5byB7MO5p6TU=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
-github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106165044-5b64a0e4e0cd h1:qrXRr7aFPOohDIRI+MI5E6ok8+mIoT/vnMxvtQVxIi8=
-github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200106165044-5b64a0e4e0cd/go.mod h1:Qcum+miYk5w1PPrmXbi4FSZvjCxblwyMO0hSTFxokok=
+github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200107131806-5229fedff81a h1:NZaS2HB+Cep+KXtUeeaAXa8TSgA1uidAcNpnMjbDXbc=
+github.com/josemiguelmelo/codacy-engine-golang-seed v0.0.0-20200107131806-5229fedff81a/go.mod h1:Qcum+miYk5w1PPrmXbi4FSZvjCxblwyMO0hSTFxokok=
 github.com/josemiguelmelo/gofile v0.0.0-20200102193424-d0d563814b61 h1:OZap9e1za3U0p6b/DoWKggy/K0E6R5tnqNBdd5IitBs=
 github.com/josemiguelmelo/gofile v0.0.0-20200102193424-d0d563814b61/go.mod h1:ABrr35VyN81rpXcUVo6ZEe1SCf5pDSBrdcoelPjSmbw=
 github.com/json-iterator/go v1.1.9/go.mod h1:KdQUCv79m/52Kvf8AW2vK1V8akMuk1QjK/uOdHXbAo4=
