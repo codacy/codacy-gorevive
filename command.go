@@ -59,6 +59,6 @@ func command(configFile *os.File, filesToAnalyse []string, sourceDir string) *ex
 
 	cmd := exec.Command("revive", params...)
 
-	cmd.Dir = "/src"
+	cmd.Dir = sourceDir
 	return cmd
 }

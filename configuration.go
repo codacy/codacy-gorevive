@@ -10,34 +10,54 @@ import (
 
 var unnamedParamName = "unnamedParam"
 
-func patternToToml(pattern codacy.Pattern) string {
-	ruleString := "[rule." + pattern.PatternID + "]"
-
-	patternParams := ""
-	if len(pattern.Parameters) == 1 && pattern.Parameters[0].Name == unnamedParamName {
-		patternParams = "arguments = [" + fmt.Sprintf("%v", pattern.Parameters[0].Value) + "]"
-	} else {
-		params := "{"
-		for _, param := range pattern.Parameters {
-			if params != "{" {
-				params = params + ","
-			}
-			params = params + fmt.Sprintf(`%s = "%s"`, param.Name, param.Value)
-		}
-		params = params + "}"
-		patternParams = "arguments = [" + params + "]"
+func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []interface{} {
+	var res []interface{}
+	if len(parameters) == 0 {
+		return []interface{}{}
 	}
 
-	return fmt.Sprintf("%s\n  %s", ruleString, patternParams)
+	namedParameters := map[string]interface{}{}
+	for _, p := range parameters {
+		if p.Name == unnamedParamName {
+			res = append(res, p.Value)
+		} else {
+			namedParameters[p.Name] = p.Value
+		}
+	}
+
+	res = append(res, namedParameters)
+	return res
+}
+
+func reviveArguments(parameters []codacy.PatternParameter) map[string]interface{} {
+	paramsValues := patternParametersAsListOfValues(parameters)
+	if paramsValues == nil || len(paramsValues) == 0 {
+		return map[string]interface{}{}
+	}
+
+	return map[string]interface{}{
+		"arguments": paramsValues,
+	}
+}
+
+func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
+	var patternsMap = make(map[string]interface{})
+	for _, pattern := range patterns {
+		patternsMap["rule."+pattern.PatternID] = reviveArguments(pattern.Parameters)
+	}
+	return patternsMap
 }
 
 func generateToolConfigurationContent(patterns []codacy.Pattern) string {
-	content := ""
-	for _, p := range patterns {
-		patternsTomlString := patternToToml(p)
-		content = fmt.Sprintf("%s%s\n\n", content, patternsTomlString)
+	patternsMap := patternsToReviveConfigMap(patterns)
+
+	tomlString, err := mapToTOML(patternsMap)
+	if err != nil {
+		fmt.Println(err.Error())
+		os.Exit(1)
 	}
-	return content
+
+	return tomlString
 }
 
 func writeConfigurationToTempFile(content string) (*os.File, error) {
