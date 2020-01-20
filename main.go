@@ -2,7 +2,7 @@ package main
 
 import (
 	"flag"
-	codacy "github.com/josemiguelmelo/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-golang-tools-engine"
 	"os"
 )
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	codacy "github.com/josemiguelmelo/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-golang-tools-engine"
 	"io/ioutil"
 	"os"
 	"path"
@@ -15,7 +15,7 @@ func patternToToml(pattern codacy.Pattern) string {
 
 	patternParams := ""
 	if len(pattern.Parameters) == 1 && pattern.Parameters[0].Name == unnamedParamName {
-		patternParams = "arguments = [" + pattern.Parameters[0].Value + "]"
+		patternParams = "arguments = [" + fmt.Sprintf("%v", pattern.Parameters[0].Value) + "]"
 	} else {
 		params := "{"
 		for _, param := range pattern.Parameters {
