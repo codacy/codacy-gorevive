@@ -8,7 +8,10 @@ import (
 	"path"
 )
 
-var unnamedParamName = "unnamedParam"
+const (
+	unnamedParamName     = "unnamedParam"
+	sourceConfigFileName = "codacyrc.toml"
+)
 
 func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []interface{} {
 	var res []interface{}
@@ -76,7 +79,7 @@ func writeConfigurationToTempFile(content string) (*os.File, error) {
 }
 
 func getConfigurationFromSourceCode(sourceFolder string) (string, error) {
-	filename := path.Join(sourceFolder, "codacyrc.toml")
+	filename := path.Join(sourceFolder, sourceConfigFileName)
 
 	contentByte, err := ioutil.ReadFile(filename)
 	return string(contentByte), err
