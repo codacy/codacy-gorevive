@@ -36,8 +36,6 @@ func main() {
 
 	patternsList := getPatternsListFromDocumentationHTML(htmlDocumentation)
 
-	// TODO: get list of parameters for each pattern
-
 	toolDefinition := createPatternsJSONFile(patternsList)
 
 	createDescriptionFiles(mdFile, toolDefinition.Patterns)

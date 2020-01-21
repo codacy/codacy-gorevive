@@ -22,12 +22,14 @@ func getPatternsListFromDocumentationHTML(data string) []codacy.Pattern {
 		externalUlHtml.Find("ul").Each(func(index int, internalUlHtml *goquery.Selection) {
 			internalUlHtml.Find("li").Each(func(index int, tablehtml *goquery.Selection) {
 				tablehtml.Find("a").Each(func(indextr int, rowhtml *goquery.Selection) {
+					patternID := rowhtml.Text()
 					patterns = append(
 						patterns,
 						codacy.Pattern{
-							PatternID: rowhtml.Text(),
-							Category:  "CodeStyle",
-							Level:     "Info",
+							PatternID:  patternID,
+							Category:   "CodeStyle",
+							Level:      "Info",
+							Parameters: getParametersForPattern(patternID),
 						},
 					)
 				})
