@@ -13,6 +13,14 @@ const (
 	sourceConfigFileName = "codacyrc.toml"
 )
 
+func paramValue(p interface{}) interface{} {
+	if isInteger(p) {
+		return int(p.(float64))
+	} else {
+		return p
+	}
+}
+
 func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []interface{} {
 	var res []interface{}
 	if len(parameters) == 0 {
@@ -21,19 +29,24 @@ func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []int
 
 	namedParameters := map[string]interface{}{}
 	for _, p := range parameters {
+		value := paramValue(p.Value)
+
 		if p.Name == unnamedParamName {
-			res = append(res, p.Value)
+			res = append(res, value)
 		} else {
-			namedParameters[p.Name] = p.Value
+			namedParameters[p.Name] = value
 		}
 	}
 
-	res = append(res, namedParameters)
+	if len(namedParameters) > 0 {
+		res = append(res, namedParameters)
+	}
+
 	return res
 }
 
-func reviveArguments(parameters []codacy.PatternParameter) map[string]interface{} {
-	paramsValues := patternParametersAsListOfValues(parameters)
+func reviveArguments(pattern codacy.Pattern) map[string]interface{} {
+	paramsValues := patternParametersAsListOfValues(pattern.Parameters)
 	if paramsValues == nil || len(paramsValues) == 0 {
 		return map[string]interface{}{}
 	}
@@ -46,7 +59,7 @@ func reviveArguments(parameters []codacy.PatternParameter) map[string]interface{
 func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
 	var patternsMap = make(map[string]interface{})
 	for _, pattern := range patterns {
-		patternsMap["rule."+pattern.PatternID] = reviveArguments(pattern.Parameters)
+		patternsMap["rule."+pattern.PatternID] = reviveArguments(pattern)
 	}
 	return patternsMap
 }
