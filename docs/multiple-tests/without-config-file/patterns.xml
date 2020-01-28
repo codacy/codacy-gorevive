@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <module name="root">
-    <!-- To ignore config files from analysis -->
     <module name="BeforeExecutionExclusionFileFilter">
-        <!-- value can be a regex matching files to ignore -->
         <property name="fileNamePattern" value="codacyrc.toml" />
     </module>
 </module>

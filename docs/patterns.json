@@ -5,12 +5,41 @@
     {
       "patternId": "add-constant",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "allowFloats",
+          "default": "",
+          "description": "(string) comma-separated list of allowed floats"
+        },
+        {
+          "name": "allowInts",
+          "default": "",
+          "description": "allowInts"
+        },
+        {
+          "name": "allowStrs",
+          "default": "",
+          "description": "(string) comma-separated list of allowed string literals"
+        },
+        {
+          "name": "maxLitCount",
+          "default": "",
+          "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+        }
+      ]
     },
     {
       "patternId": "argument-limit",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "4",
+          "description": "(int) the maximum number of parameters allowed per function."
+        }
+      ]
     },
     {
       "patternId": "atomic",
@@ -50,7 +79,14 @@
     {
       "patternId": "cognitive-complexity",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "7",
+          "description": "(int) the maximum function complexity"
+        }
+      ]
     },
     {
       "patternId": "constant-logical-expr",
@@ -70,7 +106,14 @@
     {
       "patternId": "cyclomatic",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum function complexity"
+        }
+      ]
     },
     {
       "patternId": "deep-exit",
@@ -125,7 +168,14 @@
     {
       "patternId": "file-header",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(string) the header to look for in source files."
+        }
+      ]
     },
     {
       "patternId": "flag-parameter",
@@ -135,7 +185,14 @@
     {
       "patternId": "function-result-limit",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum allowed return values"
+        }
+      ]
     },
     {
       "patternId": "get-return",
@@ -160,7 +217,14 @@
     {
       "patternId": "imports-blacklist",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"crypto/md5\", \"crypto/sha1\"",
+          "description": "(list of string) black-list of package names"
+        }
+      ]
     },
     {
       "patternId": "import-shadowing",
@@ -170,12 +234,26 @@
     {
       "patternId": "line-length-limit",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "80",
+          "description": "(int) maximum line length in characters."
+        }
+      ]
     },
     {
       "patternId": "max-public-structs",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum allowed public structs"
+        }
+      ]
     },
     {
       "patternId": "modifies-parameter",
@@ -245,7 +323,14 @@
     {
       "patternId": "unhandled-error",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"fmt.Printf\"",
+          "description": "(list of string) function names to ignore"
+        }
+      ]
     },
     {
       "patternId": "unnecessary-stmt",

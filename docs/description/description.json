@@ -1,149 +1,411 @@
 [
-    {
-        "patternId": "add-constant"
-    },
-    {
-        "patternId": "argument-limit"
-    },
-    {
-        "patternId": "atomic"
-    },
-    {
-        "patternId": "blank-imports"
-    },
-    {
-        "patternId": "bool-literal-in-expr"
-    },
-    {
-        "patternId": "call-to-gc"
-    },
-    {
-        "patternId": "confusing-naming"
-    },
-    {
-        "patternId": "confusing-results"
-    },
-    {
-        "patternId": "cognitive-complexity"
-    },
-    {
-        "patternId": "constant-logical-expr"
-    },
-    {
-        "patternId": "context-as-argument"
-    },
-    {
-        "patternId": "context-keys-type"
-    },
-    {
-        "patternId": "cyclomatic"
-    },
-    {
-        "patternId": "dot-imports"
-    },
-    {
-        "patternId": "duplicated-imports"
-    },
-    {
-        "patternId": "empty-block"
-    },
-    {
-        "patternId": "empty-lines"
-    },
-    {
-        "patternId": "error-naming"
-    },
-    {
-        "patternId": "error-return"
-    },
-    {
-        "patternId": "error-strings"
-    },
-    {
-        "patternId": "errorf"
-    },
-    {
-        "patternId": "flag-parameter"
-    },
-    {
-        "patternId": "function-result-limit"
-    },
-    {
-        "patternId": "get-return"
-    },
-    {
-        "patternId": "if-return"
-    },
-    {
-        "patternId": "increment-decrement"
-    },
-    {
-        "patternId": "indent-error-flow"
-    },
-    {
-        "patternId": "imports-blacklist"
-    },
-    {
-        "patternId": "import-shadowing"
-    },
-    {
-        "patternId": "line-length-limit"
-    },
-    {
-        "patternId": "max-public-structs"
-    },
-    {
-        "patternId": "modifies-parameter"
-    },
-    {
-        "patternId": "modifies-value-receiver"
-    },
-    {
-        "patternId": "package-comments"
-    },
-    {
-        "patternId": "range"
-    },
-    {
-        "patternId": "receiver-naming"
-    },
-    {
-        "patternId": "redefines-builtin-id"
-    },
-    {
-        "patternId": "struct-tag"
-    },
-    {
-        "patternId": "superfluous-else"
-    },
-    {
-        "patternId": "time-naming"
-    },
-    {
-        "patternId": "var-naming"
-    },
-    {
-        "patternId": "var-declaration"
-    },
-    {
-        "patternId": "unexported-return"
-    },
-    {
-        "patternId": "unhandled-error"
-    },
-    {
-        "patternId": "unnecessary-stmt"
-    },
-    {
-        "patternId": "unreachable-code"
-    },
-    {
-        "patternId": "unused-parameter"
-    },
-    {
-        "patternId": "unused-receiver"
-    },
-    {
-        "patternId": "waitgroup-by-value"
-    }
+  {
+    "patternId": "add-constant",
+    "title": "add-constant",
+    "description": "Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming",
+    "parameters": [
+      {
+        "name": "allowFloats",
+        "default": "",
+        "description": "(string) comma-separated list of allowed floats"
+      },
+      {
+        "name": "allowInts",
+        "default": "",
+        "description": "allowInts"
+      },
+      {
+        "name": "allowStrs",
+        "default": "",
+        "description": "(string) comma-separated list of allowed string literals"
+      },
+      {
+        "name": "maxLitCount",
+        "default": "",
+        "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "argument-limit",
+    "title": "argument-limit",
+    "description": "Warns when a function receives more parameters than the maximum set by the rule's configuration.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "4",
+        "description": "(int) the maximum number of parameters allowed per function."
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "atomic",
+    "title": "atomic",
+    "description": "Check for commonly mistaken usages of the `sync/atomic` package",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "bare-return",
+    "title": "bare-return",
+    "description": "Warns on bare (a.k.a. naked) returns",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "blank-imports",
+    "title": "blank-imports",
+    "description": "Blank import should be only in a main or test package, or have a comment justifying it.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "bool-literal-in-expr",
+    "title": "bool-literal-in-expr",
+    "description": "Using Boolean literals (`true`, `false`) in logic expressions may make the code less readable. This rule suggests removing Boolean literals from logic expressions.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "call-to-gc",
+    "title": "call-to-gc",
+    "description": " Explicitly invoking the garbage collector is, except for specific uses in benchmarking, very dubious.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "confusing-naming",
+    "title": "confusing-naming",
+    "description": "Methods or fields of `struct` that have names different only by capitalization could be confusing.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "confusing-results",
+    "title": "confusing-results",
+    "description": "Function or methods that return multiple, no named, values of the same type could induce error.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "cognitive-complexity",
+    "title": "cognitive-complexity",
+    "description": "[Cognitive complexity](https://www.sonarsource.com/resources/white-papers/cognitive-complexity.html) is a measure of how hard code is to understand. ",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "7",
+        "description": "(int) the maximum function complexity"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "constant-logical-expr",
+    "title": "constant-logical-expr",
+    "description": "The rule spots logical expressions that evaluate always to the same value.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "context-as-argument",
+    "title": "context-as-argument",
+    "description": "By [convention](https://github.com/golang/go/wiki/CodeReviewComment",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "context-keys-type",
+    "title": "context-keys-type",
+    "description": "Basic types should not be used as a key in `context.WithValue`.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "cyclomatic",
+    "title": "cyclomatic",
+    "description": "[Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) is a measure of code complexity. Enforcing a maximum complexity per function helps to keep code readable and maintainable.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "3",
+        "description": "(int) the maximum function complexity"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "deep-exit",
+    "title": "deep-exit",
+    "description": "Packages exposing functions that can stop program execution by exiting are hard to reuse. This rule looks for program exits in functions other than `main()` or `init()`.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "dot-imports",
+    "title": "dot-imports",
+    "description": "Importing with `.` makes the programs much harder to understand because it is unclear whether names belong to the current package or to an imported package.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "duplicated-imports",
+    "title": "duplicated-imports",
+    "description": "It is possible to unintentionally import the same package twice. This rule looks for packages that are imported two or more times.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "empty-block",
+    "title": "empty-block",
+    "description": "Empty blocks make code less readable and could be a symptom of a bug or unfinished refactoring.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "empty-lines",
+    "title": "empty-lines",
+    "description": "Sometimes `gofmt` is not enough to enforce a common formatting of a code-base; this rule warns when there are heading or trailing newlines in code blocks.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "error-naming",
+    "title": "error-naming",
+    "description": "By convention, for the sake of readability, variables of type `error` must be named with the prefix `err`.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "error-return",
+    "title": "error-return",
+    "description": "By convention, for the sake of readability, the errors should be last in the list of returned values by a function.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "error-strings",
+    "title": "error-strings",
+    "description": "By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "errorf",
+    "title": "errorf",
+    "description": "It is possible to get a simpler program by replacing `errors.New(fmt.Sprintf())` with `fmt.Errorf()`. This rule spots that kind of simplification opportunities.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "exported",
+    "title": "exported",
+    "description": "Exported function and methods should have comments. This warns on undocumented exported functions and methods.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "file-header",
+    "title": "file-header",
+    "description": "This rule helps to enforce a common header for all source files in a project by spotting those files that do not have the specified header.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "",
+        "description": "(string) the header to look for in source files."
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "flag-parameter",
+    "title": "flag-parameter",
+    "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be [control-coupled](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Procedural_programming).",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "function-result-limit",
+    "title": "function-result-limit",
+    "description": "Functions returning too many results can be hard to understand/use.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "3",
+        "description": "(int) the maximum allowed return values"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "get-return",
+    "title": "get-return",
+    "description": "Typically, functions with names prefixed with _Get_ are supposed to return a value.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "if-return",
+    "title": "if-return",
+    "description": "Checking if an error is _nil_ to just after return the error or nil is redundant.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "increment-decrement",
+    "title": "increment-decrement",
+    "description": "By convention, for better readability, incrementing an integer variable by 1 is recommended to be done using the `++` operator.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "indent-error-flow",
+    "title": "indent-error-flow",
+    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "imports-blacklist",
+    "title": "imports-blacklist",
+    "description": "Warns when importing black-listed packages.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "\"crypto/md5\", \"crypto/sha1\"",
+        "description": "(list of string) black-list of package names"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "import-shadowing",
+    "title": "import-shadowing",
+    "description": "In GO it is possible to declare identifiers (packages, structs, ",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "line-length-limit",
+    "title": "line-length-limit",
+    "description": "Warns in the presence of code lines longer than a configured maximum.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "80",
+        "description": "(int) maximum line length in characters."
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "max-public-structs",
+    "title": "max-public-structs",
+    "description": "Packages declaring too many public structs can be hard to understand/use,",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "3",
+        "description": "(int) the maximum allowed public structs"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "modifies-parameter",
+    "title": "modifies-parameter",
+    "description": "A function that modifies its parameters can be hard to understand. It can also be misleading if the arguments are passed by value by the caller.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "modifies-value-receiver",
+    "title": "modifies-value-receiver",
+    "description": "A method that modifies its receiver value can have undesired behavior. The modification can be also the root of a bug because the actual value receiver could be a copy of that used at the calling site.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "package-comments",
+    "title": "package-comments",
+    "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the `package` keyword.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "range",
+    "title": "range",
+    "description": "This rule suggests a shorter way of writing ranges that do not use the second value.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "range-val-in-closure",
+    "title": "range-val-in-closure",
+    "description": "Range variables in a loop are reused at each iteration; therefore a goroutine created in a loop will point to the range variable with from the upper scope. This way, the goroutine could use the variable with an undesired value.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "receiver-naming",
+    "title": "receiver-naming",
+    "description": "By convention, receiver names in a method should reflect their identity. For example, if the receiver is of type `Parts`, `p` is an adequate name for it. Contrary to other languages, it is not idiomatic to name receivers as `this` or `self`.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "redefines-builtin-id",
+    "title": "redefines-builtin-id",
+    "description": "Constant names like `false`, `true`, `nil`, function names like `append`, `make`, and basic type names like `bool`, and `byte` are not reserved words of the language; therefore the can be redefined.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "struct-tag",
+    "title": "struct-tag",
+    "description": "Struct tags are not checked at compile time.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "superfluous-else",
+    "title": "superfluous-else",
+    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "time-naming",
+    "title": "time-naming",
+    "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type `time.Duration` can be misleading, this rule highlights those cases.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "var-naming",
+    "title": "var-naming",
+    "description": "This rule warns when [variable](https://github.com/golang/go/wiki/CodeReviewComment",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "var-declaration",
+    "title": "var-declaration",
+    "description": "This rule proposes simplifications of variable declarations.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unexported-return",
+    "title": "unexported-return",
+    "description": "This rule warns when an exported function or method returns a value of an un-exported type.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unhandled-error",
+    "title": "unhandled-error",
+    "description": "This rule warns when errors returned by a function are not explicitly handled on the caller side.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "default": "\"fmt.Printf\"",
+        "description": "(list of string) function names to ignore"
+      }
+    ],
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unnecessary-stmt",
+    "title": "unnecessary-stmt",
+    "description": "This rule suggests to remove redundant statements like a `break` at the end of a case block, for improving the code's readability.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unreachable-code",
+    "title": "unreachable-code",
+    "description": "This rule spots and proposes to remove [unreachable code](https://en.wikipedia.org/wiki/Unreachable_code).",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unused-parameter",
+    "title": "unused-parameter",
+    "description": "This rule warns on unused parameters. Functions or methods with unused parameters can be a symptom of an unfinished refactoring or a bug.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "unused-receiver",
+    "title": "unused-receiver",
+    "description": "This rule warns on unused method receivers. Methods with unused receivers can be a symptom of an unfinished refactoring or a bug.",
+    "timeToFix": 0
+  },
+  {
+    "patternId": "waitgroup-by-value",
+    "title": "waitgroup-by-value",
+    "description": "Function parameters that are passed by value, are in fact a copy of the original argument. Passing a copy of a `sync.WaitGroup` is usually not what the developer wants to do.",
+    "timeToFix": 0
+  }
 ]

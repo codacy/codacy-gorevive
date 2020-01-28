@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="root">
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="codacyrc.toml" />
+    </module>
+    <module name="line-length-limit">
+        <property name="unnamedParam" value="50" />
+    </module>
+    <module name="file-header">
+        <property name="unnamedParam" value="foobar" />
+    </module>
+    <module name="add-constant">
+        <property name="allowFloats" value="0.0,4.0,5.0" />
+        <property name="allowInts" value="1,2,3" />
+        <property name="allowStrs" value="foobar" />
+        <property name="maxLitCount" value="&quot;1&quot;" />
+    </module>
+</module>

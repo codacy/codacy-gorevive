@@ -10,6 +10,9 @@ github.com/client9/misspell v0.3.4 h1:ta993UF76GwbvJcIo3Y68y/M3WxlpEHPWIGDkJYwzJ
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128180940-01e4697c023d h1:cbu9BlOrg76nENitVuB7X9v1zZtDNmoZUaEKoM28aeM=
 github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128180940-01e4697c023d/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
+github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128192153-508563c1995e/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
+github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128193225-ee2924667d4a h1:0D//6oZjX06/d+0/RO8y6F7Wf710LtkGSqfIyPfHOi8=
+github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128193225-ee2924667d4a/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/facebookgo/inject v0.0.0-20180706035515-f23751cae28b/go.mod h1:oO8UHw+fDHjDsk4CTy/E96WDzFUYozAtBAaGNoVL0+c=
