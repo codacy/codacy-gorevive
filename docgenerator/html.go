@@ -29,7 +29,7 @@ func getPatternsListFromDocumentationHTML(data string) []codacy.Pattern {
 							PatternID:  patternID,
 							Category:   "CodeStyle",
 							Level:      "Info",
-							Parameters: getParametersForPattern(patternID),
+							Parameters: GetParametersForPattern(patternID),
 						},
 					)
 				})

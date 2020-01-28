@@ -8,14 +8,8 @@ github.com/andybalholm/cascadia v1.0.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9Pq
 github.com/blang/semver v3.6.1+incompatible/go.mod h1:kRBLl5iJ+tD4TcOOxsy/0fnwebNt5EWlYSAyrTnjyyk=
 github.com/client9/misspell v0.3.4 h1:ta993UF76GwbvJcIo3Y68y/M3WxlpEHPWIGDkJYwzJI=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200120105617-cb94cb6d77d6 h1:nTIhtPnCFV2SSITCcUXzzIWqZbUV6vdGrb7RVjaJ/2w=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200120105617-cb94cb6d77d6/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121002614-d739b6cd9832 h1:BqX2C91m7debwZisoCQ6VRV+V3lXnsHVOZ82lvyaeO8=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121002614-d739b6cd9832/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121004204-67f67a807aa1 h1:qtnp1lFHEWrTVe7zmdRz4se719seuQ70HEsA3dgqnZo=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121004204-67f67a807aa1/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121005103-7283d8412212 h1:oWMqAT15SdKigJKVReI6dXqbwyLlORf5x/VI+PHfyvM=
-github.com/codacy/codacy-golang-tools-engine v0.0.0-20200121005103-7283d8412212/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
+github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128180940-01e4697c023d h1:cbu9BlOrg76nENitVuB7X9v1zZtDNmoZUaEKoM28aeM=
+github.com/codacy/codacy-golang-tools-engine v0.0.0-20200128180940-01e4697c023d/go.mod h1:fXKiKtbWgXMF1smDJ+/LaS2BGucT7JrHjh2uLfM+rOE=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/facebookgo/inject v0.0.0-20180706035515-f23751cae28b/go.mod h1:oO8UHw+fDHjDsk4CTy/E96WDzFUYozAtBAaGNoVL0+c=
