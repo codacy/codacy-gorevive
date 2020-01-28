@@ -1,11 +1,13 @@
 package main
 
 import (
+	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
 	codacy "github.com/codacy/codacy-golang-tools-engine"
 	"io/ioutil"
 	"os"
 	"path"
+	"strings"
 )
 
 const (
@@ -13,26 +15,47 @@ const (
 	sourceConfigFileName = "codacyrc.toml"
 )
 
-func paramValue(p interface{}) interface{} {
-	if isInteger(p) {
-		return int(p.(float64))
-	} else {
-		return p
+func paramValue(param codacy.PatternParameter, patternID string) interface{} {
+	ruleDefinition, err := toolparameters.FindRuleParameterDefinition(patternID)
+	if err != nil {
+		if isInteger(param.Value) {
+			return int(param.Value.(float64))
+		}
+	}
+	switch ruleDefinition.Type {
+	case toolparameters.ListType:
+		return strings.Split(param.Value.(string), ", ")
+	case toolparameters.IntType:
+		return int(param.Value.(float64))
+	case toolparameters.FloatType:
+		return param.Value.(float64)
+	case toolparameters.StringType:
+		return param.Value.(string)
+	default:
+		return param.Value
 	}
 }
 
-func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []interface{} {
+func patternParametersAsListOfValues(pattern codacy.Pattern) []interface{} {
 	var res []interface{}
-	if len(parameters) == 0 {
+	if len(pattern.Parameters) == 0 {
 		return []interface{}{}
 	}
 
 	namedParameters := map[string]interface{}{}
-	for _, p := range parameters {
-		value := paramValue(p.Value)
+	for _, p := range pattern.Parameters {
+		value := paramValue(p, pattern.PatternID)
 
 		if p.Name == unnamedParamName {
-			res = append(res, value)
+			switch value.(type) {
+			case []string:
+				// if is a []string, append all values to res
+				for _, v := range value.([]string) {
+					res = append(res, v)
+				}
+			default:
+				res = append(res, value)
+			}
 		} else {
 			namedParameters[p.Name] = value
 		}
@@ -46,7 +69,7 @@ func patternParametersAsListOfValues(parameters []codacy.PatternParameter) []int
 }
 
 func reviveArguments(pattern codacy.Pattern) map[string]interface{} {
-	paramsValues := patternParametersAsListOfValues(pattern.Parameters)
+	paramsValues := patternParametersAsListOfValues(pattern)
 	if paramsValues == nil || len(paramsValues) == 0 {
 		return map[string]interface{}{}
 	}

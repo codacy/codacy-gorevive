@@ -3,6 +3,7 @@ package main
 import (
 	"strings"
 
+	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	codacy "github.com/codacy/codacy-golang-tools-engine"
@@ -29,7 +30,7 @@ func getPatternsListFromDocumentationHTML(data string) []codacy.Pattern {
 							PatternID:  patternID,
 							Category:   "CodeStyle",
 							Level:      "Info",
-							Parameters: GetParametersForPattern(patternID),
+							Parameters: toolparameters.GetParametersForPattern(patternID),
 						},
 					)
 				})

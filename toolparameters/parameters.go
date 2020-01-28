@@ -1,4 +1,4 @@
-package main
+package toolparameters
 
 import (
 	"errors"
@@ -17,8 +17,13 @@ type RuleParameter struct {
 const (
 	unnamedParamName = "unnamedParam"
 
-	ListType   = "list"
-	IntType    = "int"
+	// ListType specifies the list type of param
+	ListType = "list"
+	// IntType specifies the int type of param
+	IntType = "int"
+	// FloatType specifies the float type of param
+	FloatType = "float"
+	// StringType specifies the string type of param
 	StringType = "string"
 )
 
@@ -84,12 +89,12 @@ var ruleParameters = []RuleParameter{
 	RuleParameter{
 		Name:        "unhandled-error",
 		Description: "(list of string) function names to ignore",
-		Default:     "[\"fmt.Printf\"]",
+		Default:     "\"fmt.Printf\"",
 		Type:        ListType,
 	}, RuleParameter{
 		Name:        "imports-blacklist",
 		Description: "(list of string) black-list of package names",
-		Default:     "[\"crypto/md5\", \"crypto/sha1\"]",
+		Default:     "\"crypto/md5\", \"crypto/sha1\"",
 		Type:        ListType,
 	},
 }
