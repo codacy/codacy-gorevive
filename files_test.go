@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -10,7 +10,5 @@ func TestGetListOfFilesToAnalyse(t *testing.T) {
 
 	analysisFiles := getListOfFilesToAnalyse(files, "./")
 
-	if len(files) != len(analysisFiles) {
-		fmt.Sprintf("Expected %s, got %s", files, analysisFiles)
-	}
+	assert.Equal(t, len(files), len(analysisFiles))
 }

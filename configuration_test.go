@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	codacy "github.com/codacy/codacy-golang-tools-engine"
+	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -32,10 +33,7 @@ func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
 	reviveConfigMap := patternsToReviveConfigMap([]codacy.Pattern{pattern})
-
-	if reviveConfigMap["rule."+pattern.PatternID] == nil {
-		t.Errorf("Expected toml: %s to exist", "rule."+pattern.PatternID)
-	}
+	assert.NotNil(t, reviveConfigMap["rule."+pattern.PatternID], "Expected toml: %s to exist", "rule."+pattern.PatternID)
 }
 
 func TestConfigurationContentGeneration(t *testing.T) {
@@ -48,7 +46,5 @@ func TestConfigurationContentGeneration(t *testing.T) {
 	configContent := generateToolConfigurationContent(patterns)
 	expectedContent := fmt.Sprintf("%s", patternTomlExpected)
 
-	if configContent != expectedContent {
-		t.Errorf("Expected toml configuration: %s, got %s", expectedContent, configContent)
-	}
+	assert.Equal(t, expectedContent, configContent)
 }

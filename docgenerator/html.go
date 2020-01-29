@@ -6,7 +6,7 @@ import (
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
-	codacy "github.com/codacy/codacy-golang-tools-engine"
+	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"os"
 )
 

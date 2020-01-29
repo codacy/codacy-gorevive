@@ -3,7 +3,7 @@ package toolparameters
 import (
 	"errors"
 	"fmt"
-	codacy "github.com/codacy/codacy-golang-tools-engine"
+	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 
 type RuleParameter struct {

@@ -3,7 +3,7 @@ package main
 import (
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
-	codacy "github.com/codacy/codacy-golang-tools-engine"
+	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"io/ioutil"
 	"os"
 	"path"

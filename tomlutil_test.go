@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
@@ -30,10 +31,7 @@ func TestMapToTOML(t *testing.T) {
 	}
 
 	tomlString, err := mapToTOML(patternsMap)
-	if err != nil {
-		t.Errorf("Error: %s", err.Error())
-	}
-	if tomlString != expectedString {
-		t.Errorf("Expected toml: %s, got %s", expectedString, tomlString)
-	}
+
+	assert.Nil(t, err)
+	assert.Equal(t, expectedString, tomlString)
 }
