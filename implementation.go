@@ -8,8 +8,6 @@ import (
 	"os"
 )
 
-var formatter = "ndjson"
-
 // GoReviveImplementation tool implementation
 type GoReviveImplementation struct {
 }
@@ -23,7 +21,7 @@ func (i GoReviveImplementation) Run(tool codacy.Tool, sourceDir string) ([]codac
 
 	filesToAnalyse := getListOfFilesToAnalyse(tool.Files, sourceDir)
 
-	reviveCmd := command(configFile, filesToAnalyse, sourceDir)
+	reviveCmd := reviveCommand(configFile, filesToAnalyse, sourceDir)
 
 	reviveOutput, err := reviveCmd.Output()
 	if err != nil {

@@ -10,6 +10,10 @@ import (
 	"strings"
 )
 
+const (
+	formatter = "ndjson"
+)
+
 // ReviveResult base structure of revive json result
 type ReviveResult struct {
 	Failure  string
@@ -75,7 +79,7 @@ func parseOutput(reviveOutput string) []codacy.Issue {
 	return result
 }
 
-func command(configFile *os.File, filesToAnalyse []string, sourceDir string) *exec.Cmd {
+func reviveCommand(configFile *os.File, filesToAnalyse []string, sourceDir string) *exec.Cmd {
 	params := commandParameters(configFile, filesToAnalyse)
 
 	cmd := exec.Command("revive", params...)
