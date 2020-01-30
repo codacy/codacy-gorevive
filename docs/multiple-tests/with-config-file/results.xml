@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <checkstyle version="1.5">
     <file name="example.go">
-        <error source="exported" line="3" message="exported function Public should have comment or be unexported" severity="info" />
+        <error source="exported" line="8" message="exported function Public should have comment or be unexported" severity="info" />
+        <error source="errorf" line="9" message="should replace errors.New(fmt.Sprintf(...)) with fmt.Errorf(...)" severity="info" />
     </file>
 </checkstyle>

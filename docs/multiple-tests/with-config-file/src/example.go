@@ -1,3 +1,10 @@
 package example
 
-func Public() {}
+import (
+	"errors"
+	"fmt"
+)
+
+func Public() {
+	errors.New(fmt.Sprintf("%s", "New"))
+}
