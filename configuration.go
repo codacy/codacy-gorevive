@@ -4,6 +4,7 @@ import (
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
 	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -112,9 +113,10 @@ func generateToolConfigurationContent(patterns []codacy.Pattern) string {
 	return tomlString
 }
 
-func configurationFromSourceCode(sourceFolder string) (*os.File, error) {
+func configurationFromSourceCode(sourceFolder string) (string, error) {
 	filename := path.Join(sourceFolder, sourceConfigFileName)
-	return os.Open(filename)
+	contentByte, err := ioutil.ReadFile(filename)
+	return string(contentByte), err
 }
 
 // getConfigurationFile returns file, boolean saying if it is temp and error
@@ -122,7 +124,12 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 	// if no patterns, try to use configuration from source code
 	// otherwise default configuration file
 	if len(patterns) == 0 {
-		return configurationFromSourceCode(sourceFolder)
+		sourceConfigFileContent, err := configurationFromSourceCode(sourceFolder)
+		if err == nil {
+			return writeToTempFile(sourceConfigFileContent)
+		}
+
+		return nil, nil
 	}
 
 	content := generateToolConfigurationContent(patterns)

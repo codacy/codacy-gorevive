@@ -19,7 +19,10 @@ func (i GoReviveImplementation) Run(tool codacy.Tool, sourceDir string) ([]codac
 		defer os.Remove(configFile.Name())
 	}
 
-	filesToAnalyse := getListOfFilesToAnalyse(tool.Files, sourceDir)
+	filesToAnalyse, err := getListOfFilesToAnalyse(tool.Files, sourceDir)
+	if err != nil {
+		return nil, errors.New("Error getting files to analyse: " + err.Error())
+	}
 
 	reviveCmd := reviveCommand(configFile, filesToAnalyse, sourceDir)
 

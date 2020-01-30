@@ -1,17 +1,26 @@
 package main
 
 import (
+	"os"
 	"path/filepath"
+	"strings"
 )
 
-func getListOfFilesToAnalyse(files []string, sourceDir string) []string {
+func getListOfFilesToAnalyse(files []string, sourceDir string) ([]string, error) {
 	if len(files) > 0 {
-		return files
+		return files, nil
 	}
 
-	globSubFolder := filepath.Join(sourceDir, "**/*.go")
-	globRootFolder := filepath.Join(sourceDir, "*.go")
-	filesSub, _ := filepath.Glob(globSubFolder)
-	filesRoot, _ := filepath.Glob(globRootFolder)
-	return append(filesSub, filesRoot...)
+	err := filepath.Walk(sourceDir, func(path string, info os.FileInfo, err error) error {
+		if strings.HasSuffix(info.Name(), ".go") {
+			files = append(files, path)
+		}
+		return nil
+	})
+
+	if err != nil {
+		return files, err
+	}
+
+	return files, nil
 }
