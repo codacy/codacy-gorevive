@@ -84,10 +84,13 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 }
 
 func getRuleInformationRegex(ruleName string) (*regexp.Regexp, error) {
-	return regexp.Compile("(## " + ruleName + ")([\\n\\S\\s\\w\\d\\_][^##])*")
+	return regexp.Compile("(## " + ruleName + ")([\\n\\S\\s\\w\\d\\_])*?##")
 }
 
 func getRuleDescription(ruleMdInfo string) string {
+	if ruleMdInfo == "" {
+		return ruleMdInfo
+	}
 	descriptionPrefix := "_Description_: "
 	descriptionRegex := regexp.MustCompile(descriptionPrefix + ".*")
 	descriptionString := descriptionRegex.FindAllString(ruleMdInfo, -1)[0]
@@ -117,11 +120,15 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 			os.Exit(1)
 		}
 
-		ruleInformationMd := ruleInformationRegex.FindAllString(string(markdownContent), -1)
+		ruleInformationMdList := ruleInformationRegex.FindAllString(string(markdownContent), -1)
+		ruleInformationMd := ""
+		if len(ruleInformationMdList) > 0 {
+			ruleInformationMd = strings.TrimSuffix(ruleInformationMdList[0], "##")
+		}
 
 		patternDescription := codacy.PatternDescription{
 			PatternID:   pattern.PatternID,
-			Description: getRuleDescription(ruleInformationMd[0]),
+			Description: getRuleDescription(ruleInformationMd),
 			Title:       pattern.PatternID,
 			Parameters:  pattern.Parameters,
 		}
@@ -130,15 +137,17 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 			patternsDescriptionsList,
 			patternDescription,
 		)
-		ioutil.WriteFile(
-			path.Join(
-				docFolder,
-				"description",
-				pattern.PatternID+".md",
-			),
-			[]byte(ruleInformationMd[0]),
-			0644,
-		)
+		if len(ruleInformationMd) > 0 {
+			ioutil.WriteFile(
+				path.Join(
+					docFolder,
+					"description",
+					pattern.PatternID+".md",
+				),
+				[]byte(ruleInformationMd),
+				0644,
+			)
+		}
 	}
 
 	descriptionsJSON, _ := json.MarshalIndent(patternsDescriptionsList, "", "  ")
