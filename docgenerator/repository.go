@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -27,7 +28,7 @@ func downloadFile(url string) (*os.File, error) {
 	return out, nil
 }
 
-func getRulesDescriptionMarkdown() (*os.File, error) {
-	rulesDescriptionFileURL := "https://raw.githubusercontent.com/mgechev/revive/master/RULES_DESCRIPTIONS.md"
+func getRulesDescriptionMarkdown(toolVersion string) (*os.File, error) {
+	rulesDescriptionFileURL := fmt.Sprintf("https://raw.githubusercontent.com/mgechev/revive/v%s/RULES_DESCRIPTIONS.md", toolVersion)
 	return downloadFile(rulesDescriptionFileURL)
 }

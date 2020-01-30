@@ -1,11 +1,19 @@
-FROM golang:1.13.5 as builder
+FROM golang:1.13.5-alpine as builder
 
-RUN go get -u github.com/mgechev/revive
+ARG TOOL_VERSION
+
+WORKDIR /src
+
+RUN apk add git
+RUN GO111MODULE=on go get -u github.com/mgechev/revive@v${TOOL_VERSION}
+
+ADD . .
+RUN go build -o bin/codacy-gorevive
 
 FROM golang:1.13.5-alpine
 
 COPY --from=builder /go /go
-COPY bin /dist/bin
+COPY --from=builder /src/bin /dist/bin
 COPY docs/ /docs/
 
 RUN adduser -u 2004 -D docker

@@ -1,6 +1,6 @@
 {
   "name": "codacy-gorevive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "patterns": [
     {
       "patternId": "add-constant",

@@ -19,10 +19,9 @@ const (
 )
 
 var docFolder string
-var toolVersion string
 
-func getMarkdownFile() *os.File {
-	mdFile, err := getRulesDescriptionMarkdown()
+func getMarkdownFile(toolVersion string) *os.File {
+	mdFile, err := getRulesDescriptionMarkdown(toolVersion)
 	if err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
@@ -43,16 +42,16 @@ func main() {
 	flag.StringVar(&docFolder, "docFolder", "docs", "Tool documentation folder")
 	flag.Parse()
 
-	mdFile := getMarkdownFile()
-	defer os.Remove(mdFile.Name())
+	toolVersion := readToolVersion()
 
-	toolVersion = readToolVersion()
+	mdFile := getMarkdownFile(toolVersion)
+	defer os.Remove(mdFile.Name())
 
 	htmlDocumentation := convertMarkdownIntoHTML(mdFile.Name())
 
 	patternsList := getPatternsListFromDocumentationHTML(htmlDocumentation)
 
-	toolDefinition := createPatternsJSONFile(patternsList)
+	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
 
 	createDescriptionFiles(mdFile, toolDefinition.Patterns)
 }
@@ -68,7 +67,7 @@ func convertMarkdownIntoHTML(markdownFileLocation string) string {
 	return "<body>" + string(htmlConversion) + "<body>"
 }
 
-func createPatternsJSONFile(patterns []codacy.Pattern) codacy.ToolDefinition {
+func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codacy.ToolDefinition {
 	fmt.Println("Creating patterns.json file...")
 
 	tool := codacy.ToolDefinition{
