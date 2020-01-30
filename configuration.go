@@ -4,7 +4,6 @@ import (
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
 	codacy "github.com/codacy/codacy-engine-golang-seed"
-	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -15,13 +14,16 @@ const (
 	sourceConfigFileName = "codacyrc.toml"
 )
 
+// paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
-	ruleDefinition, err := toolparameters.FindRuleParameterDefinition(patternID)
-	if err != nil {
+	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
+	if notFound != nil {
 		if isInteger(param.Value) {
 			return int(param.Value.(float64))
 		}
 	}
+
+	// check the type of parameter according to the tool documentation
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
 		return strings.Split(param.Value.(string), ", ")
@@ -36,7 +38,22 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	}
 }
 
-func patternParametersAsListOfValues(pattern codacy.Pattern) []interface{} {
+func addUnnamedParameter(value interface{}, res []interface{}) []interface{} {
+	resultTmp := res
+	switch value.(type) {
+	case []string:
+		// if is a []string, append all values to res, one by one
+		for _, v := range value.([]string) {
+			resultTmp = append(resultTmp, v)
+		}
+	default:
+		resultTmp = append(resultTmp, value)
+	}
+	return resultTmp
+}
+
+// patternParametersAsReviveValues converts pattern parameters into a list of revive arguments
+func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
 	var res []interface{}
 	if len(pattern.Parameters) == 0 {
 		return []interface{}{}
@@ -47,15 +64,7 @@ func patternParametersAsListOfValues(pattern codacy.Pattern) []interface{} {
 		value := paramValue(p, pattern.PatternID)
 
 		if p.Name == unnamedParamName {
-			switch value.(type) {
-			case []string:
-				// if is a []string, append all values to res
-				for _, v := range value.([]string) {
-					res = append(res, v)
-				}
-			default:
-				res = append(res, value)
-			}
+			res = addUnnamedParameter(value, res)
 		} else {
 			namedParameters[p.Name] = value
 		}
@@ -68,8 +77,7 @@ func patternParametersAsListOfValues(pattern codacy.Pattern) []interface{} {
 	return res
 }
 
-func reviveArguments(pattern codacy.Pattern) map[string]interface{} {
-	paramsValues := patternParametersAsListOfValues(pattern)
+func reviveArguments(paramsValues []interface{}) map[string]interface{} {
 	if paramsValues == nil || len(paramsValues) == 0 {
 		return map[string]interface{}{}
 	}
@@ -79,10 +87,15 @@ func reviveArguments(pattern codacy.Pattern) map[string]interface{} {
 	}
 }
 
+func reviveRuleName(id string) string {
+	return "rule." + id
+}
+
 func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
-	var patternsMap = make(map[string]interface{})
+	patternsMap := map[string]interface{}{}
 	for _, pattern := range patterns {
-		patternsMap["rule."+pattern.PatternID] = reviveArguments(pattern)
+		paramsValues := patternParametersAsReviveValues(pattern)
+		patternsMap[reviveRuleName(pattern.PatternID)] = reviveArguments(paramsValues)
 	}
 	return patternsMap
 }
@@ -99,26 +112,9 @@ func generateToolConfigurationContent(patterns []codacy.Pattern) string {
 	return tomlString
 }
 
-func writeConfigurationToTempFile(content string) (*os.File, error) {
-	tmpFile, err := ioutil.TempFile(os.TempDir(), "gorevive-")
-	if err != nil {
-		return nil, err
-	}
-	if _, err = tmpFile.Write([]byte(content)); err != nil {
-		return nil, err
-	}
-	if err := tmpFile.Close(); err != nil {
-		return nil, err
-	}
-
-	return tmpFile, nil
-}
-
-func getConfigurationFromSourceCode(sourceFolder string) (string, error) {
+func configurationFromSourceCode(sourceFolder string) (*os.File, error) {
 	filename := path.Join(sourceFolder, sourceConfigFileName)
-
-	contentByte, err := ioutil.ReadFile(filename)
-	return string(contentByte), err
+	return os.Open(filename)
 }
 
 // getConfigurationFile returns file, boolean saying if it is temp and error
@@ -126,15 +122,10 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 	// if no patterns, try to use configuration from source code
 	// otherwise default configuration file
 	if len(patterns) == 0 {
-		sourceConfigFileContent, err := getConfigurationFromSourceCode(sourceFolder)
-		if err == nil {
-			return writeConfigurationToTempFile(sourceConfigFileContent)
-		}
-
-		return nil, nil
+		return configurationFromSourceCode(sourceFolder)
 	}
 
 	content := generateToolConfigurationContent(patterns)
 
-	return writeConfigurationToTempFile(content)
+	return writeToTempFile(content)
 }

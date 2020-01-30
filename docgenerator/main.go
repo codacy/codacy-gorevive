@@ -14,7 +14,12 @@ import (
 	"strings"
 )
 
+const (
+	toolVersionFile = ".version"
+)
+
 var docFolder string
+var toolVersion string
 
 func getMarkdownFile() *os.File {
 	mdFile, err := getRulesDescriptionMarkdown()
@@ -25,12 +30,23 @@ func getMarkdownFile() *os.File {
 	return mdFile
 }
 
+func readToolVersion() string {
+	versionBytes, err := ioutil.ReadFile(toolVersionFile)
+	if err != nil {
+		return "0.0.0"
+	}
+
+	return strings.Trim(string(versionBytes), "\n")
+}
+
 func main() {
 	flag.StringVar(&docFolder, "docFolder", "docs", "Tool documentation folder")
 	flag.Parse()
 
 	mdFile := getMarkdownFile()
 	defer os.Remove(mdFile.Name())
+
+	toolVersion = readToolVersion()
 
 	htmlDocumentation := convertMarkdownIntoHTML(mdFile.Name())
 
@@ -57,7 +73,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern) codacy.ToolDefinition {
 
 	tool := codacy.ToolDefinition{
 		Name:     "codacy-gorevive",
-		Version:  "1.0.0",
+		Version:  toolVersion,
 		Patterns: patterns,
 	}
 

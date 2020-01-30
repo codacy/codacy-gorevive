@@ -1,17 +1,22 @@
 package toolparameters
 
 import (
-	"errors"
 	"fmt"
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 
+// RuleParameter contains the definition of the parameters for a rule
 type RuleParameter struct {
-	Name        string
-	Parameters  []codacy.PatternParameter
-	Default     string
+	// Name rule name
+	Name string
+	// Parameters list of parameters for the rule. If none, then the parameter will be unnamed
+	Parameters []codacy.PatternParameter
+	// Default value for the unnamed parameter
+	Default string
+	// Description for the unnamed parameter
 	Description string
-	Type        string
+	// Type of the unnamed parameter
+	Type string
 }
 
 const (
@@ -99,14 +104,14 @@ var ruleParameters = []RuleParameter{
 	},
 }
 
+// FindRuleParameterDefinition finds the parameter definition for a rule. If it does not find, an error is returned
 func FindRuleParameterDefinition(patternID string) (RuleParameter, error) {
 	for _, rule := range ruleParameters {
 		if rule.Name == patternID {
 			return rule, nil
 		}
 	}
-	return RuleParameter{},
-		errors.New(fmt.Sprintf("Not found parameters for pattern with id %s", patternID))
+	return RuleParameter{}, fmt.Errorf("Not found parameters for pattern with id %s", patternID)
 }
 
 // GetParametersForPattern returns the parameters for the pattern with id patternID

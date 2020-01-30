@@ -33,7 +33,7 @@ func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
 	reviveConfigMap := patternsToReviveConfigMap([]codacy.Pattern{pattern})
-	assert.NotNil(t, reviveConfigMap["rule."+pattern.PatternID], "Expected toml: %s to exist", "rule."+pattern.PatternID)
+	assert.NotNil(t, reviveConfigMap[reviveRuleName(pattern.PatternID)], "Expected toml: %s to exist", reviveRuleName(pattern.PatternID))
 }
 
 func TestConfigurationContentGeneration(t *testing.T) {

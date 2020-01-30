@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"os/exec"
 
@@ -60,14 +61,11 @@ func commandParameters(configFile *os.File, filesToAnalyse []string) []string {
 
 func parseOutput(reviveOutput string) []codacy.Issue {
 	var result []codacy.Issue
-	lines := strings.Split(reviveOutput, "\n")
 
-	for _, line := range lines {
-		if line == "" {
-			continue
-		}
+	scanner := bufio.NewScanner(strings.NewReader(reviveOutput))
+	for scanner.Scan() {
 		var reviveRes ReviveResult
-		json.Unmarshal([]byte(line), &reviveRes)
+		json.Unmarshal([]byte(scanner.Text()), &reviveRes)
 
 		result = append(result, codacy.Issue{
 			PatternID: reviveRes.RuleName,
