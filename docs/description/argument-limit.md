@@ -11,3 +11,4 @@ Example:
 [rule.argument-limit]
   arguments =[4]
 ```
+

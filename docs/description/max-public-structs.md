@@ -13,3 +13,4 @@ Example:
 [rule.max-public-structs]
   arguments =[3]
 ```
+

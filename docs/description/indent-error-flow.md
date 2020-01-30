@@ -6,3 +6,4 @@ This rule highlights redundant _else-blocks_ that can be eliminated from the cod
 More information [here](https://github.com/golang/go/wiki/CodeReviewComments#indent-error-flow)
 
 _Configuration_: N/A
+

@@ -5,3 +5,4 @@ interfaces, parameters, receivers, variables, constants...) that conflict with t
 name of an imported package. This rule spots identifiers that shadow an import.
 
 _Configuration_: N/A
+

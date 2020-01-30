@@ -4,3 +4,4 @@ _Description_: A function that modifies its parameters can be hard to understand
 This rule warns when a function modifies one or more of its parameters.
 
 _Configuration_: N/A
+

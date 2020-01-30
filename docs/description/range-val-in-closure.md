@@ -4,3 +4,4 @@ _Description_: Range variables in a loop are reused at each iteration; therefore
 This rule warns when a range value (or index) is used inside a closure
 
 _Configuration_: N/A
+

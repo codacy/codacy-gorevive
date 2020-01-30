@@ -5,3 +5,4 @@ _Description_: By convention, for better readability, error messages should not 
 More information [here](https://github.com/golang/go/wiki/CodeReviewComments#error-strings)
 
 _Configuration_: N/A
+

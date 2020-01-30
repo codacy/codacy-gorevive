@@ -10,3 +10,4 @@ Example:
 [rule.function-result-limit]
   arguments =[3]
 ```
+

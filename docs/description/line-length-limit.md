@@ -10,3 +10,4 @@ Example:
 [rule.line-length-limit]
   arguments =[80]
 ```
+

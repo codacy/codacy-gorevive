@@ -2,7 +2,7 @@
   {
     "patternId": "add-constant",
     "title": "add-constant",
-    "description": "Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming",
+    "description": "Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) and string literals.",
     "parameters": [
       {
         "name": "allowFloats",
@@ -104,7 +104,7 @@
   {
     "patternId": "context-as-argument",
     "title": "context-as-argument",
-    "description": "By [convention](https://github.com/golang/go/wiki/CodeReviewComment",
+    "description": "By [convention](https://github.com/golang/go/wiki/CodeReviewComments#contexts), `context.Context` should be the first parameter of a function. This rule spots function declarations that do not follow the convention.",
     "timeToFix": 0
   },
   {
@@ -350,7 +350,7 @@
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when [variable](https://github.com/golang/go/wiki/CodeReviewComment",
+    "description": "This rule warns when [variable](https://github.com/golang/go/wiki/CodeReviewComments#variable-names) or [package](https://github.com/golang/go/wiki/CodeReviewComments#package-names) naming conventions are not followed.",
     "timeToFix": 0
   },
   {
@@ -405,7 +405,7 @@
   {
     "patternId": "waitgroup-by-value",
     "title": "waitgroup-by-value",
-    "description": "Function parameters that are passed by value, are in fact a copy of the original argument. Passing a copy of a `sync.WaitGroup` is usually not what the developer wants to do.",
+    "description": "",
     "timeToFix": 0
   }
 ]

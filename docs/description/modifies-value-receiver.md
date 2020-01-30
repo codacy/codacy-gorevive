@@ -4,3 +4,4 @@ _Description_: A method that modifies its receiver value can have undesired beha
 This rule warns when a method modifies its receiver.
 
 _Configuration_: N/A
+
