@@ -20,13 +20,12 @@ const (
 
 var docFolder string
 
-func getMarkdownFile(toolVersion string) *os.File {
+func getMarkdownFile(toolVersion string) (*os.File, error) {
 	mdFile, err := getRulesDescriptionMarkdown(toolVersion)
 	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
+		return nil, err
 	}
-	return mdFile
+	return mdFile, nil
 }
 
 func readToolVersion() string {
@@ -38,33 +37,49 @@ func readToolVersion() string {
 	return strings.Trim(string(versionBytes), "\n")
 }
 
-func main() {
-	flag.StringVar(&docFolder, "docFolder", "docs", "Tool documentation folder")
-	flag.Parse()
-
+func run() int {
 	toolVersion := readToolVersion()
 
-	mdFile := getMarkdownFile(toolVersion)
+	mdFile, err := getMarkdownFile(toolVersion)
+	if err != nil {
+		fmt.Println(err.Error())
+		return 1
+	}
 	defer os.Remove(mdFile.Name())
 
-	htmlDocumentation := convertMarkdownIntoHTML(mdFile.Name())
+	htmlDocumentation, err := convertMarkdownIntoHTML(mdFile.Name())
+	if err != nil {
+		fmt.Println(err.Error())
+		return 1
+	}
 
-	patternsList := getPatternsListFromDocumentationHTML(htmlDocumentation)
+	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation)
+	if err != nil {
+		fmt.Println(err.Error())
+		return 1
+	}
 
 	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
 
 	createDescriptionFiles(mdFile, toolDefinition.Patterns)
+
+	return 0
 }
 
-func convertMarkdownIntoHTML(markdownFileLocation string) string {
+func main() {
+	flag.StringVar(&docFolder, "docFolder", "docs", "Tool documentation folder")
+	flag.Parse()
+	os.Exit(run())
+}
+
+func convertMarkdownIntoHTML(markdownFileLocation string) (string, error) {
 	cmd := exec.Command("pandoc", "-f", "markdown", "-t", "html", markdownFileLocation)
 	htmlConversion, err := cmd.Output()
 	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
+		return "", err
 	}
 
-	return "<body>" + string(htmlConversion) + "<body>"
+	return "<body>" + string(htmlConversion) + "<body>", nil
 }
 
 func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codacy.ToolDefinition {
@@ -97,27 +112,28 @@ func getRuleDescription(ruleMdInfo string) string {
 	return strings.Replace(descriptionString, descriptionPrefix, "", -1)
 }
 
-func readMarkdownContent(mdFile *os.File) string {
+func readMarkdownContent(mdFile *os.File) (string, error) {
 	markdownContent, err := ioutil.ReadFile(mdFile.Name())
 	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
+		return "", err
 	}
-	return string(markdownContent)
+	return string(markdownContent), nil
 }
 
-func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
+func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 	fmt.Println("Creating description files...")
 
-	markdownContent := readMarkdownContent(mdFile)
+	markdownContent, err := readMarkdownContent(mdFile)
+	if err != nil {
+		return err
+	}
 
 	var patternsDescriptionsList []codacy.PatternDescription
 
 	for _, pattern := range rulesList {
 		ruleInformationRegex, err := getRuleInformationRegex(pattern.PatternID)
 		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
+			return err
 		}
 
 		ruleInformationMdList := ruleInformationRegex.FindAllString(string(markdownContent), -1)
@@ -157,4 +173,6 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 		descriptionsJSON,
 		0644,
 	)
+
+	return nil
 }

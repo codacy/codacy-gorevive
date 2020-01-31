@@ -19,7 +19,7 @@ func TestGetListOfFilesToAnalyse(t *testing.T) {
 
 func TestGetListOfFilesToAnalyseWithEmptyFilesList(t *testing.T) {
 	files := []string{}
-	expectedFiles := []string{"resources/tests/files_test/bar/test/example2.go", "resources/tests/files_test/example.go"}
+	expectedFiles := []string{"test/data/files_test/bar/test/example2.go", "test/data/files_test/example.go"}
 	analysisFiles, err := getListOfFilesToAnalyse(files, path.Join(testsResourcesFolder, resourceFolder))
 
 	assert.Nil(t, err)

@@ -1,5 +1,5 @@
 package main
 
 const (
-	testsResourcesFolder = "./resources/tests"
+	testsResourcesFolder = "./test/data"
 )

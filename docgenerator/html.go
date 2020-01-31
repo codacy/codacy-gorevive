@@ -4,19 +4,16 @@ import (
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
-	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	codacy "github.com/codacy/codacy-engine-golang-seed"
-	"os"
 )
 
-func getPatternsListFromDocumentationHTML(data string) []codacy.Pattern {
+func getPatternsListFromDocumentationHTML(data string) ([]codacy.Pattern, error) {
 	patterns := []codacy.Pattern{}
 
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(data))
 	if err != nil {
-		fmt.Println(err.Error())
-		os.Exit(1)
+		return nil, err
 	}
 
 	doc.Find("ul").Each(func(index int, externalUlHtml *goquery.Selection) {
@@ -38,5 +35,5 @@ func getPatternsListFromDocumentationHTML(data string) []codacy.Pattern {
 		})
 	})
 
-	return patterns
+	return patterns, nil
 }
