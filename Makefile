@@ -4,7 +4,7 @@ VERSION=`cat $(TOOL_VERSION_FILE)`
 build:
 	@go build -o bin/codacy-gorevive
 
-test:
+unittest:
 	@go test
 
 run:
@@ -14,8 +14,7 @@ docgeneration:
 	@go run ./docgenerator/.
 
 docker:
-	GOOS=linux GOARCH=amd64 go build -o bin/codacy-gorevive
 	docker build --build-arg TOOL_VERSION=$(VERSION) -t codacy-gorevive .
 
-all:
-	test build
+all: 
+	make unittest && make build && make docker
