@@ -26,12 +26,11 @@ func (i GoReviveImplementation) Run(tool codacy.Tool, sourceDir string) ([]codac
 
 	reviveCmd := reviveCommand(configFile, filesToAnalyse, sourceDir)
 
-	reviveOutput, err := reviveCmd.Output()
+	reviveOutput, reviveError, err := runCommand(reviveCmd)
 	if err != nil {
-		return nil, errors.New("Error running revive: " + err.Error())
+		return nil, errors.New("Error running revive: " + reviveError)
 	}
 
-	result := parseOutput(string(reviveOutput))
-
+	result := parseOutput(reviveOutput)
 	return result, nil
 }

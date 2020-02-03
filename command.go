@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"bytes"
 	"encoding/json"
 	"os/exec"
 
@@ -84,4 +85,15 @@ func reviveCommand(configFile *os.File, filesToAnalyse []string, sourceDir strin
 
 	cmd.Dir = sourceDir
 	return cmd
+}
+
+func runCommand(cmd *exec.Cmd) (string, string, error) {
+	var stderr bytes.Buffer
+	cmd.Stderr = &stderr
+
+	cmdOutput, err := cmd.Output()
+	if err != nil {
+		return "", stderr.String(), err
+	}
+	return string(cmdOutput), "", nil
 }
