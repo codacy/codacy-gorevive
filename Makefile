@@ -1,4 +1,4 @@
-TOOL_VERSION_FILE=.version
+TOOL_VERSION_FILE=.tool_version
 VERSION=`cat $(TOOL_VERSION_FILE)`
 
 build:

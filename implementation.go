@@ -15,7 +15,7 @@ type GoReviveImplementation struct {
 // Run runs the tool implementation
 func (i GoReviveImplementation) Run(tool codacy.Tool, sourceDir string) ([]codacy.Issue, error) {
 	configFile, err := getConfigurationFile(tool.Patterns, sourceDir)
-	if err != nil {
+	if err == nil {
 		defer os.Remove(configFile.Name())
 	}
 

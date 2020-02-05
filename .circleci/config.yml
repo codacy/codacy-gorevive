@@ -27,6 +27,7 @@ workflows:
       - codacy/shell:
           name: publish_docker_local
           cmd: |
+            cat .tool_version
             make docker
             docker save --output docker-image.tar $CIRCLE_PROJECT_REPONAME:latest
           persist_to_workspace: true
@@ -49,4 +50,4 @@ workflows:
           name: tag_version
           context: CodacyAWS
           requires:
-            - publish_dockerhub
+            - codacy/publish_docker

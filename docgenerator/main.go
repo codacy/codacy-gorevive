@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	toolVersionFile = ".version"
+	toolVersionFile = ".tool_version"
 )
 
 var docFolder string
