@@ -29,6 +29,25 @@ func patternStruct() (codacy.Pattern, string) {
 `
 }
 
+func patternUnnamedStruct() (codacy.Pattern, string) {
+	return codacy.Pattern{
+			PatternID: "testingUnnamed",
+			Parameters: []codacy.PatternParameter{
+				codacy.PatternParameter{
+					Name:  unnamedParamName,
+					Value: "value1",
+				}, codacy.PatternParameter{
+					Name:  "param2",
+					Value: "value2",
+				}},
+			Category: "UnusedCode",
+			Level:    "Info",
+		}, `
+[rule.testingUnnamed]
+  arguments = ["value1"]
+`
+}
+
 func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
@@ -38,13 +57,15 @@ func TestPatternsToToml(t *testing.T) {
 
 func TestConfigurationContentGeneration(t *testing.T) {
 	pattern, patternTomlExpected := patternStruct()
+	unnamedParamPatter, unnamedParamTomlExpected := patternUnnamedStruct()
 	patterns := []codacy.Pattern{
 		pattern,
-		pattern,
+		unnamedParamPatter,
 	}
 
 	configContent := generateToolConfigurationContent(patterns)
-	expectedContent := fmt.Sprintf("%s", patternTomlExpected)
+
+	expectedContent := fmt.Sprintf("%s%s", patternTomlExpected, unnamedParamTomlExpected)
 
 	assert.Equal(t, expectedContent, configContent)
 }

@@ -19,7 +19,7 @@ func getListOfFilesToAnalyse(files []string, sourceDir string) ([]string, error)
 	})
 
 	if err != nil {
-		return files, err
+		return nil, err
 	}
 
 	return files, nil

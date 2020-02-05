@@ -39,8 +39,8 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	}
 }
 
-func addUnnamedParameter(value interface{}, res []interface{}) []interface{} {
-	resultTmp := res
+func unnamedParam(value interface{}) []interface{} {
+	resultTmp := []interface{}{}
 	switch value.(type) {
 	case []string:
 		// if is a []string, append all values to res, one by one
@@ -55,7 +55,6 @@ func addUnnamedParameter(value interface{}, res []interface{}) []interface{} {
 
 // patternParametersAsReviveValues converts pattern parameters into a list of revive arguments
 func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
-	var res []interface{}
 	if len(pattern.Parameters) == 0 {
 		return []interface{}{}
 	}
@@ -65,17 +64,19 @@ func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
 		value := paramValue(p, pattern.PatternID)
 
 		if p.Name == unnamedParamName {
-			res = addUnnamedParameter(value, res)
-		} else {
-			namedParameters[p.Name] = value
+			return unnamedParam(value)
 		}
+
+		namedParameters[p.Name] = value
 	}
 
 	if len(namedParameters) > 0 {
-		res = append(res, namedParameters)
+		return []interface{}{
+			namedParameters,
+		}
 	}
 
-	return res
+	return []interface{}{}
 }
 
 func reviveArguments(paramsValues []interface{}) map[string]interface{} {
@@ -129,7 +130,7 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 			return writeToTempFile(sourceConfigFileContent)
 		}
 
-		return nil, nil
+		return nil, err
 	}
 
 	content := generateToolConfigurationContent(patterns)
