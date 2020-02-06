@@ -6,6 +6,7 @@ github.com/andybalholm/cascadia v1.0.0 h1:hOCXnnZ5A+3eVDX8pvgl4kofXv2ELss0bKcqRy
 github.com/andybalholm/cascadia v1.0.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9PqHO0sqidkEA4Y=
 github.com/codacy/codacy-engine-golang-seed v0.0.0-20200206091058-7578ec5075c5 h1:RHEfvtM7TSDlgXajWTK59orc2+91FicxRzzjCvfdPiM=
 github.com/codacy/codacy-engine-golang-seed v0.0.0-20200206091058-7578ec5075c5/go.mod h1:iYQr2cYEZ1o7I/TrxFb+5C4jy06Kdkx903atVM10qFA=
+github.com/codacy/codacy-engine-golang-seed v0.0.1/go.mod h1:iYQr2cYEZ1o7I/TrxFb+5C4jy06Kdkx903atVM10qFA=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
