@@ -12,10 +12,11 @@ func patternStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
 			PatternID: "testing",
 			Parameters: []codacy.PatternParameter{
-				codacy.PatternParameter{
+				{
 					Name:  "param1",
 					Value: "value1",
-				}, codacy.PatternParameter{
+				},
+				{
 					Name:  "param2",
 					Value: "value2",
 				}},
@@ -34,10 +35,11 @@ func patternUnnamedStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
 			PatternID: "testingUnnamed",
 			Parameters: []codacy.PatternParameter{
-				codacy.PatternParameter{
+				{
 					Name:  unnamedParamName,
 					Value: "value1",
-				}, codacy.PatternParameter{
+				},
+				{
 					Name:  "param2",
 					Value: "value2",
 				}},
