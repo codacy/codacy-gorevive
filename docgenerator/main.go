@@ -143,11 +143,20 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 			ruleInformationMd = strings.TrimSuffix(ruleInformationMdList[0], "##")
 		}
 
+		// Get description for parameters
+		var params []codacy.PatternParameter
+		for _, param := range pattern.Parameters {
+			params = append(params, codacy.PatternParameter{
+				Name:        param.Name,
+				Description: param.Description,
+			})
+		}
+
 		patternDescription := codacy.PatternDescription{
 			PatternID:   pattern.PatternID,
 			Description: getRuleDescription(ruleInformationMd),
 			Title:       pattern.PatternID,
-			Parameters:  pattern.Parameters,
+			Parameters:  params,
 		}
 
 		patternsDescriptionsList = append(

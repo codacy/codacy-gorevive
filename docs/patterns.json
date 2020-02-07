@@ -9,18 +9,22 @@
       "parameters": [
         {
           "name": "allowFloats",
+          "default": "",
           "description": "(string) comma-separated list of allowed floats"
         },
         {
           "name": "allowInts",
+          "default": "",
           "description": "allowInts"
         },
         {
           "name": "allowStrs",
+          "default": "",
           "description": "(string) comma-separated list of allowed string literals"
         },
         {
           "name": "maxLitCount",
+          "default": "",
           "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
         }
       ]

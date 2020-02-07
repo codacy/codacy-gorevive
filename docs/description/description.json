@@ -30,7 +30,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "4",
         "description": "(int) the maximum number of parameters allowed per function."
       }
     ],
@@ -85,7 +84,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "7",
         "description": "(int) the maximum function complexity"
       }
     ],
@@ -116,7 +114,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "3",
         "description": "(int) the maximum function complexity"
       }
     ],
@@ -189,7 +186,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "",
         "description": "(string) the header to look for in source files."
       }
     ],
@@ -208,7 +204,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "3",
         "description": "(int) the maximum allowed return values"
       }
     ],
@@ -245,7 +240,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "\"crypto/md5\", \"crypto/sha1\"",
         "description": "(list of string) black-list of package names"
       }
     ],
@@ -264,7 +258,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "80",
         "description": "(int) maximum line length in characters."
       }
     ],
@@ -277,7 +270,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "3",
         "description": "(int) the maximum allowed public structs"
       }
     ],
@@ -368,7 +360,6 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "default": "\"fmt.Printf\"",
         "description": "(list of string) function names to ignore"
       }
     ],

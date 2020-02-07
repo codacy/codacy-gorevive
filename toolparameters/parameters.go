@@ -42,18 +42,22 @@ var ruleParameters = []RuleParameter{
 		Parameters: []codacy.PatternParameter{
 			codacy.PatternParameter{
 				Name:        "allowFloats",
+				Default:     "",
 				Description: "(string) comma-separated list of allowed floats",
 			},
 			codacy.PatternParameter{
 				Name:        "allowInts",
+				Default:     "",
 				Description: "allowInts",
 			},
 			codacy.PatternParameter{
 				Name:        "allowStrs",
+				Default:     "",
 				Description: "(string) comma-separated list of allowed string literals",
 			},
 			codacy.PatternParameter{
 				Name:        "maxLitCount",
+				Default:     "",
 				Description: "(string) maximum number of instances of a string literal that are tolerated before warn.",
 			},
 		},
