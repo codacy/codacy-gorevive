@@ -35,34 +35,7 @@ docker run -it -v $srcDir:/src -v $codacyrcConfig:/.codacyrc <DOCKER_NAME>:<DOCK
 - To run the tool we provide the configuration file, `/.codacyrc`, with the language to run and optional parameters your tool might need.
 - The source code to be analysed will be located in `/src`, meaning that when provided in the configuration, the file paths are relative to `/src`.
 
-#### Configuration file (.codacyrc)
-
-This file has:
-
- - files: Files to be analysed (their path is relative to `/src`)
- - tools: Array of tools
- - name: Unique identifier of the tool. This will be provided by the tool in patterns.json file.
- - patterns: Array of patterns that must be checked
-     - patternId: Unique identifier of the pattern
-     - parameters: Parameters of the pattern
-     - name: Unique identifier of the parameter
-     - value: Value to be used as parameter value
-
-```
-{
-  "files" : ["foo/bar/baz.go", "foo2/bar/baz.go"],
-  "tools":[
-    {
-      "name":"codacy-gorevive",
-      "patterns":[
-        {
-          "patternId":"exported"
-        }
-      ]
-    }
-  ]
-}
-```
+Check more information [here](https://github.com/codacy/codacy-example-tool#structure)
 
 #### Tool documentation
 
