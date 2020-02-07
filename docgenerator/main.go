@@ -91,7 +91,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 		Patterns: patterns,
 	}
 
-	toolAsJSON, _ := tool.ToJSONBeautify()
+	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
 	ioutil.WriteFile(path.Join(docFolder, "patterns.json"), toolAsJSON, 0644)
 
