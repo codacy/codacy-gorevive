@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"testing"
+
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func patternStruct() (codacy.Pattern, string) {

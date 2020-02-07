@@ -1,13 +1,14 @@
 package main
 
 import (
-	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"fmt"
-	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"io/ioutil"
 	"os"
 	"path"
 	"strings"
+
+	toolparameters "codacy.com/codacy-gorevive/toolparameters"
+	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 
 const (

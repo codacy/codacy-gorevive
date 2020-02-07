@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 
 	"io/ioutil"

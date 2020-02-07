@@ -4,11 +4,11 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
+	"os"
 	"os/exec"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 
-	"os"
 	"strings"
 )
 

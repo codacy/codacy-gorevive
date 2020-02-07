@@ -2,6 +2,7 @@ package toolparameters
 
 import (
 	"fmt"
+
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 

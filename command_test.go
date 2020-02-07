@@ -1,11 +1,12 @@
 package main
 
 import (
-	codacy "github.com/codacy/codacy-engine-golang-seed"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"os"
 	"testing"
+
+	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestParseOutput(t *testing.T) {
