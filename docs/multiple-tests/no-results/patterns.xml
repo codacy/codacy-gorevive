@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module name="root">
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="codacyrc.toml" />
+    </module>
+    <module name="error-return">
+        <property name="unnamedParam">10</property>
+    </module>
+</module>

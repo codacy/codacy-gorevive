@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<checkstyle version="1.5">
+    <file name="example.go">
+        <error source="exported" line="7" message="exported function Public should have comment or be unexported" severity="info" />
+    </file>
+</checkstyle>

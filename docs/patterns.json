@@ -1,0 +1,361 @@
+{
+  "name": "codacy-gorevive",
+  "version": "1.0.1",
+  "patterns": [
+    {
+      "patternId": "add-constant",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "allowFloats",
+          "default": "",
+          "description": "(string) comma-separated list of allowed floats"
+        },
+        {
+          "name": "allowInts",
+          "default": "",
+          "description": "allowInts"
+        },
+        {
+          "name": "allowStrs",
+          "default": "",
+          "description": "(string) comma-separated list of allowed string literals"
+        },
+        {
+          "name": "maxLitCount",
+          "default": "",
+          "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+        }
+      ]
+    },
+    {
+      "patternId": "argument-limit",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "4",
+          "description": "(int) the maximum number of parameters allowed per function."
+        }
+      ]
+    },
+    {
+      "patternId": "atomic",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "bare-return",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "blank-imports",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "bool-literal-in-expr",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "call-to-gc",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "confusing-naming",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "confusing-results",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "cognitive-complexity",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "7",
+          "description": "(int) the maximum function complexity"
+        }
+      ]
+    },
+    {
+      "patternId": "constant-logical-expr",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "context-as-argument",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "context-keys-type",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "cyclomatic",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum function complexity"
+        }
+      ]
+    },
+    {
+      "patternId": "deep-exit",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "dot-imports",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "duplicated-imports",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "empty-block",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "empty-lines",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "error-naming",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "error-return",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "error-strings",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "errorf",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "exported",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "file-header",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(string) the header to look for in source files."
+        }
+      ]
+    },
+    {
+      "patternId": "flag-parameter",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "function-result-limit",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum allowed return values"
+        }
+      ]
+    },
+    {
+      "patternId": "get-return",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "if-return",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "increment-decrement",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "indent-error-flow",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "imports-blacklist",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"crypto/md5\", \"crypto/sha1\"",
+          "description": "(list of string) black-list of package names"
+        }
+      ]
+    },
+    {
+      "patternId": "import-shadowing",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "line-length-limit",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "80",
+          "description": "(int) maximum line length in characters."
+        }
+      ]
+    },
+    {
+      "patternId": "max-public-structs",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "3",
+          "description": "(int) the maximum allowed public structs"
+        }
+      ]
+    },
+    {
+      "patternId": "modifies-parameter",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "modifies-value-receiver",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "package-comments",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "range",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "range-val-in-closure",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "receiver-naming",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "redefines-builtin-id",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "struct-tag",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "superfluous-else",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "time-naming",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "var-naming",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "var-declaration",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "unexported-return",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "unhandled-error",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"fmt.Printf\"",
+          "description": "(list of string) function names to ignore"
+        }
+      ]
+    },
+    {
+      "patternId": "unnecessary-stmt",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "unreachable-code",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "unused-parameter",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "unused-receiver",
+      "category": "CodeStyle",
+      "level": "Info"
+    },
+    {
+      "patternId": "waitgroup-by-value",
+      "category": "CodeStyle",
+      "level": "Info"
+    }
+  ]
+}
