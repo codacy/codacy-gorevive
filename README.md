@@ -70,71 +70,14 @@ At Codacy we strive to provide the best value to our users and, to accomplish th
 
 The documentation for the tool must always be updated before submitting the docker.
 
-Your files for this section should be placed in `/docs/description/`.
+To get more information on the tool documentation, check [here](https://github.com/codacy/codacy-example-tool#tool-documentation)
 
-In order to provide more details you can create:
-
-- A single `/docs/description/description.json`
-- A `/docs/description/<PATTERN-ID>.md` for each pattern
-
-
-In the description.json you define the title for the pattern, brief description, time to fix (in minutes), and also a description of the parameters in the following format:
-
-```
-[
-  {
-    "patternId": "add-constant",
-    "title": "add-constant",
-    "description": "Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) and string literals.",
-    "parameters": [
-      {
-        "name": "allowFloats",
-        "default": "",
-        "description": "(string) comma-separated list of allowed floats"
-      },
-      {
-        "name": "allowInts",
-        "default": "",
-        "description": "allowInts"
-      },
-      {
-        "name": "allowStrs",
-        "default": "",
-        "description": "(string) comma-separated list of allowed string literals"
-      },
-      {
-        "name": "maxLitCount",
-        "default": "",
-        "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
-      }
-    ],
-    "timeToFix": 0
-  }
-]
-```
-
-To give a more detailed explanation about the issue, you should define the ```<PATTERN-ID>.md```. Example:
-
-```
-_Description_: Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) and string literals.
-
-_Configuration_:
-
-* `maxLitCount` : (string) maximum number of instances of a string literal that are tolerated before warn.
-* `allowStr`: (string) comma-separated list of allowed string literals
-* `allowInts`: (string) comma-separated list of allowed integers
-* `allowFloats`: (string) comma-separated list of allowed floats
-
-Example:
-
-[rule.add-constant]
-  arguments = [{maxLitCount = "3",allowStrs ="\"\"",allowInts="0,1,2",allowFloats="0.0,0.,1.0,1.,2.0,2."}]
-```
+#### Generate documentation
 
 This documentation should be generated automatically by using the Documentation Generator tool:
 
 ```
-make docgeneration
+make build-docs
 ```
 
 #### Test

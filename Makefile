@@ -10,7 +10,7 @@ unittest:
 run:
 	@go run .
 
-docgeneration:
+build-docs:
 	@go run ./docgenerator/.
 
 docker:
