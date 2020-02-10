@@ -7,6 +7,7 @@ import (
 
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 
+	"github.com/writeas/go-strip-markdown"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -152,9 +153,14 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 			})
 		}
 
+		stripedDescription := stripmd.Strip(getRuleDescription(ruleInformationMd))
+		// Required this replace due to bug on markdown strip for some URLs.
+		urlReg, _ := regexp.Compile("#[^)]*\\)")
+		stripedDescription = string(urlReg.ReplaceAll([]byte(stripedDescription), []byte("")))
+
 		patternDescription := codacy.PatternDescription{
 			PatternID:   pattern.PatternID,
-			Description: getRuleDescription(ruleInformationMd),
+			Description: stripedDescription,
 			Title:       pattern.PatternID,
 			Parameters:  params,
 		}
