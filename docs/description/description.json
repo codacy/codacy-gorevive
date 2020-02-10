@@ -2,7 +2,7 @@
   {
     "patternId": "add-constant",
     "title": "add-constant",
-    "description": "Suggests using constant for [magic numbers](https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants) and string literals.",
+    "description": "Suggests using constant for magic numbers and string literals.",
     "parameters": [
       {
         "name": "allowFloats",
@@ -36,7 +36,7 @@
   {
     "patternId": "atomic",
     "title": "atomic",
-    "description": "Check for commonly mistaken usages of the `sync/atomic` package"
+    "description": "Check for commonly mistaken usages of the sync/atomic package"
   },
   {
     "patternId": "bare-return",
@@ -51,7 +51,7 @@
   {
     "patternId": "bool-literal-in-expr",
     "title": "bool-literal-in-expr",
-    "description": "Using Boolean literals (`true`, `false`) in logic expressions may make the code less readable. This rule suggests removing Boolean literals from logic expressions."
+    "description": "Using Boolean literals (true, false) in logic expressions may make the code less readable. This rule suggests removing Boolean literals from logic expressions."
   },
   {
     "patternId": "call-to-gc",
@@ -61,7 +61,7 @@
   {
     "patternId": "confusing-naming",
     "title": "confusing-naming",
-    "description": "Methods or fields of `struct` that have names different only by capitalization could be confusing."
+    "description": "Methods or fields of struct that have names different only by capitalization could be confusing."
   },
   {
     "patternId": "confusing-results",
@@ -71,7 +71,7 @@
   {
     "patternId": "cognitive-complexity",
     "title": "cognitive-complexity",
-    "description": "[Cognitive complexity](https://www.sonarsource.com/resources/white-papers/cognitive-complexity.html) is a measure of how hard code is to understand. ",
+    "description": "Cognitive complexity is a measure of how hard code is to understand. ",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -87,17 +87,17 @@
   {
     "patternId": "context-as-argument",
     "title": "context-as-argument",
-    "description": "By [convention](https://github.com/golang/go/wiki/CodeReviewComments#contexts), `context.Context` should be the first parameter of a function. This rule spots function declarations that do not follow the convention."
+    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention."
   },
   {
     "patternId": "context-keys-type",
     "title": "context-keys-type",
-    "description": "Basic types should not be used as a key in `context.WithValue`."
+    "description": "Basic types should not be used as a key in context.WithValue."
   },
   {
     "patternId": "cyclomatic",
     "title": "cyclomatic",
-    "description": "[Cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) is a measure of code complexity. Enforcing a maximum complexity per function helps to keep code readable and maintainable.",
+    "description": "Cyclomatic complexity is a measure of code complexity. Enforcing a maximum complexity per function helps to keep code readable and maintainable.",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -108,12 +108,12 @@
   {
     "patternId": "deep-exit",
     "title": "deep-exit",
-    "description": "Packages exposing functions that can stop program execution by exiting are hard to reuse. This rule looks for program exits in functions other than `main()` or `init()`."
+    "description": "Packages exposing functions that can stop program execution by exiting are hard to reuse. This rule looks for program exits in functions other than main() or init()."
   },
   {
     "patternId": "dot-imports",
     "title": "dot-imports",
-    "description": "Importing with `.` makes the programs much harder to understand because it is unclear whether names belong to the current package or to an imported package."
+    "description": "Importing with . makes the programs much harder to understand because it is unclear whether names belong to the current package or to an imported package."
   },
   {
     "patternId": "duplicated-imports",
@@ -128,12 +128,12 @@
   {
     "patternId": "empty-lines",
     "title": "empty-lines",
-    "description": "Sometimes `gofmt` is not enough to enforce a common formatting of a code-base; this rule warns when there are heading or trailing newlines in code blocks."
+    "description": "Sometimes gofmt is not enough to enforce a common formatting of a code-base; this rule warns when there are heading or trailing newlines in code blocks."
   },
   {
     "patternId": "error-naming",
     "title": "error-naming",
-    "description": "By convention, for the sake of readability, variables of type `error` must be named with the prefix `err`."
+    "description": "By convention, for the sake of readability, variables of type error must be named with the prefix err."
   },
   {
     "patternId": "error-return",
@@ -148,7 +148,7 @@
   {
     "patternId": "errorf",
     "title": "errorf",
-    "description": "It is possible to get a simpler program by replacing `errors.New(fmt.Sprintf())` with `fmt.Errorf()`. This rule spots that kind of simplification opportunities."
+    "description": "It is possible to get a simpler program by replacing errors.New(fmt.Sprintf()) with fmt.Errorf(). This rule spots that kind of simplification opportunities."
   },
   {
     "patternId": "exported",
@@ -169,7 +169,7 @@
   {
     "patternId": "flag-parameter",
     "title": "flag-parameter",
-    "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be [control-coupled](https://en.wikipedia.org/wiki/Coupling_(computer_programming)#Procedural_programming)."
+    "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be control-coupled."
   },
   {
     "patternId": "function-result-limit",
@@ -185,17 +185,17 @@
   {
     "patternId": "get-return",
     "title": "get-return",
-    "description": "Typically, functions with names prefixed with _Get_ are supposed to return a value."
+    "description": "Typically, functions with names prefixed with Get are supposed to return a value."
   },
   {
     "patternId": "if-return",
     "title": "if-return",
-    "description": "Checking if an error is _nil_ to just after return the error or nil is redundant."
+    "description": "Checking if an error is nil to just after return the error or nil is redundant."
   },
   {
     "patternId": "increment-decrement",
     "title": "increment-decrement",
-    "description": "By convention, for better readability, incrementing an integer variable by 1 is recommended to be done using the `++` operator."
+    "description": "By convention, for better readability, incrementing an integer variable by 1 is recommended to be done using the ++ operator."
   },
   {
     "patternId": "indent-error-flow",
@@ -253,7 +253,7 @@
   {
     "patternId": "package-comments",
     "title": "package-comments",
-    "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the `package` keyword."
+    "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the package keyword."
   },
   {
     "patternId": "range",
@@ -268,12 +268,12 @@
   {
     "patternId": "receiver-naming",
     "title": "receiver-naming",
-    "description": "By convention, receiver names in a method should reflect their identity. For example, if the receiver is of type `Parts`, `p` is an adequate name for it. Contrary to other languages, it is not idiomatic to name receivers as `this` or `self`."
+    "description": "By convention, receiver names in a method should reflect their identity. For example, if the receiver is of type Parts, p is an adequate name for it. Contrary to other languages, it is not idiomatic to name receivers as this or self."
   },
   {
     "patternId": "redefines-builtin-id",
     "title": "redefines-builtin-id",
-    "description": "Constant names like `false`, `true`, `nil`, function names like `append`, `make`, and basic type names like `bool`, and `byte` are not reserved words of the language; therefore the can be redefined."
+    "description": "Constant names like false, true, nil, function names like append, make, and basic type names like bool, and byte are not reserved words of the language; therefore the can be redefined."
   },
   {
     "patternId": "struct-tag",
@@ -288,12 +288,12 @@
   {
     "patternId": "time-naming",
     "title": "time-naming",
-    "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type `time.Duration` can be misleading, this rule highlights those cases."
+    "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type time.Duration can be misleading, this rule highlights those cases."
   },
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when [variable](https://github.com/golang/go/wiki/CodeReviewComments#variable-names) or [package](https://github.com/golang/go/wiki/CodeReviewComments#package-names) naming conventions are not followed."
+    "description": "This rule warns when variable or package naming conventions are not followed."
   },
   {
     "patternId": "var-declaration",
@@ -319,12 +319,12 @@
   {
     "patternId": "unnecessary-stmt",
     "title": "unnecessary-stmt",
-    "description": "This rule suggests to remove redundant statements like a `break` at the end of a case block, for improving the code's readability."
+    "description": "This rule suggests to remove redundant statements like a break at the end of a case block, for improving the code's readability."
   },
   {
     "patternId": "unreachable-code",
     "title": "unreachable-code",
-    "description": "This rule spots and proposes to remove [unreachable code](https://en.wikipedia.org/wiki/Unreachable_code)."
+    "description": "This rule spots and proposes to remove unreachable code."
   },
   {
     "patternId": "unused-parameter",
