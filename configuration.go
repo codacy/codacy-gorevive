@@ -13,7 +13,7 @@ import (
 
 const (
 	unnamedParamName     = "unnamedParam"
-	sourceConfigFileName = "codacyrc.toml"
+	sourceConfigFileName = "revive.toml"
 )
 
 // paramValue converts codacy's parameter into a revive parameter value
