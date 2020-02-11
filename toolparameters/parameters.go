@@ -2,8 +2,8 @@ package toolparameters
 
 import (
 	"fmt"
-
 	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"strconv"
 )
 
 // RuleParameter contains the definition of the parameters for a rule
@@ -13,7 +13,7 @@ type RuleParameter struct {
 	// Parameters list of parameters for the rule. If none, then the parameter will be unnamed
 	Parameters []codacy.PatternParameter
 	// Default value for the unnamed parameter
-	Default string
+	Default interface{}
 	// Description for the unnamed parameter
 	Description string
 	// Type of the unnamed parameter
@@ -37,6 +37,8 @@ var ruleParameters = []RuleParameter{
 	RuleParameter{
 		Name:        "file-header",
 		Description: "(string) the header to look for in source files.",
+		Default:     "",
+		Type:        StringType,
 	}, RuleParameter{
 		Name: "add-constant",
 		Parameters: []codacy.PatternParameter{
@@ -57,39 +59,39 @@ var ruleParameters = []RuleParameter{
 			},
 			codacy.PatternParameter{
 				Name:        "maxLitCount",
-				Default:     "",
+				Default:     "4",
 				Description: "(string) maximum number of instances of a string literal that are tolerated before warn.",
 			},
 		},
 	}, RuleParameter{
 		Name:        "line-length-limit",
 		Description: "(int) maximum line length in characters.",
-		Default:     "80",
+		Default:     80,
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "function-result-limit",
 		Description: "(int) the maximum allowed return values",
-		Default:     "3",
+		Default:     3,
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "max-public-structs",
 		Description: "(int) the maximum allowed public structs",
-		Default:     "3",
+		Default:     3,
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
-		Default:     "3",
+		Default:     3,
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "argument-limit",
 		Description: "(int) the maximum number of parameters allowed per function.",
-		Default:     "4",
+		Default:     4,
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "cognitive-complexity",
 		Description: "(int) the maximum function complexity",
-		Default:     "7",
+		Default:     7,
 		Type:        IntType,
 	},
 	RuleParameter{
@@ -123,11 +125,16 @@ func GetParametersForPattern(patternID string) []codacy.PatternParameter {
 	}
 
 	if len(rule.Parameters) == 0 {
+		defaultValue := rule.Default
+		if rule.Type == IntType {
+			defaultValue = strconv.Itoa(defaultValue.(int))
+		}
+
 		return []codacy.PatternParameter{
-			codacy.PatternParameter{
+			{
 				Name:        unnamedParamName,
 				Description: rule.Description,
-				Default:     rule.Default,
+				Default:     defaultValue,
 			},
 		}
 	}

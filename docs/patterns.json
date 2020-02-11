@@ -24,7 +24,7 @@
         },
         {
           "name": "maxLitCount",
-          "default": "",
+          "default": "4",
           "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
         }
       ]

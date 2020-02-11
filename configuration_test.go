@@ -60,10 +60,10 @@ func TestPatternsToToml(t *testing.T) {
 
 func TestConfigurationContentGeneration(t *testing.T) {
 	pattern, patternTomlExpected := patternStruct()
-	unnamedParamPatter, unnamedParamTomlExpected := patternUnnamedStruct()
+	unnamedParamPattern, unnamedParamTomlExpected := patternUnnamedStruct()
 	patterns := []codacy.Pattern{
 		pattern,
-		unnamedParamPatter,
+		unnamedParamPattern,
 	}
 
 	configContent := generateToolConfigurationContent(patterns)
