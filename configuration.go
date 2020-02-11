@@ -54,10 +54,29 @@ func unnamedParam(value interface{}) []interface{} {
 	return resultTmp
 }
 
+func defaultValues(parameterDefinition toolparameters.RuleParameter) []interface{} {
+	if len(parameterDefinition.Parameters) == 0 {
+		return []interface{}{
+			parameterDefinition.Default,
+		}
+	}
+
+	namedParameters := map[string]interface{}{}
+	for _, p := range parameterDefinition.Parameters {
+		namedParameters[p.Name] = p.Default
+	}
+	return []interface{}{
+		namedParameters,
+	}
+}
+
 // patternParametersAsReviveValues converts pattern parameters into a list of revive arguments
 func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
-	if len(pattern.Parameters) == 0 {
-		return []interface{}{}
+	parameterDefinition, err := toolparameters.FindRuleParameterDefinition(pattern.PatternID)
+
+	// if it has parameters and no values passed, use default values
+	if len(pattern.Parameters) == 0 && err == nil {
+		return defaultValues(parameterDefinition)
 	}
 
 	namedParameters := map[string]interface{}{}
