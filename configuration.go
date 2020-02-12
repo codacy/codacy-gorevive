@@ -16,6 +16,22 @@ const (
 	sourceConfigFileName = "revive.toml"
 )
 
+// paramValueByType checks the type of parameter according to the tool documentation
+func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
+	switch ruleDefinition.Type {
+	case toolparameters.ListType:
+		return strings.Split(paramValue.(string), ", ")
+	case toolparameters.IntType:
+		return int(paramValue.(float64))
+	case toolparameters.FloatType:
+		return paramValue.(float64)
+	case toolparameters.StringType:
+		return fmt.Sprintf("%v", paramValue)
+	default:
+		return paramValue
+	}
+}
+
 // paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
@@ -25,19 +41,13 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 		}
 	}
 
-	// check the type of parameter according to the tool documentation
-	switch ruleDefinition.Type {
-	case toolparameters.ListType:
-		return strings.Split(param.Value.(string), ", ")
-	case toolparameters.IntType:
-		return int(param.Value.(float64))
-	case toolparameters.FloatType:
-		return param.Value.(float64)
-	case toolparameters.StringType:
-		return param.Value.(string)
-	default:
-		return param.Value
+	for _, p := range ruleDefinition.Parameters {
+		if p.Name == param.Name {
+			return paramValueByType(param.Value, p)
+		}
 	}
+
+	return paramValueByType(param.Value, ruleDefinition)
 }
 
 func unnamedParam(value interface{}) []interface{} {
@@ -54,31 +64,8 @@ func unnamedParam(value interface{}) []interface{} {
 	return resultTmp
 }
 
-func defaultValues(parameterDefinition toolparameters.RuleParameter) []interface{} {
-	if len(parameterDefinition.Parameters) == 0 {
-		return []interface{}{
-			parameterDefinition.Default,
-		}
-	}
-
-	namedParameters := map[string]interface{}{}
-	for _, p := range parameterDefinition.Parameters {
-		namedParameters[p.Name] = p.Default
-	}
-	return []interface{}{
-		namedParameters,
-	}
-}
-
 // patternParametersAsReviveValues converts pattern parameters into a list of revive arguments
 func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
-	parameterDefinition, err := toolparameters.FindRuleParameterDefinition(pattern.PatternID)
-
-	// if it has parameters and no values passed, use default values
-	if len(pattern.Parameters) == 0 && err == nil {
-		return defaultValues(parameterDefinition)
-	}
-
 	namedParameters := map[string]interface{}{}
 	for _, p := range pattern.Parameters {
 		value := paramValue(p, pattern.PatternID)

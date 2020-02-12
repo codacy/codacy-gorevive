@@ -2,8 +2,9 @@ package toolparameters
 
 import (
 	"fmt"
-	codacy "github.com/codacy/codacy-engine-golang-seed"
 	"strconv"
+
+	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 
 // RuleParameter contains the definition of the parameters for a rule
@@ -11,7 +12,7 @@ type RuleParameter struct {
 	// Name rule name
 	Name string
 	// Parameters list of parameters for the rule. If none, then the parameter will be unnamed
-	Parameters []codacy.PatternParameter
+	Parameters []RuleParameter
 	// Default value for the unnamed parameter
 	Default interface{}
 	// Description for the unnamed parameter
@@ -41,25 +42,29 @@ var ruleParameters = []RuleParameter{
 		Type:        StringType,
 	}, RuleParameter{
 		Name: "add-constant",
-		Parameters: []codacy.PatternParameter{
-			codacy.PatternParameter{
+		Parameters: []RuleParameter{
+			{
 				Name:        "allowFloats",
 				Default:     "",
+				Type:        StringType,
 				Description: "(string) comma-separated list of allowed floats",
 			},
-			codacy.PatternParameter{
+			{
 				Name:        "allowInts",
 				Default:     "",
+				Type:        StringType,
 				Description: "allowInts",
 			},
-			codacy.PatternParameter{
+			{
 				Name:        "allowStrs",
 				Default:     "",
+				Type:        StringType,
 				Description: "(string) comma-separated list of allowed string literals",
 			},
-			codacy.PatternParameter{
+			{
 				Name:        "maxLitCount",
 				Default:     "4",
+				Type:        StringType,
 				Description: "(string) maximum number of instances of a string literal that are tolerated before warn.",
 			},
 		},
@@ -139,5 +144,18 @@ func GetParametersForPattern(patternID string) []codacy.PatternParameter {
 		}
 	}
 
-	return rule.Parameters
+	parameters := []codacy.PatternParameter{}
+	for _, param := range rule.Parameters {
+		defaultValue := param.Default
+		if rule.Type == IntType {
+			defaultValue = strconv.Itoa(defaultValue.(int))
+		}
+		parameters = append(parameters, codacy.PatternParameter{
+			Name:        param.Name,
+			Description: param.Description,
+			Default:     defaultValue,
+		})
+	}
+
+	return parameters
 }

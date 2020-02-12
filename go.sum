@@ -4,8 +4,8 @@ github.com/PuerkitoBio/goquery v1.5.0 h1:uGvmFXOA73IKluu/F84Xd1tt/z07GYm8X49XKHP
 github.com/PuerkitoBio/goquery v1.5.0/go.mod h1:qD2PgZ9lccMbQlc7eEOjaeRlFQON7xY8kdmcsrnKqMg=
 github.com/andybalholm/cascadia v1.0.0 h1:hOCXnnZ5A+3eVDX8pvgl4kofXv2ELss0bKcqRySc45o=
 github.com/andybalholm/cascadia v1.0.0/go.mod h1:GsXiBklL0woXo1j/WYWtSYYC4ouU9PqHO0sqidkEA4Y=
-github.com/codacy/codacy-engine-golang-seed v0.0.2 h1:4upTbVrJRoOy7WrTvSn9ewUw/rvYWMi57wgfR27+vfI=
-github.com/codacy/codacy-engine-golang-seed v0.0.2/go.mod h1:iYQr2cYEZ1o7I/TrxFb+5C4jy06Kdkx903atVM10qFA=
+github.com/codacy/codacy-engine-golang-seed v0.0.4 h1:x/sEA9anh1A4aG58/vmc/IySrGCGCBcWyhoAnXcon4Q=
+github.com/codacy/codacy-engine-golang-seed v0.0.4/go.mod h1:iYQr2cYEZ1o7I/TrxFb+5C4jy06Kdkx903atVM10qFA=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
