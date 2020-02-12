@@ -16,6 +16,22 @@ const (
 	sourceConfigFileName = "revive.toml"
 )
 
+// paramValueByType checks the type of parameter according to the tool documentation
+func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
+	switch ruleDefinition.Type {
+	case toolparameters.ListType:
+		return strings.Split(paramValue.(string), ", ")
+	case toolparameters.IntType:
+		return int(paramValue.(float64))
+	case toolparameters.FloatType:
+		return paramValue.(float64)
+	case toolparameters.StringType:
+		return fmt.Sprintf("%v", paramValue)
+	default:
+		return paramValue
+	}
+}
+
 // paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
@@ -25,19 +41,13 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 		}
 	}
 
-	// check the type of parameter according to the tool documentation
-	switch ruleDefinition.Type {
-	case toolparameters.ListType:
-		return strings.Split(param.Value.(string), ", ")
-	case toolparameters.IntType:
-		return int(param.Value.(float64))
-	case toolparameters.FloatType:
-		return param.Value.(float64)
-	case toolparameters.StringType:
-		return param.Value.(string)
-	default:
-		return param.Value
+	for _, p := range ruleDefinition.Parameters {
+		if p.Name == param.Name {
+			return paramValueByType(param.Value, p)
+		}
 	}
+
+	return paramValueByType(param.Value, ruleDefinition)
 }
 
 func unnamedParam(value interface{}) []interface{} {
