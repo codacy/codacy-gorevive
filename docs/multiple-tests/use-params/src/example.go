@@ -2,6 +2,7 @@ package example
 
 import (
 	"errors"
+	"fmt"
 )
 
 const (
@@ -11,4 +12,9 @@ const (
 
 func Public() {
 	var unexp = errors.New("some unexported error")
+	fmt.Printf("testing")
+	myFunction()
+}
+func myFunction() error {
+
 }

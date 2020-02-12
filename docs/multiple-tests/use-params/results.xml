@@ -2,6 +2,7 @@
 <checkstyle version="1.5">
     <file name="example.go">
         <error source="file-header" line="1" message="the file doesn't have an appropriate header" severity="info" />
-        <error source="line-length-limit" line="13" message="line is 51 characters, out of limit 50" severity="info" />
+        <error source="line-length-limit" line="14" message="line is 51 characters, out of limit 50" severity="info" />
+        <error source="unhandled-error" line="16" message="Unhandled error in call to function myFunction" severity="info" />
     </file>
 </checkstyle>

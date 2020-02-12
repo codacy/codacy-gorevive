@@ -9,6 +9,9 @@
     <module name="file-header">
         <property name="unnamedParam" value="foobar" />
     </module>
+    <module name="unhandled-error">
+        <property name="unnamedParam" value="fmt.Printf, fmt.Sprintf" />
+    </module>
     <module name="add-constant">
         <property name="allowFloats" value="0.0,4.0,5.0" />
         <property name="allowInts" value="1,2,3" />
