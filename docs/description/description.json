@@ -266,6 +266,11 @@
     "description": "Range variables in a loop are reused at each iteration; therefore a goroutine created in a loop will point to the range variable with from the upper scope. This way, the goroutine could use the variable with an undesired value."
   },
   {
+    "patternId": "range-val-address",
+    "title": "range-val-address",
+    "description": "Range variables in a loop are reused at each iteration. This rule warns when assigning the address of the variable, passing the address to append() or using it in a map. "
+  },
+  {
     "patternId": "receiver-naming",
     "title": "receiver-naming",
     "description": "By convention, receiver names in a method should reflect their identity. For example, if the receiver is of type Parts, p is an adequate name for it. Contrary to other languages, it is not idiomatic to name receivers as this or self."
@@ -274,6 +279,11 @@
     "patternId": "redefines-builtin-id",
     "title": "redefines-builtin-id",
     "description": "Constant names like false, true, nil, function names like append, make, and basic type names like bool, and byte are not reserved words of the language; therefore the can be redefined."
+  },
+  {
+    "patternId": "string-of-int",
+    "title": "string-of-int",
+    "description": " explicit type conversion string(i) where i has an integer type other than rune might behave not as expected by the developer (e.g. string(42) is not \"42\"). This rule spot that kind of suspicious conversions. "
   },
   {
     "patternId": "struct-tag",
