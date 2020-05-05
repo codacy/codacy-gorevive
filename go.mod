@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.1
-	github.com/codacy/codacy-engine-golang-seed v0.0.9
+	github.com/codacy/codacy-engine-golang-seed v0.0.10
 	github.com/pelletier/go-toml v1.7.0
 	github.com/stretchr/testify v1.5.1
 	github.com/writeas/go-strip-markdown v2.0.1+incompatible
