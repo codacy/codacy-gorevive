@@ -96,17 +96,17 @@ func reviveArguments(paramsValues []interface{}) map[string]interface{} {
 	}
 }
 
-func reviveRuleName(id string) string {
-	return "rule." + id
-}
-
 func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
 	patternsMap := map[string]interface{}{}
 	for _, pattern := range patterns {
 		paramsValues := patternParametersAsReviveValues(pattern)
-		patternsMap[reviveRuleName(pattern.PatternID)] = reviveArguments(paramsValues)
+		patternsMap[pattern.PatternID] = reviveArguments(paramsValues)
 	}
-	return patternsMap
+
+	rules := map[string]interface{}{
+		"rule": patternsMap,
+	}
+	return rules
 }
 
 func generateToolConfigurationContent(patterns []codacy.Pattern) string {
