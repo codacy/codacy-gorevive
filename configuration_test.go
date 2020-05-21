@@ -23,11 +23,13 @@ func patternStruct() (codacy.Pattern, string) {
 			Category: "UnusedCode",
 			Level:    "Info",
 		}, `
-[rule.testing]
+[rule]
 
-  [[rule.testing.arguments]]
-    param1 = "value1"
-    param2 = "value2"
+  [rule.testing]
+
+    [[rule.testing.arguments]]
+      param1 = "value1"
+      param2 = "value2"
 `
 }
 
@@ -46,8 +48,8 @@ func patternUnnamedStruct() (codacy.Pattern, string) {
 			Category: "UnusedCode",
 			Level:    "Info",
 		}, `
-[rule.testingUnnamed]
-  arguments = ["value1"]
+  [rule.testingUnnamed]
+    arguments = ["value1"]
 `
 }
 
@@ -55,7 +57,11 @@ func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
 	reviveConfigMap := patternsToReviveConfigMap([]codacy.Pattern{pattern})
-	assert.NotNil(t, reviveConfigMap[reviveRuleName(pattern.PatternID)], "Expected toml: %s to exist", reviveRuleName(pattern.PatternID))
+	value, ok := reviveConfigMap["rule"].(map[string]interface{})
+	if !ok {
+		assert.Fail(t, "Revive config map does not have the expected structure")
+	}
+	assert.NotNil(t, value[pattern.PatternID], "Expected toml: %s to exist", pattern.PatternID)
 }
 
 func TestConfigurationContentGeneration(t *testing.T) {
