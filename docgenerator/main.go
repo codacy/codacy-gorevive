@@ -88,7 +88,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 	fmt.Println("Creating patterns.json file...")
 
 	tool := codacy.ToolDefinition{
-		Name:     "codacy-gorevive",
+		Name:     "revive",
 		Version:  toolVersion,
 		Patterns: patterns,
 	}
