@@ -24,6 +24,8 @@ github.com/codacy/codacy-engine-golang-seed v0.0.12 h1:Z+n48l6unhNLETwNfZQdd8cfJ
 github.com/codacy/codacy-engine-golang-seed v0.0.12/go.mod h1:SX3/fSiePVt1G8IsjTq3a4Zk2EF/VeEYJAX/R+HpyDY=
 github.com/codacy/codacy-engine-golang-seed v0.1.0 h1:lo/4pCjqScfE2tQ3JxcD2hJDAqLgcP1Ap4gSCgzT8vs=
 github.com/codacy/codacy-engine-golang-seed v0.1.0/go.mod h1:SX3/fSiePVt1G8IsjTq3a4Zk2EF/VeEYJAX/R+HpyDY=
+github.com/codacy/codacy-engine-golang-seed v0.2.0 h1:1lPJWD7Ig6BTIpjqINdiSfwW/am01z9aF/iNOg9QVKQ=
+github.com/codacy/codacy-engine-golang-seed v0.2.0/go.mod h1:SX3/fSiePVt1G8IsjTq3a4Zk2EF/VeEYJAX/R+HpyDY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
