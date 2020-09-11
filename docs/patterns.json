@@ -27,7 +27,8 @@
           "default": "4",
           "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "argument-limit",
@@ -39,42 +40,50 @@
           "default": "4",
           "description": "(int) the maximum number of parameters allowed per function."
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "atomic",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "bare-return",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "blank-imports",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "bool-literal-in-expr",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "call-to-gc",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "confusing-naming",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "confusing-results",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "cognitive-complexity",
@@ -86,22 +95,26 @@
           "default": "7",
           "description": "(int) the maximum function complexity"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "constant-logical-expr",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "context-as-argument",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "context-keys-type",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "cyclomatic",
@@ -113,57 +126,68 @@
           "default": "3",
           "description": "(int) the maximum function complexity"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "deep-exit",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "dot-imports",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "duplicated-imports",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "empty-block",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "empty-lines",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "error-naming",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "error-return",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "error-strings",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "errorf",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "exported",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "file-header",
@@ -175,12 +199,14 @@
           "default": "",
           "description": "(string) the header to look for in source files."
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "flag-parameter",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "function-result-limit",
@@ -192,27 +218,32 @@
           "default": "3",
           "description": "(int) the maximum allowed return values"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "get-return",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "if-return",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "increment-decrement",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "indent-error-flow",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "imports-blacklist",
@@ -224,12 +255,14 @@
           "default": "\"crypto/md5\", \"crypto/sha1\"",
           "description": "(list of string) black-list of package names"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "import-shadowing",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "line-length-limit",
@@ -241,7 +274,8 @@
           "default": "80",
           "description": "(int) maximum line length in characters."
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "max-public-structs",
@@ -253,82 +287,98 @@
           "default": "3",
           "description": "(int) the maximum allowed public structs"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "modifies-parameter",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "modifies-value-receiver",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "package-comments",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "range",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "range-val-in-closure",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "range-val-address",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "receiver-naming",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "redefines-builtin-id",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "string-of-int",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "struct-tag",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "superfluous-else",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "time-naming",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "var-naming",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "var-declaration",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "unexported-return",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": true
     },
     {
       "patternId": "unhandled-error",
@@ -340,32 +390,38 @@
           "default": "\"fmt.Printf\"",
           "description": "(list of string) function names to ignore"
         }
-      ]
+      ],
+      "enabled": false
     },
     {
       "patternId": "unnecessary-stmt",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "unreachable-code",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "unused-parameter",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "unused-receiver",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "waitgroup-by-value",
       "category": "CodeStyle",
-      "level": "Info"
+      "level": "Info",
+      "enabled": false
     }
   ]
 }

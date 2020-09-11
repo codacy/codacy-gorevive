@@ -32,3 +32,8 @@ func getRulesDescriptionMarkdown(toolVersion string) (*os.File, error) {
 	rulesDescriptionFileURL := fmt.Sprintf("https://raw.githubusercontent.com/mgechev/revive/v%s/RULES_DESCRIPTIONS.md", toolVersion)
 	return downloadFile(rulesDescriptionFileURL)
 }
+
+func downloadDefaultsToml(toolVersion string) (*os.File, error) {
+	defaultsTomlFileURL := fmt.Sprintf("https://raw.githubusercontent.com/mgechev/revive/v%s/defaults.toml", toolVersion)
+	return downloadFile(defaultsTomlFileURL)
+}

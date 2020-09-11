@@ -7,13 +7,14 @@ import (
 
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 
-	"github.com/writeas/go-strip-markdown"
 	"io/ioutil"
 	"os"
 	"os/exec"
 	"path"
 	"regexp"
 	"strings"
+
+	stripmd "github.com/writeas/go-strip-markdown"
 )
 
 const (
@@ -55,7 +56,9 @@ func run() int {
 		return 1
 	}
 
-	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation)
+	defaultPatterns, err := getDefaultPatterns(toolVersion)
+
+	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation, defaultPatterns)
 	if err != nil {
 		fmt.Println(err.Error())
 		return 1
