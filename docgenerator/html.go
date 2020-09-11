@@ -8,7 +8,7 @@ import (
 	codacy "github.com/codacy/codacy-engine-golang-seed"
 )
 
-func getPatternsListFromDocumentationHTML(data string) ([]codacy.Pattern, error) {
+func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[string]interface{}) ([]codacy.Pattern, error) {
 	patterns := []codacy.Pattern{}
 
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(data))
@@ -21,6 +21,8 @@ func getPatternsListFromDocumentationHTML(data string) ([]codacy.Pattern, error)
 			internalUlHtml.Find("li").Each(func(index int, tablehtml *goquery.Selection) {
 				tablehtml.Find("a").Each(func(indextr int, rowhtml *goquery.Selection) {
 					patternID := rowhtml.Text()
+					_, enabledByDefault := defaultPatterns[patternID]
+
 					patterns = append(
 						patterns,
 						codacy.Pattern{
@@ -28,6 +30,7 @@ func getPatternsListFromDocumentationHTML(data string) ([]codacy.Pattern, error)
 							Category:   "CodeStyle",
 							Level:      "Info",
 							Parameters: toolparameters.GetParametersForPattern(patternID),
+							Enabled:    enabledByDefault,
 						},
 					)
 				})
