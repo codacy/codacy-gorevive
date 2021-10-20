@@ -10,7 +10,7 @@ RUN GO111MODULE=on go get -u github.com/mgechev/revive@v${TOOL_VERSION}
 ADD . .
 RUN go build -o bin/codacy-gorevive
 
-FROM alpine:3.9.5
+FROM alpine:3.14.2
 
 ENV PATH="/go/bin:${PATH}"
 COPY --from=builder /go /go
