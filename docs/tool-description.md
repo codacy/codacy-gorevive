@@ -1,0 +1,1 @@
+Revive is a fast, configurable, extensible, flexible, and beautiful linter for Go. Drop-in replacement of golint. Revive provides a framework for development of custom rules, and lets you define a strict preset for enhancing your development & code review processes. [Learn more](https://github.com/mgechev/revive)
