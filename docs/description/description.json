@@ -44,6 +44,11 @@
     "description": "Warns on bare (a.k.a. naked) returns"
   },
   {
+    "patternId": "banned-characters",
+    "title": "banned-characters",
+    "description": "Checks given banned characters in identifiers(func, var, const). Comments are not checked."
+  },
+  {
     "patternId": "blank-imports",
     "title": "blank-imports",
     "description": "Blank import should be only in a main or test package, or have a comment justifying it."
@@ -71,7 +76,7 @@
   {
     "patternId": "cognitive-complexity",
     "title": "cognitive-complexity",
-    "description": "Cognitive complexity is a measure of how hard code is to understand. ",
+    "description": "Cognitive complexity is a measure of how hard code is to understand.",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -111,6 +116,11 @@
     "description": "Packages exposing functions that can stop program execution by exiting are hard to reuse. This rule looks for program exits in functions other than main() or init()."
   },
   {
+    "patternId": "defer",
+    "title": "defer",
+    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:"
+  },
+  {
     "patternId": "dot-imports",
     "title": "dot-imports",
     "description": "Importing with . makes the programs much harder to understand because it is unclear whether names belong to the current package or to an imported package."
@@ -119,6 +129,11 @@
     "patternId": "duplicated-imports",
     "title": "duplicated-imports",
     "description": "It is possible to unintentionally import the same package twice. This rule looks for packages that are imported two or more times."
+  },
+  {
+    "patternId": "early-return",
+    "title": "early-return",
+    "description": "In GO it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like"
   },
   {
     "patternId": "empty-block",
@@ -183,9 +198,19 @@
     ]
   },
   {
+    "patternId": "function-length",
+    "title": "function-length",
+    "description": "Functions too long (with many statements and/or lines) can be hard to understand."
+  },
+  {
     "patternId": "get-return",
     "title": "get-return",
     "description": "Typically, functions with names prefixed with Get are supposed to return a value."
+  },
+  {
+    "patternId": "identical-branches",
+    "title": "identical-branches",
+    "description": "an if-then-else conditional with identical implementations in both branches is an error."
   },
   {
     "patternId": "if-return",
@@ -216,7 +241,7 @@
   {
     "patternId": "import-shadowing",
     "title": "import-shadowing",
-    "description": "In GO it is possible to declare identifiers (packages, structs, "
+    "description": "In GO it is possible to declare identifiers (packages, structs,"
   },
   {
     "patternId": "line-length-limit",
@@ -251,6 +276,16 @@
     "description": "A method that modifies its receiver value can have undesired behavior. The modification can be also the root of a bug because the actual value receiver could be a copy of that used at the calling site."
   },
   {
+    "patternId": "nested-structs",
+    "title": "nested-structs",
+    "description": "Packages declaring structs that contain other inline struct definitions can be hard to understand/read for other developers."
+  },
+  {
+    "patternId": "optimize-operands-order",
+    "title": "optimize-operands-order",
+    "description": "conditional expressions can be written to take advantage of short circuit evaluation and speed up its average evaluation time by forcing the evaluation of less time-consuming terms before more costly ones. This rule spots logical expressions where the order of evaluation of terms seems non optimal. Please notice that confidence of this rule is low and is up to the user to decide if the suggested rewrite of the expression keeps the semantics of the original one."
+  },
+  {
     "patternId": "package-comments",
     "title": "package-comments",
     "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the package keyword."
@@ -268,7 +303,7 @@
   {
     "patternId": "range-val-address",
     "title": "range-val-address",
-    "description": "Range variables in a loop are reused at each iteration. This rule warns when assigning the address of the variable, passing the address to append() or using it in a map. "
+    "description": "Range variables in a loop are reused at each iteration. This rule warns when assigning the address of the variable, passing the address to append() or using it in a map."
   },
   {
     "patternId": "receiver-naming",
@@ -283,7 +318,7 @@
   {
     "patternId": "string-of-int",
     "title": "string-of-int",
-    "description": " explicit type conversion string(i) where i has an integer type other than rune might behave not as expected by the developer (e.g. string(42) is not \"42\"). This rule spot that kind of suspicious conversions. "
+    "description": " explicit type conversion string(i) where i has an integer type other than rune might behave not as expected by the developer (e.g. string(42) is not \"42\"). This rule spot that kind of suspicious conversions."
   },
   {
     "patternId": "struct-tag",
@@ -291,9 +326,19 @@
     "description": "Struct tags are not checked at compile time."
   },
   {
+    "patternId": "string-format",
+    "title": "string-format",
+    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against."
+  },
+  {
     "patternId": "superfluous-else",
     "title": "superfluous-else",
     "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible."
+  },
+  {
+    "patternId": "time-equal",
+    "title": "time-equal",
+    "description": "This rule warns when using == and != for equality check time.Time and suggest to time.time.Equal method, for about information follow this link"
   },
   {
     "patternId": "time-naming",
@@ -303,12 +348,22 @@
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when variable or package naming conventions are not followed."
+    "description": "This rule warns when initialism, variable or package naming conventions are not followed."
   },
   {
     "patternId": "var-declaration",
     "title": "var-declaration",
     "description": "This rule proposes simplifications of variable declarations."
+  },
+  {
+    "patternId": "unconditional-recursion",
+    "title": "unconditional-recursion",
+    "description": "Unconditional recursive calls will produce infinite recursion, thus program stack overflow. This rule detects and warns about unconditional (direct) recursive calls."
+  },
+  {
+    "patternId": "unexported-naming",
+    "title": "unexported-naming",
+    "description": "this rule warns on wrongly named un-exported symbols, i.e. un-exported symbols whose name start with a capital letter."
   },
   {
     "patternId": "unexported-return",
@@ -345,6 +400,16 @@
     "patternId": "unused-receiver",
     "title": "unused-receiver",
     "description": "This rule warns on unused method receivers. Methods with unused receivers can be a symptom of an unfinished refactoring or a bug."
+  },
+  {
+    "patternId": "use-any",
+    "title": "use-any",
+    "description": "Since GO 1.18, interface{} has an alias: any. This rule proposes to replace instances of interface{} with any."
+  },
+  {
+    "patternId": "useless-break",
+    "title": "useless-break",
+    "description": "This rule warns on useless break statements in case clauses of switch and select statements. GO, unlike other programming languages like C, only executes statements of the selected case while ignoring the subsequent case clauses."
   },
   {
     "patternId": "waitgroup-by-value",

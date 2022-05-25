@@ -53,6 +53,14 @@ This documentation should be generated automatically by using the Documentation 
 make build-docs
 ```
 
+##### Common errors
+###### missing go.sum entry for module providing package
+run `go mod tidy`
+###### zsyscall_darwin_arm64 (Apple m1)
+run `go get -u golang.org/x/sys`
+###### "pandoc": executable file not found in $PATH
+run `brew install pandoc`
+
 #### Test
 
 Follow the instructions at [codacy-plugins-test](https://github.com/codacy/codacy-plugins-test).
