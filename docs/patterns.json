@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.0.2",
+  "version": "1.2.1",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -51,6 +51,12 @@
     },
     {
       "patternId": "bare-return",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "banned-characters",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -136,6 +142,12 @@
       "enabled": false
     },
     {
+      "patternId": "defer",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "dot-imports",
       "category": "CodeStyle",
       "level": "Info",
@@ -143,6 +155,12 @@
     },
     {
       "patternId": "duplicated-imports",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "early-return",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -222,7 +240,19 @@
       "enabled": false
     },
     {
+      "patternId": "function-length",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "get-return",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "identical-branches",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -303,6 +333,18 @@
       "enabled": false
     },
     {
+      "patternId": "nested-structs",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "optimize-operands-order",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "package-comments",
       "category": "CodeStyle",
       "level": "Info",
@@ -351,7 +393,19 @@
       "enabled": false
     },
     {
+      "patternId": "string-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "superfluous-else",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "time-equal",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -373,6 +427,18 @@
       "category": "CodeStyle",
       "level": "Info",
       "enabled": true
+    },
+    {
+      "patternId": "unconditional-recursion",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unexported-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "unexported-return",
@@ -413,6 +479,18 @@
     },
     {
       "patternId": "unused-receiver",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "use-any",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "useless-break",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
