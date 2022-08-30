@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -133,6 +133,12 @@
           "description": "(int) the maximum function complexity"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "datarace",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
