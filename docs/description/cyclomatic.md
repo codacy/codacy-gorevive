@@ -10,4 +10,3 @@ Example:
 [rule.cyclomatic]
   arguments =[3]
 ```
-
