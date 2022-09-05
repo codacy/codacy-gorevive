@@ -31,7 +31,7 @@ jobs:
       - run: 
           name: Run golintci
           command: |
-            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.23.3
+            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.49.0
             golangci-lint run --disable-all -E gofmt .
 
 workflows:
