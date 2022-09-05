@@ -7,7 +7,7 @@ orbs:
 jobs:
   unit_test:
     docker:
-      - image: cimg/go:1.19.0
+      - image: circleci/golang:1.19
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
@@ -18,7 +18,7 @@ jobs:
 
   lint: 
     docker:
-      - image: cimg/go:1.19.0
+      - image: circleci/golang:1.19
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
