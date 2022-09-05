@@ -53,6 +53,9 @@ This documentation should be generated automatically by using the Documentation 
 make build-docs
 ```
 
+#### Bumping the version
+Update the .tool_version file as well as the one from config.yml with the latest revive version.
+
 ##### Common errors
 ###### missing go.sum entry for module providing package
 run `go mod tidy`

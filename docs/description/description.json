@@ -111,6 +111,11 @@
     ]
   },
   {
+    "patternId": "datarace",
+    "title": "datarace",
+    "description": "This rule spots potential dataraces caused by go-routines capturing (by-reference) particular identifiers of the function from which go-routines are created. The rule is able to spot two of such cases: go-routines capturing named return values, and capturing for-range values."
+  },
+  {
     "patternId": "deep-exit",
     "title": "deep-exit",
     "description": "Packages exposing functions that can stop program execution by exiting are hard to reuse. This rule looks for program exits in functions other than main() or init()."

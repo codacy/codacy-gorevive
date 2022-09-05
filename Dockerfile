@@ -1,11 +1,11 @@
-FROM golang:1.13.5-alpine as builder
+FROM golang:1.18.5-alpine as builder
 
 ARG TOOL_VERSION
 
 WORKDIR /src
 
 RUN apk add git
-RUN GO111MODULE=on go get -u github.com/mgechev/revive@v${TOOL_VERSION}
+RUN GO111MODULE=on go install github.com/mgechev/revive@v${TOOL_VERSION}
 
 ADD . .
 RUN go build -o bin/codacy-gorevive

@@ -7,7 +7,7 @@ orbs:
 jobs:
   unit_test:
     docker:
-      - image: circleci/golang:1.13
+      - image: cimg/go:1.19.0
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
@@ -18,7 +18,7 @@ jobs:
 
   lint: 
     docker:
-      - image: circleci/golang:1.13
+      - image: cimg/go:1.19.0
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
@@ -26,12 +26,12 @@ jobs:
       - run:
           name: Run go revive
           command: |
-            go get -u github.com/mgechev/revive
+            go install github.com/mgechev/revive@v1.2.3
             revive -exclude docs/multiple-tests/... -exclude test/... ./...
       - run: 
           name: Run golintci
           command: |
-            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.23.3
+            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.49.0
             golangci-lint run --disable-all -E gofmt .
 
 workflows:
