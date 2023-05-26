@@ -79,6 +79,22 @@ var ruleParameters = []RuleParameter{
 		Default:     3,
 		Type:        IntType,
 	}, RuleParameter{
+		Name: "function-length",
+		Parameters: []RuleParameter{
+			{
+				Name:        "maxStatements",
+				Default:     10,
+				Type:        IntType,
+				Description: "(int) the maximum allowed statements",
+			},
+			{
+				Name:        "maxLines",
+				Default:     0,
+				Type:        IntType,
+				Description: "(int) the maximum allowed lines",
+			},
+		},
+	}, RuleParameter{
 		Name:        "max-public-structs",
 		Description: "(int) the maximum allowed public structs",
 		Default:     3,

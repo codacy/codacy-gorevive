@@ -1,6 +1,6 @@
 ## early-return
 
-_Description_: In GO it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like
+_Description_: In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like
 ```go
 if cond {
   // do something
@@ -9,7 +9,7 @@ if cond {
   return ...
 }
 ```
-that can be rewritten into more idiomatic:
+where the `if` condition may be inverted in order to reduce nesting:
 ```go
 if ! cond {
   // do other thing

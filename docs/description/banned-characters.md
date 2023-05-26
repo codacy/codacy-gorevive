@@ -2,7 +2,7 @@
 
 _Description_: Checks given banned characters in identifiers(func, var, const). Comments are not checked.
 
-_Configuration_: This rule accepts a slice of strings, the characters to ban.
+_Configuration_: This rule requires a slice of strings, the characters to ban.
 
 Example:
 

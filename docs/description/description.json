@@ -69,6 +69,11 @@
     "description": "Methods or fields of struct that have names different only by capitalization could be confusing."
   },
   {
+    "patternId": "comment-spacings",
+    "title": "comment-spacings",
+    "description": "Spots comments of the form:"
+  },
+  {
     "patternId": "confusing-results",
     "title": "confusing-results",
     "description": "Function or methods that return multiple, no named, values of the same type could induce error."
@@ -138,7 +143,7 @@
   {
     "patternId": "early-return",
     "title": "early-return",
-    "description": "In GO it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like"
+    "description": "In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like"
   },
   {
     "patternId": "empty-block",
