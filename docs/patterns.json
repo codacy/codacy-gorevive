@@ -92,14 +92,20 @@
       "enabled": false
     },
     {
+      "patternId": "call-to-gc",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "cognitive-complexity",
       "category": "CodeStyle",
       "level": "Info",
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "7",
-          "description": "(int) the maximum function complexity"
+          "description": "(int) the maximum function complexity",
+          "default": 7
         }
       ],
       "enabled": false
@@ -148,7 +154,7 @@
         {
           "name": "unnamedParam",
           "description": "(int) the maximum function complexity",
-          "default": "3"
+          "default": 3
         }
       ],
       "enabled": false
