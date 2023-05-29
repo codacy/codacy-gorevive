@@ -1,9 +1,8 @@
-module codacy.com/codacy-gorevive/v2
+module codacy.com/codacy-gorevive
 
-go 1.19
+go 1.20
 
 require (
-	codacy.com/codacy-gorevive v0.0.0-20230526101849-83b927e3a23e
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/codacy/codacy-engine-golang-seed v1.0.0
 	github.com/pelletier/go-toml v1.9.2
