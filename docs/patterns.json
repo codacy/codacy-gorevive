@@ -9,23 +9,28 @@
       "parameters": [
         {
           "name": "allowFloats",
-          "default": "",
-          "description": "(string) comma-separated list of allowed floats"
+          "description": "(string) comma-separated list of allowed floats",
+          "default": ""
         },
         {
           "name": "allowInts",
-          "default": "",
-          "description": "allowInts"
+          "description": "(string) comma-separated list of allowed integers",
+          "default": ""
         },
         {
           "name": "allowStrs",
-          "default": "",
-          "description": "(string) comma-separated list of allowed string literals"
+          "description": "(string) comma-separated list of allowed string literals",
+          "default": ""
         },
         {
           "name": "maxLitCount",
-          "default": "4",
-          "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+          "description": "(string) maximum number of instances of a string literal that are tolerated before warn",
+          "default": "4"
+        },
+        {
+          "name": "ignoreFuncs",
+          "description": "(string) comma-separated list of function names regexp patterns to exclude",
+          "default": ""
         }
       ],
       "enabled": false
@@ -37,8 +42,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "4",
-          "description": "(int) the maximum number of parameters allowed per function."
+          "description": "(int) the maximum number of parameters allowed per function",
+          "default": "4"
         }
       ],
       "enabled": false
@@ -59,6 +64,13 @@
       "patternId": "banned-characters",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")",
+          "default": ""
+        }
+      ],
       "enabled": false
     },
     {
@@ -80,6 +92,19 @@
       "enabled": false
     },
     {
+      "patternId": "cognitive-complexity",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "7",
+          "description": "(int) the maximum function complexity"
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "confusing-naming",
       "category": "CodeStyle",
       "level": "Info",
@@ -95,19 +120,6 @@
       "patternId": "confusing-results",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "cognitive-complexity",
-      "category": "CodeStyle",
-      "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "7",
-          "description": "(int) the maximum function complexity"
-        }
-      ],
       "enabled": false
     },
     {
@@ -135,8 +147,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "3",
-          "description": "(int) the maximum function complexity"
+          "description": "(int) the maximum function complexity",
+          "default": "3"
         }
       ],
       "enabled": false
@@ -157,6 +169,13 @@
       "patternId": "defer",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the unused params in functions",
+          "default": "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\""
+        }
+      ],
       "enabled": false
     },
     {
@@ -175,6 +194,13 @@
       "patternId": "early-return",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the flags (\"preserveScope\")",
+          "default": ""
+        }
+      ],
       "enabled": false
     },
     {
@@ -205,6 +231,13 @@
       "patternId": "error-strings",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the error functions",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -217,6 +250,13 @@
       "patternId": "exported",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -226,8 +266,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "",
-          "description": "(string) the header to look for in source files."
+          "description": "(string) the header to look for in source files",
+          "default": ""
         }
       ],
       "enabled": false
@@ -239,22 +279,34 @@
       "enabled": false
     },
     {
+      "patternId": "function-length",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "maxStmt",
+          "description": "(int) maximum number of statements per function",
+          "default": 50
+        },
+        {
+          "name": "maxLines",
+          "description": "(int) maximum number of lines per function",
+          "default": 75
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "function-result-limit",
       "category": "CodeStyle",
       "level": "Info",
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "3",
-          "description": "(int) the maximum allowed return values"
+          "description": "(int) the maximum allowed return values",
+          "default": 3
         }
       ],
-      "enabled": false
-    },
-    {
-      "patternId": "function-length",
-      "category": "CodeStyle",
-      "level": "Info",
       "enabled": false
     },
     {
@@ -276,6 +328,19 @@
       "enabled": true
     },
     {
+      "patternId": "imports-blacklist",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) black-list of package names",
+          "default": "\"crypto/md5\", \"crypto/sha1\""
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "increment-decrement",
       "category": "CodeStyle",
       "level": "Info",
@@ -285,20 +350,14 @@
       "patternId": "indent-error-flow",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
-    },
-    {
-      "patternId": "imports-blacklist",
-      "category": "CodeStyle",
-      "level": "Info",
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"crypto/md5\", \"crypto/sha1\"",
-          "description": "(list of string) black-list of package names"
+          "description": "(list of string) the flags (\"preserveScope\")",
+          "default": ""
         }
       ],
-      "enabled": false
+      "enabled": true
     },
     {
       "patternId": "import-shadowing",
@@ -313,8 +372,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "80",
-          "description": "(int) maximum line length in characters."
+          "description": "(int) maximum line length in characters",
+          "default": 80
         }
       ],
       "enabled": false
@@ -326,8 +385,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "3",
-          "description": "(int) the maximum allowed public structs"
+          "description": "(int) the maximum allowed public structs",
+          "default": 5
         }
       ],
       "enabled": false
@@ -393,6 +452,19 @@
       "enabled": true
     },
     {
+      "patternId": "string-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
+          "default": ""
+        }
+      ],
+      "enabled": false
+    },
+    {
       "patternId": "string-of-int",
       "category": "CodeStyle",
       "level": "Info",
@@ -402,18 +474,26 @@
       "patternId": "struct-tag",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "string-format",
-      "category": "CodeStyle",
-      "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) user defined options",
+          "default": ""
+        }
+      ],
       "enabled": false
     },
     {
       "patternId": "superfluous-else",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "description": "(list of string) the flags (\"preserveScope\")",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -429,15 +509,27 @@
       "enabled": true
     },
     {
-      "patternId": "var-naming",
+      "patternId": "var-declaration",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": true
     },
     {
-      "patternId": "var-declaration",
+      "patternId": "var-naming",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "whitelist",
+          "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
+          "default": ""
+        },
+        {
+          "name": "blacklist",
+          "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
+          "default": ""
+        }
+      ],
       "enabled": true
     },
     {
@@ -465,8 +557,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"fmt.Printf\"",
-          "description": "(list of string) function names to ignore"
+          "description": "(list of string) function names to ignore",
+          "default": "\"fmt.Printf\""
         }
       ],
       "enabled": false
