@@ -424,6 +424,11 @@
     "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type time.Duration can be misleading, this rule highlights those cases."
   },
   {
+    "patternId": "var-declaration",
+    "title": "var-declaration",
+    "description": "This rule proposes simplifications of variable declarations."
+  },
+  {
     "patternId": "var-naming",
     "title": "var-naming",
     "description": "This rule warns when initialism, variable or package naming conventions are not followed.",
