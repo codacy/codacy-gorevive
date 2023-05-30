@@ -10,7 +10,7 @@
       },
       {
         "name": "allowInts",
-        "description": "allowInts"
+        "description": "(string) comma-separated list of allowed integers"
       },
       {
         "name": "allowStrs",
@@ -18,7 +18,11 @@
       },
       {
         "name": "maxLitCount",
-        "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+        "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
+      },
+      {
+        "name": "ignoreFuncs",
+        "description": "(string) comma-separated list of function names regexp patterns to exclude"
       }
     ]
   },
@@ -29,7 +33,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(int) the maximum number of parameters allowed per function."
+        "description": "(int) the maximum number of parameters allowed per function"
       }
     ]
   },
@@ -46,7 +50,13 @@
   {
     "patternId": "banned-characters",
     "title": "banned-characters",
-    "description": "Checks given banned characters in identifiers(func, var, const). Comments are not checked."
+    "description": "Checks given banned characters in identifiers(func, var, const). Comments are not checked.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
+      }
+    ]
   },
   {
     "patternId": "blank-imports",
@@ -128,7 +138,13 @@
   {
     "patternId": "defer",
     "title": "defer",
-    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:"
+    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the unused params in functions"
+      }
+    ]
   },
   {
     "patternId": "dot-imports",
@@ -143,7 +159,13 @@
   {
     "patternId": "early-return",
     "title": "early-return",
-    "description": "In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like"
+    "description": "In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the flags (\"preserveScope\")"
+      }
+    ]
   },
   {
     "patternId": "empty-block",
@@ -168,7 +190,13 @@
   {
     "patternId": "error-strings",
     "title": "error-strings",
-    "description": "By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline."
+    "description": "By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the error functions"
+      }
+    ]
   },
   {
     "patternId": "errorf",
@@ -178,7 +206,13 @@
   {
     "patternId": "exported",
     "title": "exported",
-    "description": "Exported function and methods should have comments. This warns on undocumented exported functions and methods."
+    "description": "Exported function and methods should have comments. This warns on undocumented exported functions and methods.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
+      }
+    ]
   },
   {
     "patternId": "file-header",
@@ -187,7 +221,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(string) the header to look for in source files."
+        "description": "(string) the header to look for in source files"
       }
     ]
   },
@@ -235,7 +269,13 @@
   {
     "patternId": "indent-error-flow",
     "title": "indent-error-flow",
-    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible."
+    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the flags (\"preserveScope\")"
+      }
+    ]
   },
   {
     "patternId": "imports-blacklist",
@@ -244,7 +284,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) black-list of package names"
+        "description": "(list of string) black-list of package names (can be represented using regexp)"
       }
     ]
   },
@@ -260,7 +300,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(int) maximum line length in characters."
+        "description": "(int) maximum line length in characters"
       }
     ]
   },
@@ -333,17 +373,35 @@
   {
     "patternId": "struct-tag",
     "title": "struct-tag",
-    "description": "Struct tags are not checked at compile time."
+    "description": "Struct tags are not checked at compile time.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) list of user defined options"
+      }
+    ]
   },
   {
     "patternId": "string-format",
     "title": "string-format",
-    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against."
+    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
+      }
+    ]
   },
   {
     "patternId": "superfluous-else",
     "title": "superfluous-else",
-    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible."
+    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the flags (\"preserveScope\")"
+      }
+    ]
   },
   {
     "patternId": "time-equal",
@@ -358,7 +416,17 @@
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when initialism, variable or package naming conventions are not followed."
+    "description": "This rule warns when initialism, variable or package naming conventions are not followed.",
+    "parameters": [
+      {
+        "name": "whitelist",
+        "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")"
+      },
+      {
+        "name": "blacklist",
+        "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
+      }
+    ]
   },
   {
     "patternId": "var-declaration",
@@ -387,7 +455,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) function names to ignore"
+        "description": "(list of string) function names regexp patterns to ignore"
       }
     ]
   },

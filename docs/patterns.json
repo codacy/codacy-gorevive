@@ -15,7 +15,7 @@
         {
           "name": "allowInts",
           "default": "",
-          "description": "allowInts"
+          "description": "(string) comma-separated list of allowed integers"
         },
         {
           "name": "allowStrs",
@@ -25,7 +25,12 @@
         {
           "name": "maxLitCount",
           "default": "4",
-          "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+          "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
+        },
+        {
+          "name": "ignoreFuncs",
+          "default": "",
+          "description": "(string) comma-separated list of function names regexp patterns to exclude"
         }
       ],
       "enabled": false
@@ -38,7 +43,7 @@
         {
           "name": "unnamedParam",
           "default": "4",
-          "description": "(int) the maximum number of parameters allowed per function."
+          "description": "(int) the maximum number of parameters allowed per function"
         }
       ],
       "enabled": false
@@ -59,6 +64,13 @@
       "patternId": "banned-characters",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
+        }
+      ],
       "enabled": false
     },
     {
@@ -157,6 +169,13 @@
       "patternId": "defer",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
+          "description": "(list of string) the unused params in functions"
+        }
+      ],
       "enabled": false
     },
     {
@@ -175,6 +194,13 @@
       "patternId": "early-return",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the flags (\"preserveScope\")"
+        }
+      ],
       "enabled": false
     },
     {
@@ -205,6 +231,13 @@
       "patternId": "error-strings",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the error functions"
+        }
+      ],
       "enabled": true
     },
     {
@@ -217,6 +250,13 @@
       "patternId": "exported",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
+        }
+      ],
       "enabled": true
     },
     {
@@ -227,7 +267,7 @@
         {
           "name": "unnamedParam",
           "default": "",
-          "description": "(string) the header to look for in source files."
+          "description": "(string) the header to look for in source files"
         }
       ],
       "enabled": false
@@ -285,6 +325,13 @@
       "patternId": "indent-error-flow",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the flags (\"preserveScope\")"
+        }
+      ],
       "enabled": true
     },
     {
@@ -295,7 +342,7 @@
         {
           "name": "unnamedParam",
           "default": "\"crypto/md5\", \"crypto/sha1\"",
-          "description": "(list of string) black-list of package names"
+          "description": "(list of string) black-list of package names (can be represented using regexp)"
         }
       ],
       "enabled": false
@@ -314,7 +361,7 @@
         {
           "name": "unnamedParam",
           "default": "80",
-          "description": "(int) maximum line length in characters."
+          "description": "(int) maximum line length in characters"
         }
       ],
       "enabled": false
@@ -326,7 +373,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "3",
+          "default": "5",
           "description": "(int) the maximum allowed public structs"
         }
       ],
@@ -402,18 +449,39 @@
       "patternId": "struct-tag",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) list of user defined options"
+        }
+      ],
       "enabled": false
     },
     {
       "patternId": "string-format",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
+        }
+      ],
       "enabled": false
     },
     {
       "patternId": "superfluous-else",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the flags (\"preserveScope\")"
+        }
+      ],
       "enabled": true
     },
     {
@@ -432,6 +500,18 @@
       "patternId": "var-naming",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "whitelist",
+          "default": "",
+          "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")"
+        },
+        {
+          "name": "blacklist",
+          "default": "",
+          "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
+        }
+      ],
       "enabled": true
     },
     {
@@ -466,7 +546,7 @@
         {
           "name": "unnamedParam",
           "default": "\"fmt.Printf\"",
-          "description": "(list of string) function names to ignore"
+          "description": "(list of string) function names regexp patterns to ignore"
         }
       ],
       "enabled": false
