@@ -72,14 +72,24 @@ var ruleParameters = []RuleParameter{
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "banned-characters",
-		Description: "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")",
-		Default:     "",
+		Description: "(list of string) the characters to ban",
+		Default:     "\"Ω\",\"Σ\",\"σ\"",
 		Type:        ListType,
 	}, RuleParameter{
 		Name:        "cognitive-complexity",
 		Description: "(int) the maximum function complexity",
 		Default:     7,
 		Type:        IntType,
+	}, RuleParameter{
+		Name:        "comment-spacings",
+		Description: "(list of string) the exceptions",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "context-as-argument",
+		Description: "(string) the exceptions",
+		Default:     "{allowTypesBefore = \"\"}",
+		Type:        StringType,
 	}, RuleParameter{
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
@@ -88,7 +98,7 @@ var ruleParameters = []RuleParameter{
 	}, RuleParameter{
 		Name:        "defer",
 		Description: "(list of string) the unused params in functions",
-		Default:     "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
+		Default:     "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
 		Type:        ListType,
 	}, RuleParameter{
 		Name:        "early-return",
@@ -102,7 +112,7 @@ var ruleParameters = []RuleParameter{
 		Type:        ListType,
 	}, RuleParameter{
 		Name:        "exported",
-		Description: "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")",
+		Description: "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")",
 		Default:     "",
 		Type:        ListType,
 	}, RuleParameter{
