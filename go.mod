@@ -5,8 +5,8 @@ go 1.20
 require (
 	github.com/PuerkitoBio/goquery v1.8.1
 	github.com/codacy/codacy-engine-golang-seed v1.0.0
-	github.com/pelletier/go-toml v1.9.2
-	github.com/stretchr/testify v1.8.3
+	github.com/pelletier/go-toml v1.9.5
+	github.com/stretchr/testify v1.8.4
 	github.com/writeas/go-strip-markdown v2.0.1+incompatible
 )
 

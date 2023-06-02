@@ -67,8 +67,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
+          "default": "\"Ω\",\"Σ\",\"σ\"",
+          "description": "(list of string) the characters to ban"
         }
       ],
       "enabled": false
@@ -101,6 +101,13 @@
       "patternId": "comment-spacings",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the exceptions"
+        }
+      ],
       "enabled": false
     },
     {
@@ -132,6 +139,13 @@
       "patternId": "context-as-argument",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "{allowTypesBefore = \"\"}",
+          "description": "(string) the exceptions"
+        }
+      ],
       "enabled": true
     },
     {
@@ -172,7 +186,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
+          "default": "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
           "description": "(list of string) the unused params in functions"
         }
       ],
@@ -254,7 +268,7 @@
         {
           "name": "unnamedParam",
           "default": "",
-          "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
+          "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
         }
       ],
       "enabled": true

@@ -54,7 +54,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
+        "description": "(list of string) the characters to ban"
       }
     ]
   },
@@ -81,7 +81,13 @@
   {
     "patternId": "comment-spacings",
     "title": "comment-spacings",
-    "description": "Spots comments of the form:"
+    "description": "Spots comments of the form:",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) the exceptions"
+      }
+    ]
   },
   {
     "patternId": "confusing-results",
@@ -107,7 +113,13 @@
   {
     "patternId": "context-as-argument",
     "title": "context-as-argument",
-    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention."
+    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(string) the exceptions"
+      }
+    ]
   },
   {
     "patternId": "context-keys-type",
@@ -210,7 +222,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
+        "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
       }
     ]
   },
