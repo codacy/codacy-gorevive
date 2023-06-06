@@ -90,26 +90,16 @@ var ruleParameters = []RuleParameter{
 		Parameters: []RuleParameter{
 			{
 				Name:        "allowTypesBefore",
-				Description: "(string) comma-separated list of exceptions",
+				Description: "(list of string) comma-separated list of exceptions",
 				Default:     "",
-				Type:        StringType,
-			}
+				Type:        ListType,
+			},
 		},
 	}, RuleParameter{
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
 		Default:     3,
 		Type:        IntType,
-	// }, RuleParameter{
-	// 	Name:        "defer",
-	// 	Description: "(string) the unused params in functions",
-	// 	Default:     "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
-	// 	Type:        StringType,
-	// }, RuleParameter{
-	// 	Name:        "exported",
-	// 	Description: "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")",
-	// 	Default:     "",
-	// 	Type:        ListType,
 	}, RuleParameter{
 		Name:        "file-header",
 		Description: "(string) the header to look for in source files",
@@ -150,6 +140,28 @@ var ruleParameters = []RuleParameter{
 		Description: "(int) the maximum allowed public structs",
 		Default:     3,
 		Type:        IntType,
+	}, RuleParameter{
+		Name:        "superfluous-else",
+		Description: "(list of string) the flags (\"preserveScope\")",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "unhandled-error",
+		Description: "(list of string) function names regexp patterns to ignore",
+		Default:     "\"fmt.Printf\"",
+		Type:        ListType,
+	},
+
+	// RuleParameter{
+	// 	Name:        "defer",
+	// 	Description: "(string) the unused params in functions",
+	// 	Default:     "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
+	// 	Type:        StringType,
+	// }, RuleParameter{
+	// 	Name:        "exported",
+	// 	Description: "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")",
+	// 	Default:     "",
+	// 	Type:        ListType,
 	// }, RuleParameter{
 	// 	Name:        "string-format",
 	// 	Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
@@ -160,11 +172,6 @@ var ruleParameters = []RuleParameter{
 	// 	Description: "(list of string) list of user defined options",
 	// 	Default:     "",
 	// 	Type:        ListType,
-	}, RuleParameter{
-		Name:        "superfluous-else",
-		Description: "(list of string) the flags (\"preserveScope\")",
-		Default:     "",
-		Type:        ListType,
 	// }, RuleParameter{
 	// 	Name:        "var-naming",
 	// 	Parameters: []RuleParameter{
@@ -180,12 +187,7 @@ var ruleParameters = []RuleParameter{
 	// 			Type:        ListType,
 	// 		},
 	// 	},
-	}, RuleParameter{
-		Name:        "unhandled-error",
-		Description: "(list of string) function names regexp patterns to ignore",
-		Default:     "\"fmt.Printf\"",
-		Type:        ListType,
-	},
+
 }
 
 // FindRuleParameterDefinition finds the parameter definition for a rule. If it does not find, an error is returned
