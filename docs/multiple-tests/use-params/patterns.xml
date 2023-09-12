@@ -16,6 +16,7 @@
         <property name="allowFloats" value="0.0,4.0,5.0" />
         <property name="allowInts" value="1,2,3" />
         <property name="allowStrs" value="foobar" />
-        <property name="maxLitCount" value="&quot;1&quot;" />
+        <property name="maxLitCount" value="2" />
+        <property name="ignoreFuncs" value="os\\.*,make" />
     </module>
 </module>

@@ -187,6 +187,43 @@ var ruleParameters = []RuleParameter{
 		Default:     "\"fmt.Printf\"",
 		Type:        ListType,
 	},
+
+	// RuleParameter{
+	// 	Name:        "defer",
+	// 	Description: "(string) the unused params in functions",
+	// 	Default:     "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
+	// 	Type:        StringType,
+	// }, RuleParameter{
+	// 	Name:        "exported",
+	// 	Description: "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")",
+	// 	Default:     "",
+	// 	Type:        ListType,
+	// }, RuleParameter{
+	// 	Name:        "string-format",
+	// 	Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
+	// 	Default:     "",
+	// 	Type:        ListType,
+	// }, RuleParameter{
+	// 	Name:        "struct-tag",
+	// 	Description: "(list of string) list of user defined options",
+	// 	Default:     "",
+	// 	Type:        ListType,
+	// }, RuleParameter{
+	// 	Name:        "var-naming",
+	// 	Parameters: []RuleParameter{
+	// 		{
+	// 			Name:        "whitelist",
+	// 			Description: "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
+	// 			Default:     "",
+	// 			Type:        ListType,
+	// 		}, {
+	// 			Name:        "blacklist",
+	// 			Description: "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
+	// 			Default:     "",
+	// 			Type:        ListType,
+	// 		},
+	// 	},
+
 }
 
 // FindRuleParameterDefinition finds the parameter definition for a rule. If it does not find, an error is returned

@@ -1,13 +1,13 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@10.2.3
+  codacy: codacy/base@10.8.0
   codacy_plugins_test: codacy/plugins-test@1.1.1
 
 jobs:
   unit_test:
     docker:
-      - image: cimg/go:1.20.3
+      - image: cimg/go:1.21.0
     working_directory: ~/workdir
     steps:
       - attach_workspace: 

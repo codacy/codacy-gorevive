@@ -101,6 +101,13 @@
       "patternId": "comment-spacings",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "",
+          "description": "(list of string) the exceptions"
+        }
+      ],
       "enabled": false
     },
     {
@@ -132,6 +139,13 @@
       "patternId": "context-as-argument",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "{allowTypesBefore = \"\"}",
+          "description": "(string) the exceptions"
+        }
+      ],
       "enabled": true
     },
     {
