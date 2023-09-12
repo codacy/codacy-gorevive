@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -67,8 +67,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"Ω\",\"Σ\",\"σ\"",
-          "description": "(list of string) the characters to ban"
+          "default": "",
+          "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
         }
       ],
       "enabled": false
@@ -186,7 +186,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
+          "default": "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
           "description": "(list of string) the unused params in functions"
         }
       ],
@@ -268,7 +268,7 @@
         {
           "name": "unnamedParam",
           "default": "",
-          "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
+          "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
         }
       ],
       "enabled": true
@@ -327,7 +327,7 @@
       "patternId": "if-return",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "increment-decrement",
@@ -603,6 +603,12 @@
     },
     {
       "patternId": "waitgroup-by-value",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "redundant-import-alias",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

@@ -54,7 +54,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the characters to ban"
+        "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
       }
     ]
   },
@@ -222,7 +222,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
+        "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
       }
     ]
   },
@@ -503,6 +503,11 @@
   },
   {
     "patternId": "waitgroup-by-value",
-    "title": "waitgroup-by-value"
+    "title": "waitgroup-by-value",
+    "description": "Function parameters that are passed by value, are in fact a copy of the original argument. Passing a copy of a sync.WaitGroup is usually not what the developer wants to do."
+  },
+  {
+    "patternId": "redundant-import-alias",
+    "title": "redundant-import-alias"
   }
 ]

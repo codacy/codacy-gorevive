@@ -61,7 +61,7 @@ var ruleParameters = []RuleParameter{
 			}, {
 				Name:        "ignoreFuncs",
 				Description: "(string) comma-separated list of function names regexp patterns to exclude",
-				Default:     "example.*",
+				Default:     "",
 				Type:        StringType,
 			},
 		},
@@ -72,8 +72,8 @@ var ruleParameters = []RuleParameter{
 		Type:        IntType,
 	}, RuleParameter{
 		Name:        "banned-characters",
-		Description: "(list of string) comma-separated list of characters to ban",
-		Default:     "\"Ω\",\"Σ\",\"σ\"",
+		Description: "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")",
+		Default:     "",
 		Type:        ListType,
 	}, RuleParameter{
 		Name:        "cognitive-complexity",
@@ -81,25 +81,30 @@ var ruleParameters = []RuleParameter{
 		Default:     7,
 		Type:        IntType,
 	}, RuleParameter{
-		Name:        "comment-spacings",
-		Description: "(list of string) comma-separated list of exceptions",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
-		Name:        "context-as-argument",
-		Parameters: []RuleParameter{
-			{
-				Name:        "allowTypesBefore",
-				Description: "(list of string) comma-separated list of exceptions",
-				Default:     "",
-				Type:        ListType,
-			},
-		},
-	}, RuleParameter{
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
 		Default:     3,
 		Type:        IntType,
+	}, RuleParameter{
+		Name:        "defer",
+		Description: "(list of string) the unused params in functions",
+		Default:     "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "early-return",
+		Description: "(list of string) the flags (\"preserveScope\")",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "error-strings",
+		Description: "(list of string) the error functions",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "exported",
+		Description: "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")",
+		Default:     "",
+		Type:        ListType,
 	}, RuleParameter{
 		Name:        "file-header",
 		Description: "(string) the header to look for in source files",
@@ -120,6 +125,7 @@ var ruleParameters = []RuleParameter{
 				Type:        IntType,
 			},
 		},
+		Description: "set to 0 to disable the corresponding check",
 	}, RuleParameter{
 		Name:        "function-result-limit",
 		Description: "(int) the maximum allowed return values",
@@ -131,6 +137,11 @@ var ruleParameters = []RuleParameter{
 		Default:     "\"crypto/md5\", \"crypto/sha1\"",
 		Type:        ListType,
 	}, RuleParameter{
+		Name:        "indent-error-flow",
+		Description: "(list of string) the flags (\"preserveScope\")",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
 		Name:        "line-length-limit",
 		Description: "(int) maximum line length in characters",
 		Default:     80,
@@ -138,56 +149,44 @@ var ruleParameters = []RuleParameter{
 	}, RuleParameter{
 		Name:        "max-public-structs",
 		Description: "(int) the maximum allowed public structs",
-		Default:     3,
+		Default:     5,
 		Type:        IntType,
+	}, RuleParameter{
+		Name:        "string-format",
+		Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
+		Default:     "",
+		Type:        ListType,
+	}, RuleParameter{
+		Name:        "struct-tag",
+		Description: "(list of string) list of user defined options",
+		Default:     "",
+		Type:        ListType,
 	}, RuleParameter{
 		Name:        "superfluous-else",
 		Description: "(list of string) the flags (\"preserveScope\")",
 		Default:     "",
 		Type:        ListType,
 	}, RuleParameter{
+		Name:        "var-naming",
+		Parameters: []RuleParameter{
+			{
+				Name:        "whitelist",
+				Description: "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
+				Default:     "",
+				Type:        ListType,
+			}, {
+				Name:        "blacklist",
+				Description: "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
+				Default:     "",
+				Type:        ListType,
+			},
+		},
+	}, RuleParameter{
 		Name:        "unhandled-error",
 		Description: "(list of string) function names regexp patterns to ignore",
 		Default:     "\"fmt.Printf\"",
 		Type:        ListType,
 	},
-
-	// RuleParameter{
-	// 	Name:        "defer",
-	// 	Description: "(string) the unused params in functions",
-	// 	Default:     "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
-	// 	Type:        StringType,
-	// }, RuleParameter{
-	// 	Name:        "exported",
-	// 	Description: "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")",
-	// 	Default:     "",
-	// 	Type:        ListType,
-	// }, RuleParameter{
-	// 	Name:        "string-format",
-	// 	Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
-	// 	Default:     "",
-	// 	Type:        ListType,
-	// }, RuleParameter{
-	// 	Name:        "struct-tag",
-	// 	Description: "(list of string) list of user defined options",
-	// 	Default:     "",
-	// 	Type:        ListType,
-	// }, RuleParameter{
-	// 	Name:        "var-naming",
-	// 	Parameters: []RuleParameter{
-	// 		{
-	// 			Name:        "whitelist",
-	// 			Description: "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
-	// 			Default:     "",
-	// 			Type:        ListType,
-	// 		}, {
-	// 			Name:        "blacklist",
-	// 			Description: "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
-	// 			Default:     "",
-	// 			Type:        ListType,
-	// 		},
-	// 	},
-
 }
 
 // FindRuleParameterDefinition finds the parameter definition for a rule. If it does not find, an error is returned

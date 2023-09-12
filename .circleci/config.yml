@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Run go revive
           command: |
-            go install github.com/mgechev/revive@v1.3.2
+            go install github.com/mgechev/revive@v1.3.3
             revive -exclude docs/multiple-tests/... -exclude test/... ./...
       - run: 
           name: Run golintci

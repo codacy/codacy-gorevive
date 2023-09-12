@@ -5,5 +5,14 @@ This rule highlights redundant _else-blocks_ that can be eliminated from the cod
 
 More information [here](https://github.com/golang/go/wiki/CodeReviewComments#indent-error-flow)
 
-_Configuration_: N/A
+_Configuration_: ([]string) rule flags. Available flags are:
+
+* _preserveScope_: do not suggest refactorings that would increase variable scope
+
+Example:
+
+```toml
+[rule.exported]
+  arguments =["preserveScope"]
+```
 
