@@ -11,7 +11,7 @@ if cond {
 ```
 where the `if` condition may be inverted in order to reduce nesting:
 ```go
-if ! cond {
+if !cond {
   // do other thing
   return ...
 }
@@ -19,5 +19,14 @@ if ! cond {
 // do something
 ```
 
-_Configuration_: N/A
+_Configuration_: ([]string) rule flags. Available flags are:
+
+* _preserveScope_: do not suggest refactorings that would increase variable scope
+
+Example:
+
+```toml
+[rule.early-return]
+  arguments =["preserveScope"]
+```
 

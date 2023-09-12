@@ -4,3 +4,4 @@ _Description_: Function parameters that are passed by value, are in fact a copy 
 This rule warns when a `sync.WaitGroup` expected as a by-value parameter in a function or method.
 
 _Configuration_: N/A
+

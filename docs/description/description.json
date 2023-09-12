@@ -2,7 +2,7 @@
   {
     "patternId": "add-constant",
     "title": "add-constant",
-    "description": "Suggests using constant for magic numbers and string literals",
+    "description": "Suggests using constant for magic numbers and string literals.",
     "parameters": [
       {
         "name": "allowFloats",
@@ -18,7 +18,7 @@
       },
       {
         "name": "maxLitCount",
-        "description": "(string) maximum number of instances of a string literal that are tolerated before warn."
+        "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
       },
       {
         "name": "ignoreFuncs",
@@ -29,7 +29,7 @@
   {
     "patternId": "argument-limit",
     "title": "argument-limit",
-    "description": "Warns when a function receives more parameters than the maximum set by the rule's configuration",
+    "description": "Warns when a function receives more parameters than the maximum set by the rule's configuration.",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -74,17 +74,6 @@
     "description": " Explicitly invoking the garbage collector is, except for specific uses in benchmarking, very dubious."
   },
   {
-    "patternId": "cognitive-complexity",
-    "title": "cognitive-complexity",
-    "description": "Cognitive complexity is a measure of how hard code is to understand.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(int) the maximum function complexity"
-      }
-    ]
-  },
-  {
     "patternId": "confusing-naming",
     "title": "confusing-naming",
     "description": "Methods or fields of struct that have names different only by capitalization could be confusing."
@@ -98,6 +87,17 @@
     "patternId": "confusing-results",
     "title": "confusing-results",
     "description": "Function or methods that return multiple, no named, values of the same type could induce error."
+  },
+  {
+    "patternId": "cognitive-complexity",
+    "title": "cognitive-complexity",
+    "description": "Cognitive complexity is a measure of how hard code is to understand.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(int) the maximum function complexity"
+      }
+    ]
   },
   {
     "patternId": "constant-logical-expr",
@@ -221,7 +221,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(string) the header to look for in source files."
+        "description": "(string) the header to look for in source files"
       }
     ]
   },
@@ -229,21 +229,6 @@
     "patternId": "flag-parameter",
     "title": "flag-parameter",
     "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be control-coupled."
-  },
-  {
-    "patternId": "function-length",
-    "title": "function-length",
-    "description": "Functions too long (with many statements and/or lines) can be hard to understand.",
-    "parameters": [
-      {
-        "name": "maxStmt",
-        "description": "(int) maximum number of statements per function"
-      },
-      {
-        "name": "maxLines",
-        "description": "(int) maximum number of lines per function"
-      }
-    ]
   },
   {
     "patternId": "function-result-limit",
@@ -255,6 +240,11 @@
         "description": "(int) the maximum allowed return values"
       }
     ]
+  },
+  {
+    "patternId": "function-length",
+    "title": "function-length",
+    "description": "Functions too long (with many statements and/or lines) can be hard to understand."
   },
   {
     "patternId": "get-return",
@@ -272,17 +262,6 @@
     "description": "Checking if an error is nil to just after return the error or nil is redundant."
   },
   {
-    "patternId": "imports-blacklist",
-    "title": "imports-blacklist",
-    "description": "Warns when importing black-listed packages.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) black-list of package names"
-      }
-    ]
-  },
-  {
     "patternId": "increment-decrement",
     "title": "increment-decrement",
     "description": "By convention, for better readability, incrementing an integer variable by 1 is recommended to be done using the ++ operator."
@@ -295,6 +274,17 @@
       {
         "name": "unnamedParam",
         "description": "(list of string) the flags (\"preserveScope\")"
+      }
+    ]
+  },
+  {
+    "patternId": "imports-blacklist",
+    "title": "imports-blacklist",
+    "description": "Warns when importing black-listed packages.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) black-list of package names (can be represented using regexp)"
       }
     ]
   },
@@ -376,17 +366,6 @@
     "description": "Constant names like false, true, nil, function names like append, make, and basic type names like bool, and byte are not reserved words of the language; therefore the can be redefined."
   },
   {
-    "patternId": "string-format",
-    "title": "string-format",
-    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
-      }
-    ]
-  },
-  {
     "patternId": "string-of-int",
     "title": "string-of-int",
     "description": " explicit type conversion string(i) where i has an integer type other than rune might behave not as expected by the developer (e.g. string(42) is not \"42\"). This rule spot that kind of suspicious conversions."
@@ -398,7 +377,18 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) user defined options"
+        "description": "(list of string) list of user defined options"
+      }
+    ]
+  },
+  {
+    "patternId": "string-format",
+    "title": "string-format",
+    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
       }
     ]
   },
@@ -424,11 +414,6 @@
     "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type time.Duration can be misleading, this rule highlights those cases."
   },
   {
-    "patternId": "var-declaration",
-    "title": "var-declaration",
-    "description": "This rule proposes simplifications of variable declarations."
-  },
-  {
     "patternId": "var-naming",
     "title": "var-naming",
     "description": "This rule warns when initialism, variable or package naming conventions are not followed.",
@@ -442,6 +427,11 @@
         "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
       }
     ]
+  },
+  {
+    "patternId": "var-declaration",
+    "title": "var-declaration",
+    "description": "This rule proposes simplifications of variable declarations."
   },
   {
     "patternId": "unconditional-recursion",
@@ -465,7 +455,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) function names to ignore"
+        "description": "(list of string) function names regexp patterns to ignore"
       }
     ]
   },
@@ -501,6 +491,11 @@
   },
   {
     "patternId": "waitgroup-by-value",
-    "title": "waitgroup-by-value"
+    "title": "waitgroup-by-value",
+    "description": "Function parameters that are passed by value, are in fact a copy of the original argument. Passing a copy of a sync.WaitGroup is usually not what the developer wants to do."
+  },
+  {
+    "patternId": "redundant-import-alias",
+    "title": "redundant-import-alias"
   }
 ]
