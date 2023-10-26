@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -101,13 +101,6 @@
       "patternId": "comment-spacings",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the exceptions"
-        }
-      ],
       "enabled": false
     },
     {
@@ -139,13 +132,6 @@
       "patternId": "context-as-argument",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "{allowTypesBefore = \"\"}",
-          "description": "(string) the exceptions"
-        }
-      ],
       "enabled": true
     },
     {
@@ -368,6 +354,12 @@
       "enabled": false
     },
     {
+      "patternId": "import-alias-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "line-length-limit",
       "category": "CodeStyle",
       "level": "Info",
@@ -500,6 +492,12 @@
     },
     {
       "patternId": "time-equal",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "unchecked-type-assertion",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

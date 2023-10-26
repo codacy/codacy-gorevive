@@ -12,4 +12,3 @@ Example:
 [rule.cognitive-complexity]
   arguments =[7]
 ```
-
