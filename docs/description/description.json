@@ -81,13 +81,7 @@
   {
     "patternId": "comment-spacings",
     "title": "comment-spacings",
-    "description": "Spots comments of the form:",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the exceptions"
-      }
-    ]
+    "description": "Spots comments of the form:"
   },
   {
     "patternId": "confusing-results",
@@ -113,13 +107,7 @@
   {
     "patternId": "context-as-argument",
     "title": "context-as-argument",
-    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(string) the exceptions"
-      }
-    ]
+    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention."
   },
   {
     "patternId": "context-keys-type",
@@ -306,6 +294,11 @@
     "description": "In GO it is possible to declare identifiers (packages, structs,"
   },
   {
+    "patternId": "import-alias-naming",
+    "title": "import-alias-naming",
+    "description": "Aligns with Go's naming conventions, as outlined in the official"
+  },
+  {
     "patternId": "line-length-limit",
     "title": "line-length-limit",
     "description": "Warns in the presence of code lines longer than a configured maximum.",
@@ -419,6 +412,11 @@
     "patternId": "time-equal",
     "title": "time-equal",
     "description": "This rule warns when using == and != for equality check time.Time and suggest to time.time.Equal method, for about information follow this link"
+  },
+  {
+    "patternId": "unchecked-type-assertion",
+    "title": "unchecked-type-assertion",
+    "description": "This rule checks whether a type assertion result is checked (the ok value), preventing unexpected panics."
   },
   {
     "patternId": "time-naming",

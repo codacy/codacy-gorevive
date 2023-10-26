@@ -1,4 +1,5 @@
 ## comment-spacings
+
 _Description_: Spots comments of the form:
 ```go
 //This is a malformed comment: no space between // and the start of the sentence
