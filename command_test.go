@@ -15,7 +15,7 @@ func TestParseOutput(t *testing.T) {
 	parsedOutput := parseOutput(reviveOutput)
 
 	expectedOutput := []codacy.Result{
-		{
+		codacy.Issue{
 			File:      "foo.go",
 			Message:   "exported function Public should have comment or be unexported",
 			PatternID: "exported",
