@@ -18,17 +18,20 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
+	if paramValue == nil {
+		return interface{}
+	}
 	switch ruleDefinition.Type {
-	case toolparameters.ListType:
-		return strings.Split(paramValue.(string), ", ")
-	case toolparameters.IntType:
-		return int(paramValue.(float64))
-	case toolparameters.FloatType:
-		return paramValue.(float64)
-	case toolparameters.StringType:
-		return fmt.Sprintf("%v", paramValue)
-	default:
-		return paramValue
+		case toolparameters.ListType:
+			return strings.Split(paramValue.(string), ", ")
+		case toolparameters.IntType:
+			return int(paramValue.(float64))
+		case toolparameters.FloatType:
+			return paramValue.(float64)
+		case toolparameters.StringType:
+			return fmt.Sprintf("%v", paramValue)
+		default:
+			return paramValue
 	}
 }
 
