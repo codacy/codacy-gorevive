@@ -1,13 +1,13 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@10.2.3
+  codacy: codacy/base@10.10.1
   codacy_plugins_test: codacy/plugins-test@1.1.1
 
 jobs:
   unit_test:
     docker:
-      - image: cimg/go:1.20.3
+      - image: cimg/go:1.21.4
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
@@ -18,7 +18,7 @@ jobs:
 
   lint: 
     docker:
-      - image: cimg/go:1.20.3
+      - image: cimg/go:1.21.4
     working_directory: ~/workdir
     steps:
       - attach_workspace: 
@@ -26,16 +26,15 @@ jobs:
       - run:
           name: Run go revive
           command: |
-            go install github.com/mgechev/revive@v1.3.2
+            go install github.com/mgechev/revive@v1.3.4
             revive -exclude docs/multiple-tests/... -exclude test/... ./...
       - run: 
           name: Run golintci
           command: |
-            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.49.0
+            curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
             golangci-lint run --disable-all -E gofmt .
 
 workflows:
-  version: 2
   compile_test_deploy:
     jobs:
       - codacy/checkout_and_version

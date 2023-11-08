@@ -1,7 +1,7 @@
 package main
 
 import (
-	toml "github.com/pelletier/go-toml"
+	toml "github.com/pelletier/go-toml/v2"
 )
 
 func mapToTOML(jsonMap map[string]interface{}) (string, error) {
