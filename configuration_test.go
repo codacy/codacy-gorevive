@@ -10,7 +10,7 @@ import (
 
 func patternStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
-			PatternID: "testing",
+			ID: "testing",
 			Parameters: []codacy.PatternParameter{
 				{
 					Name:  "param1",
@@ -35,7 +35,7 @@ func patternStruct() (codacy.Pattern, string) {
 
 func patternUnnamedStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
-			PatternID: "testingUnnamed",
+			ID: "testingUnnamed",
 			Parameters: []codacy.PatternParameter{
 				{
 					Name:  unnamedParamName,
@@ -61,7 +61,7 @@ func TestPatternsToToml(t *testing.T) {
 	if !ok {
 		assert.Fail(t, "Revive config map does not have the expected structure")
 	}
-	assert.NotNil(t, value[pattern.PatternID], "Expected toml: %s to exist", pattern.PatternID)
+	assert.NotNil(t, value[pattern.ID], "Expected toml: %s to exist", pattern.ID)
 }
 
 func TestConfigurationContentGeneration(t *testing.T) {
