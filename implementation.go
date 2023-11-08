@@ -1,8 +1,8 @@
 package main
 
 import (
-	"errors"
 	"context"
+	"errors"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
@@ -10,7 +10,7 @@ import (
 )
 
 // GoReviveImplementation tool implementation
-type GoReviveImplementation struct {	
+type GoReviveImplementation struct {
 }
 
 // Run runs the tool implementation

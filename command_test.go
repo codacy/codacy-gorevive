@@ -14,7 +14,7 @@ func TestParseOutput(t *testing.T) {
 
 	parsedOutput := parseOutput(reviveOutput)
 
-	expectedOutput := []codacy.Issue{
+	expectedOutput := []codacy.Result{
 		{
 			File:      "foo.go",
 			Message:   "exported function Public should have comment or be unexported",
