@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 )
 
 // RuleParameter contains the definition of the parameters for a rule

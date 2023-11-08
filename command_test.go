@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 	"github.com/stretchr/testify/assert"
 )
 

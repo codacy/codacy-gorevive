@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
 	"io/ioutil"
 	"os"
