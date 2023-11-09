@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module name="root">
-    <module name="line-length-limit" />
     <module name="file-header" />
     <module name="function-result-limit" />
-    <module name="add-constant" />
+    <module name="line-length-limit" />
 </module>
