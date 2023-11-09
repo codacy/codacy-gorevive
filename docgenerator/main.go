@@ -37,7 +37,7 @@ func readToolVersion() string {
 		return "0.0.0"
 	}
 
-	return strings.Trim(string(versionBytes), "\n")
+	return strings.Trim(string(versionBytes), "\r\n")
 }
 
 func run() int {

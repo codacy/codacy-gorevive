@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <checkstyle version="1.5">
     <file name="example.go">
-        <error source="file-header" line="1" message="the file doesn't have an appropriate header" severity="info" />
-        <error source="function-result-limit" line="16" message="maximum number of return results per function exceeded; max 3 but got 4" severity="info" />
         <error source="add-constant" line="17" message="avoid magic numbers like '1', create a named constant for it" severity="info" />
         <error source="add-constant" line="17" message="avoid magic numbers like '2', create a named constant for it" severity="info" />
+        <error source="file-header" line="1" message="the file doesn't have an appropriate header" severity="info" />
+        <error source="function-result-limit" line="16" message="maximum number of return results per function exceeded; max 3 but got 4" severity="info" />
     </file>
 </checkstyle>
