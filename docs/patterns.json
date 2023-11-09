@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.2",
+  "version": "1.3.4",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -29,7 +29,7 @@
         },
         {
           "name": "ignoreFuncs",
-          "default": "",
+          "default": "example.*",
           "description": "(string) comma-separated list of function names regexp patterns to exclude"
         }
       ],
@@ -68,7 +68,7 @@
         {
           "name": "unnamedParam",
           "default": "\"Ω\",\"Σ\",\"σ\"",
-          "description": "(list of string) the characters to ban"
+          "description": "(list of string) comma-separated list of characters to ban"
         }
       ],
       "enabled": false
@@ -105,7 +105,7 @@
         {
           "name": "unnamedParam",
           "default": "",
-          "description": "(list of string) the exceptions"
+          "description": "(list of string) comma-separated list of exceptions"
         }
       ],
       "enabled": false
@@ -141,9 +141,9 @@
       "level": "Info",
       "parameters": [
         {
-          "name": "unnamedParam",
-          "default": "{allowTypesBefore = \"\"}",
-          "description": "(string) the exceptions"
+          "name": "allowTypesBefore",
+          "default": "",
+          "description": "(list of string) comma-separated list of exceptions"
         }
       ],
       "enabled": true
@@ -183,13 +183,6 @@
       "patternId": "defer",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "[\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"]",
-          "description": "(list of string) the unused params in functions"
-        }
-      ],
       "enabled": false
     },
     {
@@ -208,13 +201,6 @@
       "patternId": "early-return",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"preserveScope\")"
-        }
-      ],
       "enabled": false
     },
     {
@@ -245,13 +231,6 @@
       "patternId": "error-strings",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the error functions"
-        }
-      ],
       "enabled": true
     },
     {
@@ -264,13 +243,6 @@
       "patternId": "exported",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
-        }
-      ],
       "enabled": true
     },
     {
@@ -327,7 +299,7 @@
       "patternId": "if-return",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "increment-decrement",
@@ -339,13 +311,6 @@
       "patternId": "indent-error-flow",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"preserveScope\")"
-        }
-      ],
       "enabled": true
     },
     {
@@ -363,6 +328,12 @@
     },
     {
       "patternId": "import-shadowing",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "import-alias-naming",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -387,7 +358,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "5",
+          "default": "3",
           "description": "(int) the maximum allowed public structs"
         }
       ],
@@ -463,26 +434,12 @@
       "patternId": "struct-tag",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) list of user defined options"
-        }
-      ],
       "enabled": false
     },
     {
       "patternId": "string-format",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
-        }
-      ],
       "enabled": false
     },
     {
@@ -505,6 +462,12 @@
       "enabled": false
     },
     {
+      "patternId": "unchecked-type-assertion",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "time-naming",
       "category": "CodeStyle",
       "level": "Info",
@@ -514,18 +477,6 @@
       "patternId": "var-naming",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "whitelist",
-          "default": "",
-          "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")"
-        },
-        {
-          "name": "blacklist",
-          "default": "",
-          "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
-        }
-      ],
       "enabled": true
     },
     {
@@ -603,6 +554,12 @@
     },
     {
       "patternId": "waitgroup-by-value",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "redundant-import-alias",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

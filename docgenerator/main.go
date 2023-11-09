@@ -136,7 +136,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 	var patternsDescriptionsList []codacy.PatternDescription
 
 	for _, pattern := range rulesList {
-		ruleInformationRegex, err := getRuleInformationRegex(pattern.PatternID)
+		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
 			return err
 		}
@@ -162,9 +162,9 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 		stripedDescription = string(urlReg.ReplaceAll([]byte(stripedDescription), []byte("")))
 
 		patternDescription := codacy.PatternDescription{
-			PatternID:   pattern.PatternID,
+			PatternID:   pattern.ID,
 			Description: stripedDescription,
-			Title:       pattern.PatternID,
+			Title:       pattern.ID,
 			Parameters:  params,
 		}
 
@@ -177,7 +177,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 				path.Join(
 					docFolder,
 					"description",
-					pattern.PatternID+".md",
+					pattern.ID+".md",
 				),
 				[]byte(ruleInformationMd),
 				0644,

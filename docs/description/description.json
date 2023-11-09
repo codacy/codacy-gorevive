@@ -54,7 +54,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the characters to ban"
+        "description": "(list of string) comma-separated list of characters to ban"
       }
     ]
   },
@@ -85,7 +85,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) the exceptions"
+        "description": "(list of string) comma-separated list of exceptions"
       }
     ]
   },
@@ -116,8 +116,8 @@
     "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention.",
     "parameters": [
       {
-        "name": "unnamedParam",
-        "description": "(string) the exceptions"
+        "name": "allowTypesBefore",
+        "description": "(list of string) comma-separated list of exceptions"
       }
     ]
   },
@@ -150,13 +150,7 @@
   {
     "patternId": "defer",
     "title": "defer",
-    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the unused params in functions"
-      }
-    ]
+    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:"
   },
   {
     "patternId": "dot-imports",
@@ -171,13 +165,7 @@
   {
     "patternId": "early-return",
     "title": "early-return",
-    "description": "In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the flags (\"preserveScope\")"
-      }
-    ]
+    "description": "In Go it is idiomatic to minimize nesting statements, a typical example is to avoid if-then-else constructions. This rule spots constructions like"
   },
   {
     "patternId": "empty-block",
@@ -202,13 +190,7 @@
   {
     "patternId": "error-strings",
     "title": "error-strings",
-    "description": "By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the error functions"
-      }
-    ]
+    "description": "By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline."
   },
   {
     "patternId": "errorf",
@@ -218,13 +200,7 @@
   {
     "patternId": "exported",
     "title": "exported",
-    "description": "Exported function and methods should have comments. This warns on undocumented exported functions and methods.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the flags (\"checkPrivateReceivers\",\"disableStutteringCheck\",\"sayRepetitiveInsteadOfStutters\")"
-      }
-    ]
+    "description": "Exported function and methods should have comments. This warns on undocumented exported functions and methods."
   },
   {
     "patternId": "file-header",
@@ -281,13 +257,7 @@
   {
     "patternId": "indent-error-flow",
     "title": "indent-error-flow",
-    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) the flags (\"preserveScope\")"
-      }
-    ]
+    "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible."
   },
   {
     "patternId": "imports-blacklist",
@@ -304,6 +274,11 @@
     "patternId": "import-shadowing",
     "title": "import-shadowing",
     "description": "In GO it is possible to declare identifiers (packages, structs,"
+  },
+  {
+    "patternId": "import-alias-naming",
+    "title": "import-alias-naming",
+    "description": "Aligns with Go's naming conventions, as outlined in the official"
   },
   {
     "patternId": "line-length-limit",
@@ -385,24 +360,12 @@
   {
     "patternId": "struct-tag",
     "title": "struct-tag",
-    "description": "Struct tags are not checked at compile time.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) list of user defined options"
-      }
-    ]
+    "description": "Struct tags are not checked at compile time."
   },
   {
     "patternId": "string-format",
     "title": "string-format",
-    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against.",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
-      }
-    ]
+    "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against."
   },
   {
     "patternId": "superfluous-else",
@@ -421,6 +384,11 @@
     "description": "This rule warns when using == and != for equality check time.Time and suggest to time.time.Equal method, for about information follow this link"
   },
   {
+    "patternId": "unchecked-type-assertion",
+    "title": "unchecked-type-assertion",
+    "description": "This rule checks whether a type assertion result is checked (the ok value), preventing unexpected panics."
+  },
+  {
     "patternId": "time-naming",
     "title": "time-naming",
     "description": "Using unit-specific suffix like \"Secs\", \"Mins\", ... when naming variables of type time.Duration can be misleading, this rule highlights those cases."
@@ -428,17 +396,7 @@
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when initialism, variable or package naming conventions are not followed.",
-    "parameters": [
-      {
-        "name": "whitelist",
-        "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")"
-      },
-      {
-        "name": "blacklist",
-        "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
-      }
-    ]
+    "description": "This rule warns when initialism, variable or package naming conventions are not followed."
   },
   {
     "patternId": "var-declaration",
@@ -503,6 +461,11 @@
   },
   {
     "patternId": "waitgroup-by-value",
-    "title": "waitgroup-by-value"
+    "title": "waitgroup-by-value",
+    "description": "Function parameters that are passed by value, are in fact a copy of the original argument. Passing a copy of a sync.WaitGroup is usually not what the developer wants to do."
+  },
+  {
+    "patternId": "redundant-import-alias",
+    "title": "redundant-import-alias"
   }
 ]

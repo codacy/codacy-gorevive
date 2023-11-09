@@ -26,7 +26,7 @@ func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[strin
 					patterns = append(
 						patterns,
 						codacy.Pattern{
-							PatternID:  patternID,
+							ID:         patternID,
 							Category:   "CodeStyle",
 							Level:      "Info",
 							Parameters: toolparameters.GetParametersForPattern(patternID),

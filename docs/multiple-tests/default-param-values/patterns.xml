@@ -3,7 +3,5 @@
     <module name="line-length-limit" />
     <module name="file-header" />
     <module name="function-result-limit" />
-    <module name="add-constant">
-        <property name="ignoreFuncs" value="os\\.*,make" />
-    </module>
+    <module name="add-constant" />
 </module>
