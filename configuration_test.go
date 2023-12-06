@@ -35,7 +35,7 @@ func patternStruct() (codacy.Pattern, string) {
 
 func patternUnnamedStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
-			ID: "testingUnnamed",
+			ID: "var-naming",
 			Parameters: []codacy.PatternParameter{
 				{
 					Name:  unnamedParamName,
@@ -53,6 +53,16 @@ func patternUnnamedStruct() (codacy.Pattern, string) {
 `
 }
 
+func patternRawStruct() (codacy.Pattern, string) {
+	return codacy.Pattern{
+			ID:       "var-naming",
+			Category: "UnusedCode",
+			Level:    "Info",
+		}, `
+  [rule.var-naming]
+`
+}
+
 func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
@@ -66,13 +76,16 @@ func TestPatternsToToml(t *testing.T) {
 
 func TestConfigurationContentGeneration(t *testing.T) {
 	pattern, patternTomlExpected := patternStruct()
-	unnamedParamPattern, unnamedParamTomlExpected := patternUnnamedStruct()
+	unnamedParamPattern, unnamedParamTomlExpected := patternRawStruct()
 	patterns := []codacy.Pattern{
 		pattern,
 		unnamedParamPattern,
 	}
+	fmt.Println(patterns)
 
 	configContent := generateToolConfigurationContent(patterns)
+
+	fmt.Println(configContent)
 
 	expectedContent := fmt.Sprintf("%s%s", patternTomlExpected, unnamedParamTomlExpected)
 

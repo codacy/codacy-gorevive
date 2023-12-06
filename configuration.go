@@ -22,6 +22,8 @@ func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.Rule
 		return nil
 	}
 	switch ruleDefinition.Type {
+	//	case toolparameters.RawType:
+	//		return []byte(paramValue.(string))
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
 	case toolparameters.IntType:
@@ -59,6 +61,10 @@ func unnamedParam(value interface{}) []interface{} {
 	case []string:
 		// if is a []string, append all values to res, one by one
 		for _, v := range value.([]string) {
+			resultTmp = append(resultTmp, v)
+		}
+	case []interface{}:
+		for _, v := range value.([]interface{}) {
 			resultTmp = append(resultTmp, v)
 		}
 	default:
@@ -102,8 +108,7 @@ func reviveArguments(paramsValues []interface{}) map[string]interface{} {
 func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
 	patternsMap := map[string]interface{}{}
 	for _, pattern := range patterns {
-		paramsValues := patternParametersAsReviveValues(pattern)
-		patternsMap[pattern.ID] = reviveArguments(paramsValues)
+		patternsMap[pattern.ID] = reviveArguments(patternParametersAsReviveValues(pattern))
 	}
 
 	rules := map[string]interface{}{

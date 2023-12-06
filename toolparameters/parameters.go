@@ -24,6 +24,8 @@ type RuleParameter struct {
 const (
 	unnamedParamName = "unnamedParam"
 
+	// SliceType specifies the slice type of param
+	SliceType = "slice"
 	// ListType specifies the list type of param
 	ListType = "list"
 	// IntType specifies the int type of param
@@ -86,7 +88,7 @@ var ruleParameters = []RuleParameter{
 		Default:     "",
 		Type:        ListType,
 	}, RuleParameter{
-		Name:        "context-as-argument",
+		Name: "context-as-argument",
 		Parameters: []RuleParameter{
 			{
 				Name:        "allowTypesBefore",
@@ -106,7 +108,7 @@ var ruleParameters = []RuleParameter{
 		Default:     "",
 		Type:        StringType,
 	}, RuleParameter{
-		Name:        "function-lenght",
+		Name: "function-lenght",
 		Parameters: []RuleParameter{
 			{
 				Name:        "maxStmt",
@@ -179,12 +181,12 @@ var ruleParameters = []RuleParameter{
 	// 			Name:        "whitelist",
 	// 			Description: "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
 	// 			Default:     "",
-	// 			Type:        ListType,
+	// 			Type:        SliceType,
 	// 		}, {
 	// 			Name:        "blacklist",
 	// 			Description: "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
 	// 			Default:     "",
-	// 			Type:        ListType,
+	// 			Type:        SliceType,
 	// 		},
 	// 	},
 
