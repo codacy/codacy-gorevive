@@ -7,8 +7,12 @@ import (
 	"path"
 	"strings"
 
+	_ "unsafe"
+
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	codacy "github.com/codacy/codacy-engine-golang-seed"
+	"github.com/mgechev/revive/lint"
+	"github.com/samber/lo"
 )
 
 const (
@@ -109,7 +113,18 @@ func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{}
 	return rules
 }
 
+//go:linkname allRules github.com/mgechev/revive/config.allRules
+var allRules []lint.Rule
+
 func generateToolConfigurationContent(patterns []codacy.Pattern) string {
+	for _, rule := range allRules {
+		ok := lo.ContainsBy(patterns, func(pattern codacy.Pattern) bool {
+			return pattern.PatternID == rule.Name()
+		})
+		if ok {
+			fmt.Println("Rule " + rule. + " is enabled")
+		}
+	}
 	patternsMap := patternsToReviveConfigMap(patterns)
 
 	tomlString, err := mapToTOML(patternsMap)

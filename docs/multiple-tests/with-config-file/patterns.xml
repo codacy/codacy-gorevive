@@ -2,6 +2,6 @@
 
 <module name="root">
     <module name="BeforeExecutionExclusionFileFilter">
-        <property name="fileNamePattern" value="codacyrc.toml" />
+        <property name="fileNamePattern" value="revive.toml" />
     </module>
 </module>
