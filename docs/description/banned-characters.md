@@ -10,4 +10,3 @@ Example:
 [rule.banned-characters]
   arguments =["Ω","Σ","σ"]
 ```
-

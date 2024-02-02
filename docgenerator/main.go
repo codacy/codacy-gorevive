@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"path/filepath"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
 	"os"
 	"os/exec"
-	"path"
 	"regexp"
 	"strings"
 
@@ -97,7 +97,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
-	os.WriteFile(path.Join(docFolder, "patterns.json"), toolAsJSON, 0644)
+	os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
 
 	return tool
 }
@@ -173,13 +173,13 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 		)
 		if len(ruleInformationMd) > 0 {
 			os.WriteFile(
-				path.Join(
+				filepath.Join(
 					docFolder,
 					"description",
 					pattern.ID+".md",
 				),
 				[]byte(ruleInformationMd),
-				0644,
+				0640,
 			)
 		}
 	}
@@ -187,9 +187,9 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 	descriptionsJSON, _ := json.MarshalIndent(patternsDescriptionsList, "", "  ")
 
 	os.WriteFile(
-		path.Join(docFolder, "description", "description.json"),
+		filepath.Join(docFolder, "description", "description.json"),
 		descriptionsJSON,
-		0644,
+		0640,
 	)
 
 	return nil

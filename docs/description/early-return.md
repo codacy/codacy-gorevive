@@ -27,6 +27,6 @@ Example:
 
 ```toml
 [rule.early-return]
-  arguments =["preserveScope"]
+  arguments = ["preserveScope"]
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -28,12 +28,6 @@
       "enabled": false
     },
     {
-      "patternId": "bare-return",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "banned-characters",
       "category": "CodeStyle",
       "level": "Info",
@@ -44,6 +38,12 @@
           "description": "comma-separated list of character to ban"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "bare-return",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
@@ -65,24 +65,6 @@
       "enabled": false
     },
     {
-      "patternId": "confusing-naming",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "comment-spacings",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "confusing-results",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "cognitive-complexity",
       "category": "CodeStyle",
       "level": "Info",
@@ -93,6 +75,24 @@
           "description": "(int) the maximum function complexity"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "comment-spacings",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "confusing-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "confusing-results",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
@@ -182,6 +182,18 @@
       "enabled": false
     },
     {
+      "patternId": "enforce-map-style",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "enforce-slice-style",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "error-naming",
       "category": "CodeStyle",
       "level": "Info",
@@ -231,6 +243,12 @@
       "enabled": false
     },
     {
+      "patternId": "function-length",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "function-result-limit",
       "category": "CodeStyle",
       "level": "Info",
@@ -241,12 +259,6 @@
           "description": "(int) the maximum allowed return values"
         }
       ],
-      "enabled": false
-    },
-    {
-      "patternId": "function-length",
-      "category": "CodeStyle",
-      "level": "Info",
       "enabled": false
     },
     {
@@ -268,16 +280,16 @@
       "enabled": false
     },
     {
-      "patternId": "increment-decrement",
+      "patternId": "import-alias-naming",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
-      "patternId": "indent-error-flow",
+      "patternId": "import-shadowing",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "imports-blacklist",
@@ -293,16 +305,16 @@
       "enabled": false
     },
     {
-      "patternId": "import-shadowing",
+      "patternId": "increment-decrement",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
-      "patternId": "import-alias-naming",
+      "patternId": "indent-error-flow",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
       "patternId": "line-length-limit",
@@ -361,10 +373,10 @@
       "enabled": true
     },
     {
-      "patternId": "range",
+      "patternId": "range-val-address",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "range-val-in-closure",
@@ -373,10 +385,10 @@
       "enabled": false
     },
     {
-      "patternId": "range-val-address",
+      "patternId": "range",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
       "patternId": "receiver-naming",
@@ -391,6 +403,18 @@
       "enabled": true
     },
     {
+      "patternId": "redundant-import-alias",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "string-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "string-of-int",
       "category": "CodeStyle",
       "level": "Info",
@@ -398,12 +422,6 @@
     },
     {
       "patternId": "struct-tag",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "string-format",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -428,28 +446,16 @@
       "enabled": false
     },
     {
-      "patternId": "unchecked-type-assertion",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "time-naming",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": true
     },
     {
-      "patternId": "var-naming",
+      "patternId": "unchecked-type-assertion",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
-    },
-    {
-      "patternId": "var-declaration",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "unconditional-recursion",
@@ -519,13 +525,19 @@
       "enabled": false
     },
     {
-      "patternId": "waitgroup-by-value",
+      "patternId": "var-declaration",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
-      "patternId": "redundant-import-alias",
+      "patternId": "var-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": true
+    },
+    {
+      "patternId": "waitgroup-by-value",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

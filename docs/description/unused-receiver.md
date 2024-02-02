@@ -15,4 +15,3 @@ allows any names started with `_`, not just `_` itself:
 func (_my *MyStruct) SomeMethod() {} // matches rule
 ```
 
-
