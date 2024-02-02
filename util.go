@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"reflect"
 )
@@ -15,7 +14,7 @@ func isInteger(val interface{}) bool {
 }
 
 func writeToTempFile(content string) (*os.File, error) {
-	tmpFile, err := ioutil.TempFile(os.TempDir(), "gorevive-")
+	tmpFile, err := os.CreateTemp(os.TempDir(), "gorevive-")
 	if err != nil {
 		return nil, err
 	}

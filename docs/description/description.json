@@ -5,6 +5,10 @@
     "description": "Suggests using constant for magic numbers and string literals.",
     "parameters": [
       {
+        "name": "maxLitCount",
+        "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
+      },
+      {
         "name": "allowFloats",
         "description": "(string) comma-separated list of allowed floats"
       },
@@ -15,10 +19,6 @@
       {
         "name": "allowStrs",
         "description": "(string) comma-separated list of allowed string literals"
-      },
-      {
-        "name": "maxLitCount",
-        "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
       },
       {
         "name": "ignoreFuncs",
@@ -54,7 +54,7 @@
     "parameters": [
       {
         "name": "unnamedParam",
-        "description": "(list of string) comma-separated list of characters to ban"
+        "description": "comma-separated list of character to ban"
       }
     ]
   },
@@ -150,7 +150,13 @@
   {
     "patternId": "defer",
     "title": "defer",
-    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:"
+    "description": "This rule warns on some common mistakes when using defer statement. It currently alerts on the following situations:",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(string) the unused params in functions"
+      }
+    ]
   },
   {
     "patternId": "dot-imports",

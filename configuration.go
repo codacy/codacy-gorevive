@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -131,7 +130,7 @@ func generateToolConfigurationContent(patterns []codacy.Pattern) string {
 
 func configurationFromSourceCode(sourceFolder string) (string, error) {
 	filename := path.Join(sourceFolder, sourceConfigFileName)
-	contentByte, err := ioutil.ReadFile(filename)
+	contentByte, err := os.ReadFile(filename)
 	return string(contentByte), err
 }
 

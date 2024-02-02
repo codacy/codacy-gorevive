@@ -8,6 +8,11 @@
       "level": "Info",
       "parameters": [
         {
+          "name": "maxLitCount",
+          "default": "4",
+          "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
+        },
+        {
           "name": "allowFloats",
           "default": "",
           "description": "(string) comma-separated list of allowed floats"
@@ -23,13 +28,8 @@
           "description": "(string) comma-separated list of allowed string literals"
         },
         {
-          "name": "maxLitCount",
-          "default": "4",
-          "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
-        },
-        {
           "name": "ignoreFuncs",
-          "default": "example.*",
+          "default": "os\\\\.*,fmt\\\\.Println,make",
           "description": "(string) comma-separated list of function names regexp patterns to exclude"
         }
       ],
@@ -67,8 +67,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"Ω\",\"Σ\",\"σ\"",
-          "description": "(list of string) comma-separated list of characters to ban"
+          "default": "",
+          "description": "comma-separated list of character to ban"
         }
       ],
       "enabled": false
@@ -183,6 +183,13 @@
       "patternId": "defer",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"call-chain\",\"loop\"",
+          "description": "(string) the unused params in functions"
+        }
+      ],
       "enabled": false
     },
     {

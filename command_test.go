@@ -1,7 +1,6 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 
@@ -29,7 +28,7 @@ func TestParseOutput(t *testing.T) {
 func TestReviveCommand(t *testing.T) {
 	filesToAnalyse := []string{"foo.go", "bar.go"}
 	sourceDir := "/src"
-	configFile, err := ioutil.TempFile(os.TempDir(), "gorevive-")
+	configFile, err := os.CreateTemp(os.TempDir(), "gorevive-")
 	assert.Nil(t, err)
 
 	cmd := reviveCommand(configFile, filesToAnalyse, sourceDir)
