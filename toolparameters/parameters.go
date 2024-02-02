@@ -38,36 +38,6 @@ const (
 
 var ruleParameters = []RuleParameter{
 	{
-		Name: "add-constant",
-		Parameters: []RuleParameter{
-			{
-				Name:        "maxLitCount",
-				Description: "(string) maximum number of instances of a string literal that are tolerated before warn",
-				Default:     "4",
-				Type:        StringType,
-			}, {
-				Name:        "allowFloats",
-				Description: "(string) comma-separated list of allowed floats",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "allowInts",
-				Description: "(string) comma-separated list of allowed integers",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "allowStrs",
-				Description: "(string) comma-separated list of allowed string literals",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "ignoreFuncs",
-				Description: "(string) comma-separated list of function names regexp patterns to exclude",
-				Default:     "os\\\\.*,fmt\\\\.Println,make",
-				Type:        StringType,
-			},
-		},
-	}, {
 		Name:        "argument-limit",
 		Description: "(int) the maximum number of parameters allowed per function",
 		Default:     4,
@@ -82,21 +52,6 @@ var ruleParameters = []RuleParameter{
 		Description: "(int) the maximum function complexity",
 		Default:     7,
 		Type:        IntType,
-	}, {
-		Name:        "comment-spacings",
-		Description: "(list of string) comma-separated list of exceptions",
-		Default:     "",
-		Type:        ListType,
-	}, {
-		Name: "context-as-argument",
-		Parameters: []RuleParameter{
-			{
-				Name:        "allowTypesBefore",
-				Description: "(list of string) comma-separated list of exceptions",
-				Default:     "",
-				Type:        ListType,
-			},
-		},
 	}, {
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
@@ -145,7 +100,7 @@ var ruleParameters = []RuleParameter{
 	}, {
 		Name:        "max-public-structs",
 		Description: "(int) the maximum allowed public structs",
-		Default:     3,
+		Default:     5,
 		Type:        IntType,
 	}, {
 		Name:        "superfluous-else",
@@ -158,14 +113,6 @@ var ruleParameters = []RuleParameter{
 		Default:     "\"fmt.Printf\"",
 		Type:        ListType,
 	},
-
-	// , RuleParameter{
-	// 	Name:        "string-format",
-	// 	Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
-	// 	Default:     "",
-	// 	Type:        ListType,
-	// }, RuleParameter{
-
 }
 
 // FindRuleParameterDefinition finds the parameter definition for a rule. If it does not find, an error is returned
@@ -175,7 +122,7 @@ func FindRuleParameterDefinition(patternID string) (RuleParameter, error) {
 			return rule, nil
 		}
 	}
-	return RuleParameter{}, fmt.Errorf("Not found parameters for pattern with id %s", patternID)
+	return RuleParameter{}, fmt.Errorf("not found parameters for pattern with id %s", patternID)
 }
 
 // GetParametersForPattern returns the parameters for the pattern with id patternID

@@ -6,33 +6,6 @@
       "patternId": "add-constant",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "maxLitCount",
-          "default": "4",
-          "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
-        },
-        {
-          "name": "allowFloats",
-          "default": "",
-          "description": "(string) comma-separated list of allowed floats"
-        },
-        {
-          "name": "allowInts",
-          "default": "",
-          "description": "(string) comma-separated list of allowed integers"
-        },
-        {
-          "name": "allowStrs",
-          "default": "",
-          "description": "(string) comma-separated list of allowed string literals"
-        },
-        {
-          "name": "ignoreFuncs",
-          "default": "os\\\\.*,fmt\\\\.Println,make",
-          "description": "(string) comma-separated list of function names regexp patterns to exclude"
-        }
-      ],
       "enabled": false
     },
     {
@@ -101,13 +74,6 @@
       "patternId": "comment-spacings",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) comma-separated list of exceptions"
-        }
-      ],
       "enabled": false
     },
     {
@@ -139,13 +105,6 @@
       "patternId": "context-as-argument",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "allowTypesBefore",
-          "default": "",
-          "description": "(list of string) comma-separated list of exceptions"
-        }
-      ],
       "enabled": true
     },
     {
@@ -365,7 +324,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "3",
+          "default": "5",
           "description": "(int) the maximum allowed public structs"
         }
       ],

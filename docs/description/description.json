@@ -2,29 +2,7 @@
   {
     "patternId": "add-constant",
     "title": "add-constant",
-    "description": "Suggests using constant for magic numbers and string literals.",
-    "parameters": [
-      {
-        "name": "maxLitCount",
-        "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
-      },
-      {
-        "name": "allowFloats",
-        "description": "(string) comma-separated list of allowed floats"
-      },
-      {
-        "name": "allowInts",
-        "description": "(string) comma-separated list of allowed integers"
-      },
-      {
-        "name": "allowStrs",
-        "description": "(string) comma-separated list of allowed string literals"
-      },
-      {
-        "name": "ignoreFuncs",
-        "description": "(string) comma-separated list of function names regexp patterns to exclude"
-      }
-    ]
+    "description": "Suggests using constant for magic numbers and string literals."
   },
   {
     "patternId": "argument-limit",
@@ -81,13 +59,7 @@
   {
     "patternId": "comment-spacings",
     "title": "comment-spacings",
-    "description": "Spots comments of the form:",
-    "parameters": [
-      {
-        "name": "unnamedParam",
-        "description": "(list of string) comma-separated list of exceptions"
-      }
-    ]
+    "description": "Spots comments of the form:"
   },
   {
     "patternId": "confusing-results",
@@ -113,13 +85,7 @@
   {
     "patternId": "context-as-argument",
     "title": "context-as-argument",
-    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention.",
-    "parameters": [
-      {
-        "name": "allowTypesBefore",
-        "description": "(list of string) comma-separated list of exceptions"
-      }
-    ]
+    "description": "By convention, context.Context should be the first parameter of a function. This rule spots function declarations that do not follow the convention."
   },
   {
     "patternId": "context-keys-type",

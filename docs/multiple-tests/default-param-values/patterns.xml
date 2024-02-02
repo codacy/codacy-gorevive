@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module name="root">
-    <module name="exported" />
-    <module name="package-comments" />
+    <module name="function-result-limit" >
+        <property name="unnamedParam" value="3" />
+    </module>
 </module>
