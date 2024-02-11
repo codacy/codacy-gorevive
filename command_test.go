@@ -1,11 +1,10 @@
 package main
 
 import (
-	"io/ioutil"
 	"os"
 	"testing"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -14,8 +13,8 @@ func TestParseOutput(t *testing.T) {
 
 	parsedOutput := parseOutput(reviveOutput)
 
-	expectedOutput := []codacy.Issue{
-		{
+	expectedOutput := []codacy.Result{
+		codacy.Issue{
 			File:      "foo.go",
 			Message:   "exported function Public should have comment or be unexported",
 			PatternID: "exported",
@@ -29,7 +28,7 @@ func TestParseOutput(t *testing.T) {
 func TestReviveCommand(t *testing.T) {
 	filesToAnalyse := []string{"foo.go", "bar.go"}
 	sourceDir := "/src"
-	configFile, err := ioutil.TempFile(os.TempDir(), "gorevive-")
+	configFile, err := os.CreateTemp(os.TempDir(), "gorevive-")
 	assert.Nil(t, err)
 
 	cmd := reviveCommand(configFile, filesToAnalyse, sourceDir)

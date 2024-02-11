@@ -5,7 +5,7 @@ import (
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
 	"github.com/PuerkitoBio/goquery"
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 )
 
 func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[string]interface{}) ([]codacy.Pattern, error) {
@@ -26,7 +26,7 @@ func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[strin
 					patterns = append(
 						patterns,
 						codacy.Pattern{
-							PatternID:  patternID,
+							ID:         patternID,
 							Category:   "CodeStyle",
 							Level:      "Info",
 							Parameters: toolparameters.GetParametersForPattern(patternID),

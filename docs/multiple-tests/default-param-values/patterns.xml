@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module name="root">
-    <module name="line-length-limit" />
-    <module name="file-header" />
-    <module name="function-result-limit" />
-    <module name="add-constant">
-        <property name="ignoreFuncs" value="os\\.*,make" />
+    <module name="function-result-limit" >
+        <property name="unnamedParam" value="3" />
     </module>
 </module>

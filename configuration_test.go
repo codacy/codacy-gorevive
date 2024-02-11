@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"testing"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 	"github.com/stretchr/testify/assert"
 )
 
 func patternStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
-			PatternID: "testing",
+			ID: "testing",
 			Parameters: []codacy.PatternParameter{
 				{
 					Name:  "param1",
@@ -35,7 +35,7 @@ func patternStruct() (codacy.Pattern, string) {
 
 func patternUnnamedStruct() (codacy.Pattern, string) {
 	return codacy.Pattern{
-			PatternID: "testingUnnamed",
+			ID: "var-naming",
 			Parameters: []codacy.PatternParameter{
 				{
 					Name:  unnamedParamName,
@@ -53,6 +53,16 @@ func patternUnnamedStruct() (codacy.Pattern, string) {
 `
 }
 
+func patternRawStruct() (codacy.Pattern, string) {
+	return codacy.Pattern{
+			ID:       "var-naming",
+			Category: "UnusedCode",
+			Level:    "Info",
+		}, `
+  [rule.var-naming]
+`
+}
+
 func TestPatternsToToml(t *testing.T) {
 	pattern, _ := patternStruct()
 
@@ -61,18 +71,21 @@ func TestPatternsToToml(t *testing.T) {
 	if !ok {
 		assert.Fail(t, "Revive config map does not have the expected structure")
 	}
-	assert.NotNil(t, value[pattern.PatternID], "Expected toml: %s to exist", pattern.PatternID)
+	assert.NotNil(t, value[pattern.ID], "Expected toml: %s to exist", pattern.ID)
 }
 
 func TestConfigurationContentGeneration(t *testing.T) {
 	pattern, patternTomlExpected := patternStruct()
-	unnamedParamPattern, unnamedParamTomlExpected := patternUnnamedStruct()
+	unnamedParamPattern, unnamedParamTomlExpected := patternRawStruct()
 	patterns := []codacy.Pattern{
 		pattern,
 		unnamedParamPattern,
 	}
+	fmt.Println(patterns)
 
 	configContent := generateToolConfigurationContent(patterns)
+
+	fmt.Println(configContent)
 
 	expectedContent := fmt.Sprintf("%s%s", patternTomlExpected, unnamedParamTomlExpected)
 

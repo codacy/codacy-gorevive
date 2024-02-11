@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<checkstyle version="1.5">
+    <file name="example.go">
+        <error source="var-naming" line="6" message="don't use underscores in Go names; var var_name should be varName" severity="info" />
+        <error source="var-naming" line="8" message="don't use underscores in Go names; func Test_ATest should be TestATest" severity="info" />
+        <error source="var-naming" line="9" message="don't use underscores in Go names; func Example_AnExample should be ExampleAnExample" severity="info" />
+        <error source="var-naming" line="10" message="don't use underscores in Go names; func Benchmark_ABenchmark should be BenchmarkABenchmark" severity="info" />
+        <error source="var-naming" line="12" message="don't use underscores in Go names; func Fuzz_AFuzz should be FuzzAFuzz" severity="info" />
+    </file>
+</checkstyle>

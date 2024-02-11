@@ -4,13 +4,12 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"path/filepath"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
-	"io/ioutil"
 	"os"
 	"os/exec"
-	"path"
 	"regexp"
 	"strings"
 
@@ -32,12 +31,12 @@ func getMarkdownFile(toolVersion string) (*os.File, error) {
 }
 
 func readToolVersion() string {
-	versionBytes, err := ioutil.ReadFile(toolVersionFile)
+	versionBytes, err := os.ReadFile(toolVersionFile)
 	if err != nil {
 		return "0.0.0"
 	}
 
-	return strings.Trim(string(versionBytes), "\n")
+	return strings.Trim(string(versionBytes), "\r\n")
 }
 
 func run() int {
@@ -98,7 +97,7 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
-	ioutil.WriteFile(path.Join(docFolder, "patterns.json"), toolAsJSON, 0644)
+	os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
 
 	return tool
 }
@@ -118,7 +117,7 @@ func getRuleDescription(ruleMdInfo string) string {
 }
 
 func readMarkdownContent(mdFile *os.File) (string, error) {
-	markdownContent, err := ioutil.ReadFile(mdFile.Name())
+	markdownContent, err := os.ReadFile(mdFile.Name())
 	if err != nil {
 		return "", err
 	}
@@ -136,7 +135,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 	var patternsDescriptionsList []codacy.PatternDescription
 
 	for _, pattern := range rulesList {
-		ruleInformationRegex, err := getRuleInformationRegex(pattern.PatternID)
+		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
 			return err
 		}
@@ -162,9 +161,9 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 		stripedDescription = string(urlReg.ReplaceAll([]byte(stripedDescription), []byte("")))
 
 		patternDescription := codacy.PatternDescription{
-			PatternID:   pattern.PatternID,
+			PatternID:   pattern.ID,
 			Description: stripedDescription,
-			Title:       pattern.PatternID,
+			Title:       pattern.ID,
 			Parameters:  params,
 		}
 
@@ -173,24 +172,24 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 			patternDescription,
 		)
 		if len(ruleInformationMd) > 0 {
-			ioutil.WriteFile(
-				path.Join(
+			os.WriteFile(
+				filepath.Join(
 					docFolder,
 					"description",
-					pattern.PatternID+".md",
+					pattern.ID+".md",
 				),
 				[]byte(ruleInformationMd),
-				0644,
+				0640,
 			)
 		}
 	}
 
 	descriptionsJSON, _ := json.MarshalIndent(patternsDescriptionsList, "", "  ")
 
-	ioutil.WriteFile(
-		path.Join(docFolder, "description", "description.json"),
+	os.WriteFile(
+		filepath.Join(docFolder, "description", "description.json"),
 		descriptionsJSON,
-		0644,
+		0640,
 	)
 
 	return nil

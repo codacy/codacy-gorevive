@@ -16,6 +16,9 @@ vendor/
 
 bin/
 
+# Development env related directories
 .DS_Store
 .codacyrc
 .idea
+target/global-logging/
+.vscode

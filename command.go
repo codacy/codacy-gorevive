@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/exec"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
 	"strings"
 )
@@ -60,8 +60,8 @@ func commandParameters(configFile *os.File, filesToAnalyse []string) []string {
 	return cmdParams
 }
 
-func parseOutput(reviveOutput string) []codacy.Issue {
-	var result []codacy.Issue
+func parseOutput(reviveOutput string) []codacy.Result {
+	var result []codacy.Result
 
 	scanner := bufio.NewScanner(strings.NewReader(reviveOutput))
 	for scanner.Scan() {

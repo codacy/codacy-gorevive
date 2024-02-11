@@ -1,38 +1,11 @@
 {
   "name": "revive",
-  "version": "1.3.4",
+  "version": "1.3.6",
   "patterns": [
     {
       "patternId": "add-constant",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "allowFloats",
-          "default": "",
-          "description": "(string) comma-separated list of allowed floats"
-        },
-        {
-          "name": "allowInts",
-          "default": "",
-          "description": "(string) comma-separated list of allowed integers"
-        },
-        {
-          "name": "allowStrs",
-          "default": "",
-          "description": "(string) comma-separated list of allowed string literals"
-        },
-        {
-          "name": "maxLitCount",
-          "default": "4",
-          "description": "(string) maximum number of instances of a string literal that are tolerated before warn"
-        },
-        {
-          "name": "ignoreFuncs",
-          "default": "",
-          "description": "(string) comma-separated list of function names regexp patterns to exclude"
-        }
-      ],
       "enabled": false
     },
     {
@@ -55,12 +28,6 @@
       "enabled": false
     },
     {
-      "patternId": "bare-return",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "banned-characters",
       "category": "CodeStyle",
       "level": "Info",
@@ -68,9 +35,15 @@
         {
           "name": "unnamedParam",
           "default": "",
-          "description": "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")"
+          "description": "comma-separated list of character to ban"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "bare-return",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
@@ -92,24 +65,6 @@
       "enabled": false
     },
     {
-      "patternId": "confusing-naming",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "comment-spacings",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
-      "patternId": "confusing-results",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "cognitive-complexity",
       "category": "CodeStyle",
       "level": "Info",
@@ -120,6 +75,24 @@
           "description": "(int) the maximum function complexity"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "comment-spacings",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "confusing-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "confusing-results",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
@@ -172,8 +145,8 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
-          "description": "(list of string) the unused params in functions"
+          "default": "\"call-chain\",\"loop\"",
+          "description": "(string) the unused params in functions"
         }
       ],
       "enabled": false
@@ -194,13 +167,6 @@
       "patternId": "early-return",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"preserveScope\")"
-        }
-      ],
       "enabled": false
     },
     {
@@ -211,6 +177,18 @@
     },
     {
       "patternId": "empty-lines",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "enforce-map-style",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "enforce-slice-style",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -231,13 +209,6 @@
       "patternId": "error-strings",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the error functions"
-        }
-      ],
       "enabled": true
     },
     {
@@ -250,13 +221,6 @@
       "patternId": "exported",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")"
-        }
-      ],
       "enabled": true
     },
     {
@@ -279,6 +243,12 @@
       "enabled": false
     },
     {
+      "patternId": "function-length",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "function-result-limit",
       "category": "CodeStyle",
       "level": "Info",
@@ -289,12 +259,6 @@
           "description": "(int) the maximum allowed return values"
         }
       ],
-      "enabled": false
-    },
-    {
-      "patternId": "function-length",
-      "category": "CodeStyle",
-      "level": "Info",
       "enabled": false
     },
     {
@@ -316,23 +280,16 @@
       "enabled": false
     },
     {
-      "patternId": "increment-decrement",
+      "patternId": "import-alias-naming",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
-      "patternId": "indent-error-flow",
+      "patternId": "import-shadowing",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) the flags (\"preserveScope\")"
-        }
-      ],
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "imports-blacklist",
@@ -348,16 +305,16 @@
       "enabled": false
     },
     {
-      "patternId": "import-shadowing",
+      "patternId": "increment-decrement",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
-      "patternId": "import-alias-naming",
+      "patternId": "indent-error-flow",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
       "patternId": "line-length-limit",
@@ -416,10 +373,10 @@
       "enabled": true
     },
     {
-      "patternId": "range",
+      "patternId": "range-val-address",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "range-val-in-closure",
@@ -428,10 +385,10 @@
       "enabled": false
     },
     {
-      "patternId": "range-val-address",
+      "patternId": "range",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
       "patternId": "receiver-naming",
@@ -446,6 +403,18 @@
       "enabled": true
     },
     {
+      "patternId": "redundant-import-alias",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "string-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "string-of-int",
       "category": "CodeStyle",
       "level": "Info",
@@ -455,26 +424,6 @@
       "patternId": "struct-tag",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) list of user defined options"
-        }
-      ],
-      "enabled": false
-    },
-    {
-      "patternId": "string-format",
-      "category": "CodeStyle",
-      "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "",
-          "description": "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message"
-        }
-      ],
       "enabled": false
     },
     {
@@ -497,40 +446,16 @@
       "enabled": false
     },
     {
-      "patternId": "unchecked-type-assertion",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": false
-    },
-    {
       "patternId": "time-naming",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": true
     },
     {
-      "patternId": "var-naming",
+      "patternId": "unchecked-type-assertion",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "whitelist",
-          "default": "",
-          "description": "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")"
-        },
-        {
-          "name": "blacklist",
-          "default": "",
-          "description": "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")"
-        }
-      ],
-      "enabled": true
-    },
-    {
-      "patternId": "var-declaration",
-      "category": "CodeStyle",
-      "level": "Info",
-      "enabled": true
+      "enabled": false
     },
     {
       "patternId": "unconditional-recursion",
@@ -600,13 +525,19 @@
       "enabled": false
     },
     {
-      "patternId": "waitgroup-by-value",
+      "patternId": "var-declaration",
       "category": "CodeStyle",
       "level": "Info",
-      "enabled": false
+      "enabled": true
     },
     {
-      "patternId": "redundant-import-alias",
+      "patternId": "var-naming",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": true
+    },
+    {
+      "patternId": "waitgroup-by-value",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

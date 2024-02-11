@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path"
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 )
 
 const (
@@ -68,7 +67,7 @@ func unnamedParam(value interface{}) []interface{} {
 func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
 	namedParameters := map[string]interface{}{}
 	for _, p := range pattern.Parameters {
-		value := paramValue(p, pattern.PatternID)
+		value := paramValue(p, pattern.ID)
 
 		if p.Name == unnamedParamName {
 			return unnamedParam(value)
@@ -99,8 +98,7 @@ func reviveArguments(paramsValues []interface{}) map[string]interface{} {
 func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{} {
 	patternsMap := map[string]interface{}{}
 	for _, pattern := range patterns {
-		paramsValues := patternParametersAsReviveValues(pattern)
-		patternsMap[pattern.PatternID] = reviveArguments(paramsValues)
+		patternsMap[pattern.ID] = reviveArguments(patternParametersAsReviveValues(pattern))
 	}
 
 	rules := map[string]interface{}{
@@ -123,7 +121,7 @@ func generateToolConfigurationContent(patterns []codacy.Pattern) string {
 
 func configurationFromSourceCode(sourceFolder string) (string, error) {
 	filename := path.Join(sourceFolder, sourceConfigFileName)
-	contentByte, err := ioutil.ReadFile(filename)
+	contentByte, err := os.ReadFile(filename)
 	return string(contentByte), err
 }
 

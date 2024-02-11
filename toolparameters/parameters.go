@@ -4,7 +4,18 @@ import (
 	"fmt"
 	"strconv"
 
-	codacy "github.com/codacy/codacy-engine-golang-seed"
+	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
+)
+
+// Enum for RuleParameter Type
+type RuleParameterType string
+
+const (
+	//SliceType  RuleParameterType = "slice"
+	ListType   RuleParameterType = "list"
+	IntType    RuleParameterType = "int"
+	FloatType  RuleParameterType = "float"
+	StringType RuleParameterType = "string"
 )
 
 // RuleParameter contains the definition of the parameters for a rule
@@ -18,100 +29,46 @@ type RuleParameter struct {
 	// Description for the unnamed parameter
 	Description string
 	// Type of the unnamed parameter
-	Type string
+	Type RuleParameterType
 }
 
 const (
 	unnamedParamName = "unnamedParam"
-
-	// ListType specifies the list type of param
-	ListType = "list"
-	// IntType specifies the int type of param
-	IntType = "int"
-	// FloatType specifies the float type of param
-	FloatType = "float"
-	// StringType specifies the string type of param
-	StringType = "string"
 )
 
 var ruleParameters = []RuleParameter{
-	RuleParameter{
-		Name: "add-constant",
-		Parameters: []RuleParameter{
-			{
-				Name:        "allowFloats",
-				Description: "(string) comma-separated list of allowed floats",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "allowInts",
-				Description: "(string) comma-separated list of allowed integers",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "allowStrs",
-				Description: "(string) comma-separated list of allowed string literals",
-				Default:     "",
-				Type:        StringType,
-			}, {
-				Name:        "maxLitCount",
-				Description: "(string) maximum number of instances of a string literal that are tolerated before warn",
-				Default:     "4",
-				Type:        StringType,
-			}, {
-				Name:        "ignoreFuncs",
-				Description: "(string) comma-separated list of function names regexp patterns to exclude",
-				Default:     "",
-				Type:        StringType,
-			},
-		},
-	}, RuleParameter{
+	{
 		Name:        "argument-limit",
 		Description: "(int) the maximum number of parameters allowed per function",
 		Default:     4,
 		Type:        IntType,
-	}, RuleParameter{
+	}, {
 		Name:        "banned-characters",
-		Description: "(list of string) the characters to ban (ex: \"Ω\",\"Σ\",\"σ\")",
+		Description: "comma-separated list of character to ban",
 		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
+		Type:        StringType,
+	}, {
 		Name:        "cognitive-complexity",
 		Description: "(int) the maximum function complexity",
 		Default:     7,
 		Type:        IntType,
-	}, RuleParameter{
+	}, {
 		Name:        "cyclomatic",
 		Description: "(int) the maximum function complexity",
 		Default:     3,
 		Type:        IntType,
-	}, RuleParameter{
+	}, {
 		Name:        "defer",
-		Description: "(list of string) the unused params in functions",
-		Default:     "\"loop\", \"call-chain\", \"method-call\", \"return\", \"recover\", \"immediate-recover\"",
+		Description: "(string) the unused params in functions",
+		Default:     "\"call-chain\",\"loop\"",
 		Type:        ListType,
-	}, RuleParameter{
-		Name:        "early-return",
-		Description: "(list of string) the flags (\"preserveScope\")",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
-		Name:        "error-strings",
-		Description: "(list of string) the error functions",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
-		Name:        "exported",
-		Description: "(list of string) the flags (\"checkPrivateReceivers\", \"disableStutteringCheck\" and/or \"sayRepetitiveInsteadOfStutters\")",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
+	}, {
 		Name:        "file-header",
 		Description: "(string) the header to look for in source files",
 		Default:     "",
 		Type:        StringType,
-	}, RuleParameter{
-		Name:        "function-lenght",
+	}, {
+		Name: "function-lenght",
 		Parameters: []RuleParameter{
 			{
 				Name:        "maxStmt",
@@ -125,63 +82,32 @@ var ruleParameters = []RuleParameter{
 				Type:        IntType,
 			},
 		},
-		Description: "set to 0 to disable the corresponding check",
-	}, RuleParameter{
+	}, {
 		Name:        "function-result-limit",
 		Description: "(int) the maximum allowed return values",
 		Default:     3,
 		Type:        IntType,
-	}, RuleParameter{
+	}, {
 		Name:        "imports-blacklist",
 		Description: "(list of string) black-list of package names (can be represented using regexp)",
 		Default:     "\"crypto/md5\", \"crypto/sha1\"",
 		Type:        ListType,
-	}, RuleParameter{
-		Name:        "indent-error-flow",
-		Description: "(list of string) the flags (\"preserveScope\")",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
+	}, {
 		Name:        "line-length-limit",
 		Description: "(int) maximum line length in characters",
 		Default:     80,
 		Type:        IntType,
-	}, RuleParameter{
+	}, {
 		Name:        "max-public-structs",
 		Description: "(int) the maximum allowed public structs",
 		Default:     5,
 		Type:        IntType,
-	}, RuleParameter{
-		Name:        "string-format",
-		Description: "(list of string) each set is a slice containing 2-3 strings: a scope, a regex, and an optional error message",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
-		Name:        "struct-tag",
-		Description: "(list of string) list of user defined options",
-		Default:     "",
-		Type:        ListType,
-	}, RuleParameter{
+	}, {
 		Name:        "superfluous-else",
 		Description: "(list of string) the flags (\"preserveScope\")",
 		Default:     "",
 		Type:        ListType,
-	}, RuleParameter{
-		Name:        "var-naming",
-		Parameters: []RuleParameter{
-			{
-				Name:        "whitelist",
-				Description: "(list of string) whitelist of initialisms/variables/packages (ex: \"ID\")",
-				Default:     "",
-				Type:        ListType,
-			}, {
-				Name:        "blacklist",
-				Description: "(list of string) blacklist of initialisms/variables/packages (ex: \"VM\")",
-				Default:     "",
-				Type:        ListType,
-			},
-		},
-	}, RuleParameter{
+	}, {
 		Name:        "unhandled-error",
 		Description: "(list of string) function names regexp patterns to ignore",
 		Default:     "\"fmt.Printf\"",
@@ -196,7 +122,7 @@ func FindRuleParameterDefinition(patternID string) (RuleParameter, error) {
 			return rule, nil
 		}
 	}
-	return RuleParameter{}, fmt.Errorf("Not found parameters for pattern with id %s", patternID)
+	return RuleParameter{}, fmt.Errorf("not found parameters for pattern with id %s", patternID)
 }
 
 // GetParametersForPattern returns the parameters for the pattern with id patternID

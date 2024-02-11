@@ -10,3 +10,4 @@ Example:
 [imports-blacklist]
   arguments =["crypto/md5", "crypto/sha1", "crypto/**/pkix"]
 ```
+

@@ -10,7 +10,7 @@ _Configuration_: ([]string) rule flags. Available flags are:
 Example:
 
 ```toml
-[rule.exported]
-  arguments =["preserveScope"]
+[rule.superfluous-else]
+  arguments = ["preserveScope"]
 ```
 

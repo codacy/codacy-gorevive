@@ -13,4 +13,3 @@ To accept the `inline` option in JSON tags (and `outline` and `gnu` in BSON tags
   arguments = ["json,inline","bson,outline,gnu"]
 ```
 
-

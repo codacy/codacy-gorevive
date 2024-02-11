@@ -12,7 +12,7 @@ _Configuration_: ([]string) rule flags. Available flags are:
 Example:
 
 ```toml
-[rule.exported]
-  arguments =["preserveScope"]
+[rule.indent-error-flow]
+  arguments = ["preserveScope"]
 ```
 
