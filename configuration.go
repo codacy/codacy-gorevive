@@ -17,12 +17,7 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
-	if paramValue == nil {
-		return nil
-	}
 	switch ruleDefinition.Type {
-	//	case toolparameters.RawType:
-	//		return []byte(paramValue.(string))
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
 	case toolparameters.IntType:
@@ -60,10 +55,6 @@ func unnamedParam(value interface{}) []interface{} {
 	case []string:
 		// if is a []string, append all values to res, one by one
 		for _, v := range value.([]string) {
-			resultTmp = append(resultTmp, v)
-		}
-	case []interface{}:
-		for _, v := range value.([]interface{}) {
 			resultTmp = append(resultTmp, v)
 		}
 	default:
