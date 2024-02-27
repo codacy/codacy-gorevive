@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  codacy: codacy/base@11.0.0
-  codacy_plugins_test: codacy/plugins-test@2.0.7
+  codacy: codacy/base@11.1.2
+  codacy_plugins_test: codacy/plugins-test@2.0.10
 
 jobs:
   unit_test:
@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Run go revive
           command: |
-            go install github.com/mgechev/revive@v1.3.6
+            go install github.com/mgechev/revive@v1.3.7
             revive -exclude docs/multiple-tests/... -exclude test/... ./...
       - run:
           name: Run golintci
