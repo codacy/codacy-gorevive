@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -292,16 +292,9 @@
       "enabled": false
     },
     {
-      "patternId": "imports-blacklist",
+      "patternId": "imports-blocklist",
       "category": "CodeStyle",
       "level": "Info",
-      "parameters": [
-        {
-          "name": "unnamedParam",
-          "default": "\"crypto/md5\", \"crypto/sha1\"",
-          "description": "(list of string) black-list of package names (can be represented using regexp)"
-        }
-      ],
       "enabled": false
     },
     {
@@ -327,6 +320,12 @@
           "description": "(int) maximum line length in characters"
         }
       ],
+      "enabled": false
+    },
+    {
+      "patternId": "max-control-nesting",
+      "category": "CodeStyle",
+      "level": "Info",
       "enabled": false
     },
     {
