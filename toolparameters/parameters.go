@@ -7,11 +7,10 @@ import (
 	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 )
 
-// Enum for RuleParameter Type
+// Enum for RuleParameterType
 type RuleParameterType string
 
 const (
-	//SliceType  RuleParameterType = "slice"
 	ListType   RuleParameterType = "list"
 	IntType    RuleParameterType = "int"
 	FloatType  RuleParameterType = "float"
@@ -88,14 +87,19 @@ var ruleParameters = []RuleParameter{
 		Default:     3,
 		Type:        IntType,
 	}, {
-		Name:        "imports-blacklist",
-		Description: "(list of string) black-list of package names (can be represented using regexp)",
+		Name:        "imports-blocklist",
+		Description: "(list of string) block-list of package names (or regular expression package names)",
 		Default:     "\"crypto/md5\", \"crypto/sha1\"",
 		Type:        ListType,
 	}, {
 		Name:        "line-length-limit",
 		Description: "(int) maximum line length in characters",
 		Default:     80,
+		Type:        IntType,
+	}, {
+		Name:        "max-control-nesting",
+		Description: "(int) maximum accepted nesting level of control structures",
+		Default:     5,
 		Type:        IntType,
 	}, {
 		Name:        "max-public-structs",

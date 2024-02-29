@@ -2,23 +2,26 @@
 
 Codacy tool to add support for [revive](https://github.com/mgechev/revive).
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/eac3dec12b244a1390f1f414246d0d6d)](https://app.codacy.com/gh/codacy/codacy-gorevive/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![CircleCI](https://circleci.com/gh/codacy/codacy-gorevive.svg?style=svg)](https://circleci.com/gh/codacy/codacy-gorevive)
+
 # Usage
 
 You can create the docker by doing:
 
-```
+```bash
 make docker
 ```
 
 The docker is ran with the following command:
 
-```
+```bash
 docker run -it -v $srcDir:/src <DOCKER_NAME>:<DOCKER_VERSION>
 ```
 
 To run the tool using a custom configuration file, run docker with the following command:
 
-```
+```bash
 docker run -it -v $srcDir:/src -v $codacyrcConfig:/.codacyrc <DOCKER_NAME>:<DOCKER_VERSION>
 ```
 
@@ -32,8 +35,8 @@ docker run -it -v $srcDir:/src -v $codacyrcConfig:/.codacyrc <DOCKER_NAME>:<DOCK
 
 ## Structure
 
-- To run the tool we provide the configuration file, `/.codacyrc`, with the language to run and optional parameters your tool might need.
-- The source code to be analysed will be located in `/src`, meaning that when provided in the configuration, the file paths are relative to `/src`.
+-   To run the tool we provide the configuration file, `/.codacyrc`, with the language to run and optional parameters your tool might need.
+-   The source code to be analysed will be located in `/src`, meaning that when provided in the configuration, the file paths are relative to `/src`.
 
 Check more information [here](https://github.com/codacy/codacy-example-tool#structure)
 
@@ -49,20 +52,35 @@ To get more information on the tool documentation, check [here](https://github.c
 
 This documentation should be generated automatically by using the Documentation Generator tool:
 
-```
+```bash
 make build-docs
 ```
 
 #### Bumping the version
-Update the .tool_version file as well as the one from config.yml with the latest revive version.
+-   update the .tool_version file with the latest revive version
+-   upgrade dependencies
+ ```bash
+  go get -u -t
+  go install
+  go fix
+  go mod tidy
+ ```
+-   generate documentation
+-   if rules change add/edit related parameters in `toolparameters/parameter.go`.
 
 ##### Common errors
 ###### missing go.sum entry for module providing package
-run `go mod tidy`
+```bash
+go mod tidy
+```
 ###### zsyscall_darwin_arm64 (Apple m1)
-run `go get -u golang.org/x/sys`
+```bash
+go get -u golang.org/x/sys
+```
 ###### "pandoc": executable file not found in $PATH
-run `brew install pandoc`
+```bash
+brew install pandoc
+```
 
 #### Test
 
@@ -77,13 +95,11 @@ to your developers, and helps you save time in Code Reviews.
 
 ### Among Codacy’s features
 
-* Identify new Static Analysis issues
-* Commit and Pull Request Analysis with GitHub, BitBucket/Stash, GitLab (and
-  also direct git repositories)
-* Auto-comments on Commits and Pull Requests
-* Integrations with Slack, HipChat, Jira, YouTrack
-* Track issues in Code Style, Security, Error Proneness, Performance, Unused
-  Code and other categories
+-   Identify new Static Analysis issues
+-   Commit and Pull Request Analysis with GitHub, BitBucket/Stash, GitLab (and also direct git repositories)
+-   Auto-comments on Commits and Pull Requests
+-   Integrations with Slack, HipChat, Jira, YouTrack
+-   Track issues in Code Style, Security, Error Proneness, Performance, Unused Code and other categories
 
 Codacy also helps keep track of Code Coverage, Code Duplication, and Code
 Complexity.

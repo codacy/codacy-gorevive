@@ -295,6 +295,13 @@
       "patternId": "imports-blocklist",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "\"crypto/md5\", \"crypto/sha1\"",
+          "description": "(list of string) block-list of package names (or regular expression package names)"
+        }
+      ],
       "enabled": false
     },
     {
@@ -326,6 +333,13 @@
       "patternId": "max-control-nesting",
       "category": "CodeStyle",
       "level": "Info",
+      "parameters": [
+        {
+          "name": "unnamedParam",
+          "default": "5",
+          "description": "(int) maximum accepted nesting level of control structures"
+        }
+      ],
       "enabled": false
     },
     {

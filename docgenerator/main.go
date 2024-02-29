@@ -1,3 +1,4 @@
+// generate documentation for the tool
 package main
 
 import (
@@ -55,17 +56,16 @@ func run() int {
 		return 1
 	}
 
-	defaultPatterns, err := getDefaultPatterns(toolVersion)
+	defaultPatterns := getDefaultPatterns(toolVersion)
 
 	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation, defaultPatterns)
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("Error getting patterns list from documentation:", err)
 		return 1
 	}
 
-	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
-
-	createDescriptionFiles(mdFile, toolDefinition.Patterns)
+	createPatternsJSONFile(&patternsList, toolVersion)
+	createDescriptionFiles(mdFile, &patternsList)
 
 	return 0
 }
@@ -86,18 +86,21 @@ func convertMarkdownIntoHTML(markdownFileLocation string) (string, error) {
 	return "<body>" + string(htmlConversion) + "<body>", nil
 }
 
-func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codacy.ToolDefinition {
+func createPatternsJSONFile(rulesList *[]codacy.Pattern, toolVersion string) codacy.ToolDefinition {
 	fmt.Println("Creating patterns.json file...")
 
 	tool := codacy.ToolDefinition{
 		Name:     "revive",
 		Version:  toolVersion,
-		Patterns: patterns,
+		Patterns: rulesList,
 	}
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
-	os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
+	err := os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
+	if err != nil {
+		fmt.Println("Error creating patterns.json file:", err)
+	}
 
 	return tool
 }
@@ -124,20 +127,23 @@ func readMarkdownContent(mdFile *os.File) (string, error) {
 	return string(markdownContent), nil
 }
 
-func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
+func createDescriptionFiles(mdFile *os.File, rulesList *[]codacy.Pattern) {
+	descriptionFolder := filepath.Join(docFolder, "description")
 	fmt.Println("Creating description files...")
 
 	markdownContent, err := readMarkdownContent(mdFile)
 	if err != nil {
-		return err
+		fmt.Println("Error reading markdown file:", err)
+		return
 	}
 
 	var patternsDescriptionsList []codacy.PatternDescription
 
-	for _, pattern := range rulesList {
+	for _, pattern := range *rulesList {
 		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
-			return err
+			fmt.Println("Error getting rule information regex:", err)
+			return
 		}
 
 		ruleInformationMdList := ruleInformationRegex.FindAllString(string(markdownContent), -1)
@@ -157,7 +163,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 
 		stripedDescription := stripmd.Strip(getRuleDescription(ruleInformationMd))
 		// Required this replace due to bug on markdown strip for some URLs.
-		urlReg, _ := regexp.Compile("#[^)]*\\)")
+		urlReg, _ := regexp.Compile(`#[^)]*\)`)
 		stripedDescription = string(urlReg.ReplaceAll([]byte(stripedDescription), []byte("")))
 
 		patternDescription := codacy.PatternDescription{
@@ -172,25 +178,31 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 			patternDescription,
 		)
 		if len(ruleInformationMd) > 0 {
-			os.WriteFile(
-				filepath.Join(
-					docFolder,
-					"description",
-					pattern.ID+".md",
-				),
+			path := filepath.Join(descriptionFolder, pattern.ID+".md")
+			err = os.WriteFile(
+				path,
 				[]byte(ruleInformationMd),
 				0640,
 			)
+			if err != nil {
+				fmt.Println("Error writing pattern description file:", path, err)
+			}
 		}
 	}
 
-	descriptionsJSON, _ := json.MarshalIndent(patternsDescriptionsList, "", "  ")
+	descriptionsJSON, err := json.MarshalIndent(patternsDescriptionsList, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling descriptions to JSON:", err)
+		return
+	}
 
-	os.WriteFile(
-		filepath.Join(docFolder, "description", "description.json"),
+	path := filepath.Join(descriptionFolder, "description.json")
+	err = os.WriteFile(
+		path,
 		descriptionsJSON,
 		0640,
 	)
-
-	return nil
+	if err != nil {
+		fmt.Println("Error writing description file:", path, err)
+	}
 }
