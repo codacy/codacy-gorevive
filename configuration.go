@@ -126,10 +126,10 @@ func configurationFromSourceCode(sourceFolder string) (string, error) {
 }
 
 // getConfigurationFile returns file, boolean saying if it is temp and error
-func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.File, error) {
+func getConfigurationFile(patterns *[]codacy.Pattern, sourceFolder string) (*os.File, error) {
 	// if no patterns, try to use configuration from source code
 	// otherwise default configuration file
-	if len(patterns) == 0 {
+	if patterns == nil {
 		sourceConfigFileContent, err := configurationFromSourceCode(sourceFolder)
 		if err == nil {
 			return writeToTempFile(sourceConfigFileContent)
@@ -138,7 +138,7 @@ func getConfigurationFile(patterns []codacy.Pattern, sourceFolder string) (*os.F
 		return nil, err
 	}
 
-	content := generateToolConfigurationContent(patterns)
+	content := generateToolConfigurationContent(*patterns)
 
 	return writeToTempFile(content)
 }
