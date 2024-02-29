@@ -18,7 +18,7 @@ jobs:
 
   lint:
     docker:
-      - image: cimg/go:1.21.6
+      - image: cimg/go:1.21.7
     working_directory: ~/workdir
     steps:
       - attach_workspace:
@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Run go revive
           command: |
-            go install github.com/mgechev/revive@v1.3.7
+            go install github.com/mgechev/revive@v$(cat .tool_version)
             revive -exclude docs/multiple-tests/... -exclude test/... ./...
       - run:
           name: Run golintci

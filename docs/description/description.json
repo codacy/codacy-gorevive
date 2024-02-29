@@ -244,7 +244,13 @@
   {
     "patternId": "imports-blocklist",
     "title": "imports-blocklist",
-    "description": "Warns when importing block-listed packages."
+    "description": "Warns when importing block-listed packages.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(list of string) block-list of package names (or regular expression package names)"
+      }
+    ]
   },
   {
     "patternId": "increment-decrement",
@@ -270,7 +276,13 @@
   {
     "patternId": "max-control-nesting",
     "title": "max-control-nesting",
-    "description": "Warns if nesting level of control structures (if-then-else, for, switch) exceeds a given maximum."
+    "description": "Warns if nesting level of control structures (if-then-else, for, switch) exceeds a given maximum.",
+    "parameters": [
+      {
+        "name": "unnamedParam",
+        "description": "(int) maximum accepted nesting level of control structures"
+      }
+    ]
   },
   {
     "patternId": "max-public-structs",

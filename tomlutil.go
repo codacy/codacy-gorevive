@@ -4,6 +4,7 @@ import (
 	toml "github.com/pelletier/go-toml"
 )
 
+// This is a package comment.
 func mapToTOML(jsonMap map[string]interface{}) (string, error) {
 	tree, err := toml.TreeFromMap(jsonMap)
 	if err != nil {

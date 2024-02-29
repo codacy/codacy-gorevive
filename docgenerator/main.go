@@ -1,3 +1,4 @@
+// generate documentation for the tool
 package main
 
 import (
@@ -55,17 +56,17 @@ func run() int {
 		return 1
 	}
 
-	defaultPatterns, err := getDefaultPatterns(toolVersion)
+	defaultPatterns := getDefaultPatterns(toolVersion)
 
 	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation, defaultPatterns)
 	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("Error getting patterns list from documentation: ", err)
 		return 1
 	}
 
 	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
 
-	createDescriptionFiles(mdFile, toolDefinition.Patterns)
+	createDescriptionFiles(mdFile, *toolDefinition.Patterns)
 
 	return 0
 }
@@ -92,12 +93,15 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 	tool := codacy.ToolDefinition{
 		Name:     "revive",
 		Version:  toolVersion,
-		Patterns: patterns,
+		Patterns: &patterns,
 	}
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
-	os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
+	err := os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
+	if err != nil {
+		fmt.Println("Error creating patterns.json file: ", err)
+	}
 
 	return tool
 }
@@ -124,12 +128,13 @@ func readMarkdownContent(mdFile *os.File) (string, error) {
 	return string(markdownContent), nil
 }
 
-func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
+func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 	fmt.Println("Creating description files...")
 
 	markdownContent, err := readMarkdownContent(mdFile)
 	if err != nil {
-		return err
+		fmt.Println("Error reading markdown file:", err)
+		return
 	}
 
 	var patternsDescriptionsList []codacy.PatternDescription
@@ -137,7 +142,8 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 	for _, pattern := range rulesList {
 		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
-			return err
+			fmt.Println("Error getting rule information regex: ", err)
+			return
 		}
 
 		ruleInformationMdList := ruleInformationRegex.FindAllString(string(markdownContent), -1)
@@ -157,7 +163,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 
 		stripedDescription := stripmd.Strip(getRuleDescription(ruleInformationMd))
 		// Required this replace due to bug on markdown strip for some URLs.
-		urlReg, _ := regexp.Compile("#[^)]*\\)")
+		urlReg, _ := regexp.Compile(`#[^)]*\)`)
 		stripedDescription = string(urlReg.ReplaceAll([]byte(stripedDescription), []byte("")))
 
 		patternDescription := codacy.PatternDescription{
@@ -191,6 +197,4 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) error {
 		descriptionsJSON,
 		0640,
 	)
-
-	return nil
 }
