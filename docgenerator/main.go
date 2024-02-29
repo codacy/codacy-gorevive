@@ -64,9 +64,8 @@ func run() int {
 		return 1
 	}
 
-	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
-
-	createDescriptionFiles(mdFile, toolDefinition.Patterns)
+	createPatternsJSONFile(&patternsList, toolVersion)
+	createDescriptionFiles(mdFile, &patternsList)
 
 	return 0
 }
@@ -87,13 +86,13 @@ func convertMarkdownIntoHTML(markdownFileLocation string) (string, error) {
 	return "<body>" + string(htmlConversion) + "<body>", nil
 }
 
-func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codacy.ToolDefinition {
+func createPatternsJSONFile(rulesList *[]codacy.Pattern, toolVersion string) codacy.ToolDefinition {
 	fmt.Println("Creating patterns.json file...")
 
 	tool := codacy.ToolDefinition{
 		Name:     "revive",
 		Version:  toolVersion,
-		Patterns: patterns,
+		Patterns: rulesList,
 	}
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
@@ -128,7 +127,7 @@ func readMarkdownContent(mdFile *os.File) (string, error) {
 	return string(markdownContent), nil
 }
 
-func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
+func createDescriptionFiles(mdFile *os.File, rulesList *[]codacy.Pattern) {
 	descriptionFolder := filepath.Join(docFolder, "description")
 	fmt.Println("Creating description files...")
 
@@ -140,7 +139,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 
 	var patternsDescriptionsList []codacy.PatternDescription
 
-	for _, pattern := range rulesList {
+	for _, pattern := range *rulesList {
 		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
 			fmt.Println("Error getting rule information regex:", err)
