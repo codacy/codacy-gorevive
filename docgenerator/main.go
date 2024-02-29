@@ -60,13 +60,13 @@ func run() int {
 
 	patternsList, err := getPatternsListFromDocumentationHTML(htmlDocumentation, defaultPatterns)
 	if err != nil {
-		fmt.Println("Error getting patterns list from documentation: ", err)
+		fmt.Println("Error getting patterns list from documentation:", err)
 		return 1
 	}
 
 	toolDefinition := createPatternsJSONFile(patternsList, toolVersion)
 
-	createDescriptionFiles(mdFile, *toolDefinition.Patterns)
+	createDescriptionFiles(mdFile, toolDefinition.Patterns)
 
 	return 0
 }
@@ -93,14 +93,14 @@ func createPatternsJSONFile(patterns []codacy.Pattern, toolVersion string) codac
 	tool := codacy.ToolDefinition{
 		Name:     "revive",
 		Version:  toolVersion,
-		Patterns: &patterns,
+		Patterns: patterns,
 	}
 
 	toolAsJSON, _ := json.MarshalIndent(tool, "", "  ")
 
 	err := os.WriteFile(filepath.Join(docFolder, "patterns.json"), toolAsJSON, 0640)
 	if err != nil {
-		fmt.Println("Error creating patterns.json file: ", err)
+		fmt.Println("Error creating patterns.json file:", err)
 	}
 
 	return tool
@@ -129,6 +129,7 @@ func readMarkdownContent(mdFile *os.File) (string, error) {
 }
 
 func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
+	descriptionFolder := filepath.Join(docFolder, "description")
 	fmt.Println("Creating description files...")
 
 	markdownContent, err := readMarkdownContent(mdFile)
@@ -142,7 +143,7 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 	for _, pattern := range rulesList {
 		ruleInformationRegex, err := getRuleInformationRegex(pattern.ID)
 		if err != nil {
-			fmt.Println("Error getting rule information regex: ", err)
+			fmt.Println("Error getting rule information regex:", err)
 			return
 		}
 
@@ -178,23 +179,31 @@ func createDescriptionFiles(mdFile *os.File, rulesList []codacy.Pattern) {
 			patternDescription,
 		)
 		if len(ruleInformationMd) > 0 {
-			os.WriteFile(
-				filepath.Join(
-					docFolder,
-					"description",
-					pattern.ID+".md",
-				),
+			path := filepath.Join(descriptionFolder, pattern.ID+".md")
+			err = os.WriteFile(
+				path,
 				[]byte(ruleInformationMd),
 				0640,
 			)
+			if err != nil {
+				fmt.Println("Error writing pattern description file:", path, err)
+			}
 		}
 	}
 
-	descriptionsJSON, _ := json.MarshalIndent(patternsDescriptionsList, "", "  ")
+	descriptionsJSON, err := json.MarshalIndent(patternsDescriptionsList, "", "  ")
+	if err != nil {
+		fmt.Println("Error marshaling descriptions to JSON:", err)
+		return
+	}
 
-	os.WriteFile(
-		filepath.Join(docFolder, "description", "description.json"),
+	path := filepath.Join(descriptionFolder, "description.json")
+	err = os.WriteFile(
+		path,
 		descriptionsJSON,
 		0640,
 	)
+	if err != nil {
+		fmt.Println("Error writing description file:", path, err)
+	}
 }
