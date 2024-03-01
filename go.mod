@@ -3,7 +3,7 @@ module codacy.com/codacy-gorevive
 go 1.21
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.0
+	github.com/PuerkitoBio/goquery v1.9.1
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.1.4
 	github.com/pelletier/go-toml v1.9.5
 	github.com/stretchr/testify v1.8.4
