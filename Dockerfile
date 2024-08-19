@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine3.19 as builder
+FROM golang:1.21-alpine3.20 as builder
 
 ARG TOOL_VERSION
 
