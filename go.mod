@@ -3,7 +3,7 @@ module codacy.com/codacy-gorevive
 go 1.21
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.0
+	github.com/PuerkitoBio/goquery v1.9.2
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.1.4
 	github.com/pelletier/go-toml v1.9.5
 	github.com/stretchr/testify v1.9.0
@@ -17,7 +17,7 @@ require (
 	github.com/samber/lo v1.39.0 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225 // indirect
-	golang.org/x/net v0.23.0 // indirect
-	golang.org/x/sys v0.18.0 // indirect
+	golang.org/x/net v0.24.0 // indirect
+	golang.org/x/sys v0.19.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
