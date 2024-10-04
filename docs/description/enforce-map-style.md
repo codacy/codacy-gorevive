@@ -14,4 +14,3 @@ Example:
   arguments = ["make"]
 ```
 
-

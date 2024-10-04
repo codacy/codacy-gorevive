@@ -13,8 +13,8 @@ foo, _ := bar(.*Baz).
 
 Example:
 
-```yaml
+```toml
 [rule.unchecked-type-assertion]
-arguments = [{acceptIgnoredAssertionResult=true}]
+  arguments = [{acceptIgnoredAssertionResult=true}]
 ```
 

@@ -10,5 +10,6 @@ Example:
 
 ```toml
 [rule.cognitive-complexity]
-  arguments =[7]
+  arguments = [7]
 ```
+

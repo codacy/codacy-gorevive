@@ -8,5 +8,6 @@ Example:
 
 ```toml
 [rule.banned-characters]
-  arguments =["Ω","Σ","σ"]
+  arguments = ["Ω","Σ","σ"]
 ```
+

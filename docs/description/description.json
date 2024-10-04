@@ -68,6 +68,11 @@
     "description": "Spots comments of the form:"
   },
   {
+    "patternId": "comments-density",
+    "title": "comments-density",
+    "description": "Spots files not respecting a minimum value for the comments lines density metric = comment lines / (lines of code + comment lines) * 100"
+  },
+  {
     "patternId": "confusing-naming",
     "title": "confusing-naming",
     "description": "Methods or fields of struct that have names different only by capitalization could be confusing."
@@ -155,9 +160,14 @@
     "description": "This rule enforces consistent usage of make(map[type]type) or map[type]type{} for map initialization. It does not affect make(map[type]type, size) constructions as well as map[type]type{k1: v1}."
   },
   {
+    "patternId": "enforce-repeated-arg-type-style",
+    "title": "enforce-repeated-arg-type-style",
+    "description": "This rule is designed to maintain consistency in the declaration"
+  },
+  {
     "patternId": "enforce-slice-style",
     "title": "enforce-slice-style",
-    "description": "This rule enforces consistent usage of make([]type, 0) or []type{} for slice initialization."
+    "description": "This rule enforces consistent usage of make([]type, 0), []type{}, or var []type for slice initialization."
   },
   {
     "patternId": "error-naming",
@@ -239,7 +249,7 @@
   {
     "patternId": "import-shadowing",
     "title": "import-shadowing",
-    "description": "In GO it is possible to declare identifiers (packages, structs,"
+    "description": "In Go it is possible to declare identifiers (packages, structs,"
   },
   {
     "patternId": "imports-blocklist",
@@ -440,12 +450,12 @@
   {
     "patternId": "use-any",
     "title": "use-any",
-    "description": "Since GO 1.18, interface{} has an alias: any. This rule proposes to replace instances of interface{} with any."
+    "description": "Since Go 1.18, interface{} has an alias: any. This rule proposes to replace instances of interface{} with any."
   },
   {
     "patternId": "useless-break",
     "title": "useless-break",
-    "description": "This rule warns on useless break statements in case clauses of switch and select statements. GO, unlike other programming languages like C, only executes statements of the selected case while ignoring the subsequent case clauses."
+    "description": "This rule warns on useless break statements in case clauses of switch and select statements. Go, unlike other programming languages like C, only executes statements of the selected case while ignoring the subsequent case clauses."
   },
   {
     "patternId": "var-declaration",

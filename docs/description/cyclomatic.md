@@ -8,5 +8,6 @@ Example:
 
 ```toml
 [rule.cyclomatic]
-  arguments =[3]
+  arguments = [3]
 ```
+
