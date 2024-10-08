@@ -10,6 +10,6 @@ To accept the `inline` option in JSON tags (and `outline` and `gnu` in BSON tags
 
 ```toml
 [rule.struct-tag]
-  arguments = ["json,inline","bson,outline,gnu"]
+  arguments = ["json,inline", "bson,outline,gnu"]
 ```
 

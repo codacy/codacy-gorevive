@@ -7,7 +7,7 @@ _Configuration_: block-list of package names (or regular expression package name
 Example:
 
 ```toml
-[imports-blocklist]
-  arguments =["crypto/md5", "crypto/sha1", "crypto/**/pkix"]
+[rule.imports-blocklist]
+  arguments = ["crypto/md5", "crypto/sha1", "crypto/**/pkix"]
 ```
 

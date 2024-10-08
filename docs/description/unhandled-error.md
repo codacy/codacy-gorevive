@@ -7,6 +7,7 @@ _Configuration_: function names regexp patterns to ignore
 Example:
 
 ```toml
-[unhandled-error]
-  arguments =["os\.(Create|WriteFile|Chmod)", "fmt\.Print", "myFunction", "net\..*", "bytes\.Buffer\.Write"]
+[rule.unhandled-error]
+  arguments = ["os\.(Create|WriteFile|Chmod)", "fmt\.Print", "myFunction", "net\..*", "bytes\.Buffer\.Write"]
 ```
+

@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -79,6 +79,12 @@
     },
     {
       "patternId": "comment-spacings",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "comments-density",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -183,6 +189,12 @@
     },
     {
       "patternId": "enforce-map-style",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "enforce-repeated-arg-type-style",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

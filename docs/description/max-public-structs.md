@@ -11,6 +11,6 @@ Example:
 
 ```toml
 [rule.max-public-structs]
-  arguments =[3]
+  arguments = [3]
 ```
 

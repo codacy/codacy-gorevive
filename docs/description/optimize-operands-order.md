@@ -6,8 +6,13 @@ _Configuration_: N/A
 
 Example:
 
-    if isGenerated(content) && !config.IgnoreGeneratedHeader {
+```go
+if isGenerated(content) && !config.IgnoreGeneratedHeader {
+```
+
 Swap left and right side :
 
-    if !config.IgnoreGeneratedHeader && isGenerated(content) {
+```go
+if !config.IgnoreGeneratedHeader && isGenerated(content) {
+```
 

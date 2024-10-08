@@ -8,6 +8,6 @@ Example:
 
 ```toml
 [rule.function-result-limit]
-  arguments =[3]
+  arguments = [3]
 ```
 
