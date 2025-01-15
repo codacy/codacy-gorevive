@@ -1,11 +1,10 @@
 module codacy.com/codacy-gorevive
 
 go 1.22.0
-
-toolchain go1.22.5
+toolchain go1.23.4
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.2
+	github.com/PuerkitoBio/goquery v1.10.1
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.3.0
 	github.com/pelletier/go-toml v1.9.5
 	github.com/stretchr/testify v1.10.0
@@ -14,7 +13,7 @@ require (
 
 require (
 	github.com/CycloneDX/cyclonedx-go v0.9.1 // indirect
-	github.com/andybalholm/cascadia v1.3.2 // indirect
+	github.com/andybalholm/cascadia v1.3.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/samber/lo v1.47.0 // indirect
