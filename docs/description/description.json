@@ -206,6 +206,16 @@
     ]
   },
   {
+    "patternId": "file-length-limit",
+    "title": "file-length-limit",
+    "description": "This rule enforces a maximum number of lines per file, in order to aid in maintainability and reduce complexity."
+  },
+  {
+    "patternId": "filename-format",
+    "title": "filename-format",
+    "description": "enforces conventions on source file names. By default, the rule enforces filenames of the form ^A-Za-z0-9*\\.go$: Optionally, the rule can be configured to enforce other forms."
+  },
+  {
     "patternId": "flag-parameter",
     "title": "flag-parameter",
     "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be control-coupled."
@@ -361,6 +371,16 @@
     "description": "This rule warns on redundant import aliases. This happens when the alias used on the import statement matches the imported package name."
   },
   {
+    "patternId": "redundant-build-tag",
+    "title": "redundant-build-tag",
+    "description": "This rule warns about redundant build tag comments // +build when //go:build is present."
+  },
+  {
+    "patternId": "redundant-test-main-exit",
+    "title": "redundant-test-main-exit",
+    "description": "This rule warns about redundant Exit calls in the TestMain function, as the Go test runner automatically handles program termination starting from Go 1.15."
+  },
+  {
     "patternId": "string-format",
     "title": "string-format",
     "description": "This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against."
@@ -453,6 +473,11 @@
     "description": "Since Go 1.18, interface{} has an alias: any. This rule proposes to replace instances of interface{} with any."
   },
   {
+    "patternId": "use-errors-new",
+    "title": "use-errors-new",
+    "description": "This rules identifies calls to fmt.Errorf that can be safely replaced by, the more efficient, errors.New."
+  },
+  {
     "patternId": "useless-break",
     "title": "useless-break",
     "description": "This rule warns on useless break statements in case clauses of switch and select statements. Go, unlike other programming languages like C, only executes statements of the selected case while ignoring the subsequent case clauses."
@@ -465,7 +490,7 @@
   {
     "patternId": "var-naming",
     "title": "var-naming",
-    "description": "This rule warns when initialism, variable or package naming conventions are not followed."
+    "description": "This rule warns when initialism, variable or package naming conventions are not followed. It ignores functions starting with Example, Test, Benchmark, and Fuzz in test files, preserving golint original behavior."
   },
   {
     "patternId": "waitgroup-by-value",

@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.4.0",
+  "version": "1.7.0",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -249,6 +249,18 @@
       "enabled": false
     },
     {
+      "patternId": "file-length-limit",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "filename-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "flag-parameter",
       "category": "CodeStyle",
       "level": "Info",
@@ -434,6 +446,18 @@
       "enabled": false
     },
     {
+      "patternId": "redundant-build-tag",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "redundant-test-main-exit",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "string-format",
       "category": "CodeStyle",
       "level": "Info",
@@ -539,6 +563,12 @@
     },
     {
       "patternId": "use-any",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "use-errors-new",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
