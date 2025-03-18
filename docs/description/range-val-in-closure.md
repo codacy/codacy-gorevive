@@ -5,3 +5,5 @@ This rule warns when a range value (or index) is used inside a closure
 
 _Configuration_: N/A
 
+_Note_: This rule is irrelevant for Go 1.22+.
+

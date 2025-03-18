@@ -4,3 +4,5 @@ _Description_: Range variables in a loop are reused at each iteration. This rule
 
 _Configuration_: N/A
 
+_Note_: This rule is irrelevant for Go 1.22+.
+
