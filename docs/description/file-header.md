@@ -8,6 +8,6 @@ Example:
 
 ```toml
 [rule.file-header]
-  arguments = ["This is the text that must appear at the top of source files."]
+arguments = ["This is the text that must appear at the top of source files."]
 ```
 

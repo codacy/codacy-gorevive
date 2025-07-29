@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.7.0",
+  "version": "1.11.0",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -201,6 +201,12 @@
     },
     {
       "patternId": "enforce-slice-style",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "enforce-switch-style",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -440,13 +446,13 @@
       "enabled": true
     },
     {
-      "patternId": "redundant-import-alias",
+      "patternId": "redundant-build-tag",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
     },
     {
-      "patternId": "redundant-build-tag",
+      "patternId": "redundant-import-alias",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
@@ -487,6 +493,12 @@
         }
       ],
       "enabled": true
+    },
+    {
+      "patternId": "time-date",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "time-equal",
@@ -538,6 +550,12 @@
       "enabled": false
     },
     {
+      "patternId": "unnecessary-format",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "unnecessary-stmt",
       "category": "CodeStyle",
       "level": "Info",
@@ -569,6 +587,12 @@
     },
     {
       "patternId": "use-errors-new",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "use-fmt-print",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

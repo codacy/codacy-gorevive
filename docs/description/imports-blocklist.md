@@ -8,6 +8,6 @@ Example:
 
 ```toml
 [rule.imports-blocklist]
-  arguments = ["crypto/md5", "crypto/sha1", "crypto/**/pkix"]
+arguments = ["crypto/md5", "crypto/sha1", "crypto/**/pkix"]
 ```
 

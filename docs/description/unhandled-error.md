@@ -8,6 +8,12 @@ Example:
 
 ```toml
 [rule.unhandled-error]
-  arguments = ["os\.(Create|WriteFile|Chmod)", "fmt\.Print", "myFunction", "net\..*", "bytes\.Buffer\.Write"]
+arguments = [
+  '^os\.(CreateTemp|WriteFile|Chmod)$',
+  '^fmt\.Print',
+  'myFunction',
+  '^net\.',
+  '^(bytes\.Buffer|string\.Writer)\.Write(Byte|Rune|String)?$',
+]
 ```
 

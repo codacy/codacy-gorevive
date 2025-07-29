@@ -9,6 +9,6 @@ Example:
 
 ```toml
 [rule.argument-limit]
-  arguments = [4]
+arguments = [4]
 ```
 

@@ -4,17 +4,23 @@ _Description_: This rule checks whether a type assertion result is checked (the 
 
 _Configuration_: list of key-value-pair-map (`[]map[string]any`).
 
-- `acceptIgnoredAssertionResult` : (bool) default `false`, set it to `true` to accept ignored type assertion results like this:
+- `acceptIgnoredAssertionResult` (`acceptignoredassertionresult`, `accept-ignored-assertion-result`): (bool) default `false`,
+set it to `true` to accept ignored type assertion results like this:
 
-```go
+```golang
 foo, _ := bar(.*Baz).
 //   ^
 ```
 
-Example:
+Examples:
 
 ```toml
 [rule.unchecked-type-assertion]
-  arguments = [{acceptIgnoredAssertionResult=true}]
+arguments = [{ acceptIgnoredAssertionResult = true }]
+```
+
+```toml
+[rule.unchecked-type-assertion]
+arguments = [{ accept-ignored-assertion-result = true }]
 ```
 

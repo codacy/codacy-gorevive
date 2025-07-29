@@ -8,6 +8,6 @@ Example:
 
 ```toml
 [rule.max-control-nesting]
-  arguments = [3]
+arguments = [3]
 ```
 
