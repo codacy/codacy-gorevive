@@ -8,7 +8,8 @@ Example:
 
 ```toml
 [rule.function-length]
-  arguments = [10, 0]
+arguments = [10, 0]
 ```
+
 Will check for functions exceeding 10 statements and will not check the number of lines of functions
 

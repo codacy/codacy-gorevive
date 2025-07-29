@@ -8,6 +8,6 @@ Example:
 
 ```toml
 [rule.line-length-limit]
-  arguments = [80]
+arguments = [80]
 ```
 

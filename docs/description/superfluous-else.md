@@ -5,12 +5,17 @@ This rule highlights redundant _else-blocks_ that can be eliminated from the cod
 
 _Configuration_: ([]string) rule flags. Available flags are:
 
-* _preserveScope_: do not suggest refactorings that would increase variable scope
+- `preserveScope` (`preservescope`, `preserve-scope`): (string) do not suggest refactorings that would increase variable scope
 
-Example:
+Examples:
 
 ```toml
 [rule.superfluous-else]
-  arguments = ["preserveScope"]
+arguments = ["preserveScope"]
+```
+
+```toml
+[rule.superfluous-else]
+arguments = ["preserve-scope"]
 ```
 
