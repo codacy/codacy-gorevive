@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	codacy "github.com/codacy/codacy-engine-golang-seed/v6"
 
@@ -16,13 +17,21 @@ type GoReviveImplementation struct {
 // Run runs the tool implementation
 func (i GoReviveImplementation) Run(ctx context.Context, tool codacy.ToolExecution) ([]codacy.Result, error) {
 	configFile, err := getConfigurationFile(tool.Patterns, tool.SourceDir)
-	if err == nil {
+	if err == nil && configFile != nil {
 		defer os.Remove(configFile.Name())
 	}
 
-	filesToAnalyse, err := getListOfFilesToAnalyse(*tool.Files, tool.SourceDir)
-	if err != nil {
-		return nil, errors.New("Error getting files to analyse: " + err.Error())
+	var filesToAnalyse []string
+	if tool.Files != nil {
+		filesToAnalyse, err = getListOfFilesToAnalyse(*tool.Files, tool.SourceDir)
+		if err != nil {
+			return nil, fmt.Errorf("error getting files to analyse: %w", err)
+		}
+	} else {
+		filesToAnalyse, err = getListOfFilesToAnalyse(nil, tool.SourceDir)
+		if err != nil {
+			return nil, fmt.Errorf("error getting files to analyse: %w", err)
+		}
 	}
 
 	reviveCmd := reviveCommand(configFile, filesToAnalyse, tool.SourceDir)
