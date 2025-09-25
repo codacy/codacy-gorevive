@@ -29,3 +29,6 @@ codacy-gorevive*
 .github/copilot-instructions.md
 
 .codacy/
+
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
