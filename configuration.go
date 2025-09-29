@@ -51,7 +51,11 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 		}
 	}
 
-	return paramValueByType(param.Default, ruleDefinition)
+	if param.Value == nil {
+		return paramValueByType(param.Default, ruleDefinition)
+	} else {
+		return paramValueByType(param.Value, ruleDefinition)
+	}
 }
 
 func unnamedParam(value interface{}) []interface{} {
