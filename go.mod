@@ -8,7 +8,7 @@ require (
 	github.com/PuerkitoBio/goquery v1.10.1
 	github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0
 	github.com/pelletier/go-toml v1.9.5
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 	github.com/writeas/go-strip-markdown v2.0.1+incompatible
 )
 
