@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
@@ -33,19 +34,28 @@ func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.Rule
 
 // paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
-	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
-	if notFound != nil {
-		if isInteger(param.Value) {
-			return int(param.Value.(float64))
+	ruleDefinition, err := toolparameters.FindRuleParameterDefinition(patternID)
+	if err != nil {
+		// fallback: rule not found
+		switch v := param.Value.(type) {
+		case float64:
+			return int(v)
+		case string:
+			if i, convErr := strconv.Atoi(v); convErr == nil {
+				return i
+			}
+			return v
+		default:
+			return param.Value
 		}
 	}
 
+	// normal case: ruleDefinition was found
 	for _, p := range ruleDefinition.Parameters {
 		if p.Name == param.Name {
 			return paramValueByType(param.Value, p)
 		}
 	}
-
 	return paramValueByType(param.Value, ruleDefinition)
 }
 
