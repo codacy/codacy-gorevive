@@ -67,7 +67,9 @@ func parseOutput(reviveOutput string) []codacy.Result {
 	for scanner.Scan() {
 		var reviveRes ReviveResult
 		json.Unmarshal([]byte(scanner.Text()), &reviveRes)
-
+		if reviveRes.RuleName == "" {
+			continue
+		}
 		result = append(result, codacy.Issue{
 			PatternID: reviveRes.RuleName,
 			Message:   reviveRes.Failure,
@@ -75,6 +77,7 @@ func parseOutput(reviveOutput string) []codacy.Result {
 			File:      reviveRes.Position.Start.Filename,
 		})
 	}
+
 	return result
 }
 

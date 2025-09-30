@@ -17,6 +17,7 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
+
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
@@ -41,12 +42,20 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	}
 
 	for _, p := range ruleDefinition.Parameters {
-		if p.Name == param.Name {
+		if p.Name == param.Name && param.Value != nil {
 			return paramValueByType(param.Value, p)
+		} else {
+			if p.Name == param.Name {
+				return paramValueByType(param.Default, p)
+			}
 		}
 	}
 
-	return paramValueByType(param.Value, ruleDefinition)
+	if param.Value == nil {
+		return paramValueByType(param.Default, ruleDefinition)
+	} else {
+		return paramValueByType(param.Value, ruleDefinition)
+	}
 }
 
 func unnamedParam(value interface{}) []interface{} {
@@ -72,7 +81,6 @@ func patternParametersAsReviveValues(pattern codacy.Pattern) []interface{} {
 		if p.Name == unnamedParamName {
 			return unnamedParam(value)
 		}
-
 		namedParameters[p.Name] = value
 	}
 
