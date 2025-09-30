@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"strconv"
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
@@ -18,7 +17,6 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
-
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
@@ -35,35 +33,19 @@ func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.Rule
 
 // paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
-	ruleDefinition, err := toolparameters.FindRuleParameterDefinition(patternID)
-	if err != nil {
-		// fallback: rule not found
-		switch v := param.Value.(type) {
-		case float64:
-			return int(v)
-		case string:
-			if i, convErr := strconv.Atoi(v); convErr == nil {
-				return i
-			}
-			return v
-		default:
-			return param.Value
+	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
+	if notFound != nil {
+		if isInteger(param.Value) {
+			return int(param.Value.(float64))
 		}
 	}
 
-	// normal case: ruleDefinition was found
 	for _, p := range ruleDefinition.Parameters {
 		if p.Name == param.Name {
-			if param.Value != nil {
-				return paramValueByType(param.Value, p)
-			}
-			return paramValueByType(p.Default, p)
+			return paramValueByType(param.Value, p)
 		}
 	}
 
-	if param.Value == nil {
-		return paramValueByType(param.Default, ruleDefinition)
-	}
 	return paramValueByType(param.Value, ruleDefinition)
 }
 

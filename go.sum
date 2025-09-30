@@ -6,8 +6,8 @@ github.com/andybalholm/cascadia v1.3.3 h1:AG2YHrzJIm4BZ19iwJ/DAua6Btl3IwJX+VI4kk
 github.com/andybalholm/cascadia v1.3.3/go.mod h1:xNd9bqTn98Ln4DwST8/nG+H0yuB8Hmgu1YHNnWw0GeA=
 github.com/bradleyjkemp/cupaloy/v2 v2.8.0 h1:any4BmKE+jGIaMpnU8YgH/I2LPiLBufr6oMMlVBbn9M=
 github.com/bradleyjkemp/cupaloy/v2 v2.8.0/go.mod h1:bm7JXdkRd4BHJk9HpwqAI8BoAY1lps46Enkdqw6aRX0=
-github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0 h1:IEBZi96MMt7hXCovJFTI8GU7hFz5wnzVwVZZv9j69Ec=
-github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0/go.mod h1:Ir7lvmQQeEd7xF7Z+XNaY+UGq6CBXil2rEmKhNDkVRk=
+github.com/codacy/codacy-engine-golang-seed/v6 v6.3.0 h1:kGwieci9KOXZcmfKLnUHND3aY9RiEJoS8/zMokVwnvw=
+github.com/codacy/codacy-engine-golang-seed/v6 v6.3.0/go.mod h1:Ir7lvmQQeEd7xF7Z+XNaY+UGq6CBXil2rEmKhNDkVRk=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
