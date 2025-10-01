@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"strconv"
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
@@ -19,11 +20,39 @@ const (
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
-		return strings.Split(paramValue.(string), ", ")
+		// make sure it's string before splitting
+		if s, ok := paramValue.(string); ok {
+			return strings.Split(s, ", ")
+		}
+		return []string{}
 	case toolparameters.IntType:
-		return int(paramValue.(float64))
+		switch v := paramValue.(type) {
+		case int:
+			return v
+		case float64:
+			return int(v)
+		case string:
+			if i, err := strconv.Atoi(v); err == nil {
+				return i
+			}
+			return 0
+		default:
+			return 0
+		}
 	case toolparameters.FloatType:
-		return paramValue.(float64)
+		switch v := paramValue.(type) {
+		case float64:
+			return v
+		case int:
+			return float64(v)
+		case string:
+			if f, err := strconv.ParseFloat(v, 64); err == nil {
+				return f
+			}
+			return 0.0
+		default:
+			return 0.0
+		}
 	case toolparameters.StringType:
 		return fmt.Sprintf("%v", paramValue)
 	default:
