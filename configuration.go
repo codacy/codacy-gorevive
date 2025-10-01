@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"strconv"
 	"strings"
 
 	toolparameters "codacy.com/codacy-gorevive/toolparameters"
@@ -18,6 +17,7 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
+
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
@@ -34,23 +34,19 @@ func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.Rule
 
 // paramValue converts codacy's parameter into a revive parameter value
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
-	ruleDefinition, err := toolparameters.FindRuleParameterDefinition(patternID)
-	if err != nil {
-		// fallback: rule not found
-		switch v := param.Value.(type) {
-		case float64:
-			return int(v)
-		case string:
-			if i, convErr := strconv.Atoi(v); convErr == nil {
-				return i
-			}
-			return v
-		default:
-			return param.Value
+	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
+
+	if param.Value == "" && notFound == nil {
+		param.Value = ruleDefinition.Default
+	}
+
+	if notFound != nil {
+		if isInteger(param.Value) {
+			return int(param.Value.(float64))
 		}
 	}
 
-	// normal case: ruleDefinition was found
+	// This is to handle rules with sub-parameters
 	for _, p := range ruleDefinition.Parameters {
 		if p.Name == param.Name {
 			return paramValueByType(param.Value, p)
@@ -109,7 +105,6 @@ func patternsToReviveConfigMap(patterns []codacy.Pattern) map[string]interface{}
 	for _, pattern := range patterns {
 		patternsMap[pattern.ID] = reviveArguments(patternParametersAsReviveValues(pattern))
 	}
-
 	rules := map[string]interface{}{
 		"rule": patternsMap,
 	}
@@ -143,7 +138,6 @@ func getConfigurationFile(patterns *[]codacy.Pattern, sourceFolder string) (*os.
 		if err == nil {
 			return writeToTempFile(sourceConfigFileContent)
 		}
-
 		return nil, err
 	}
 
