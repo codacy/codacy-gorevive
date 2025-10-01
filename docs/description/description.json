@@ -252,6 +252,26 @@
     "description": "An if-then-else conditional with identical implementations in both branches is an error."
   },
   {
+    "patternId": "identical-ifelseif-branches",
+    "title": "identical-ifelseif-branches",
+    "description": "an if ... else if chain with identical branches makes maintenance harder"
+  },
+  {
+    "patternId": "identical-ifelseif-conditions",
+    "title": "identical-ifelseif-conditions",
+    "description": "an if ... else if chain  with identical conditions can lead to"
+  },
+  {
+    "patternId": "identical-switch-branches",
+    "title": "identical-switch-branches",
+    "description": "a switch with identical branches makes maintenance harder"
+  },
+  {
+    "patternId": "identical-switch-conditions",
+    "title": "identical-switch-conditions",
+    "description": "a switch statement with cases with the same condition can lead to"
+  },
+  {
     "patternId": "if-return",
     "title": "if-return",
     "description": "Checking if an error is nil to just after return the error or nil is redundant."
@@ -344,6 +364,11 @@
     "patternId": "package-comments",
     "title": "package-comments",
     "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the package keyword."
+  },
+  {
+    "patternId": "package-directory-mismatch",
+    "title": "package-directory-mismatch",
+    "description": "It is considered a good practice to name a package after the directory containing it."
   },
   {
     "patternId": "range-val-address",
@@ -473,6 +498,11 @@
     "description": "This rule spots and proposes to remove unreachable code."
   },
   {
+    "patternId": "unsecure-url-scheme",
+    "title": "unsecure-url-scheme",
+    "description": "Checks for usage of potentially unsecure URL schemes (http, ws) in string literals."
+  },
+  {
     "patternId": "unused-parameter",
     "title": "unused-parameter",
     "description": "This rule warns on unused parameters. Functions or methods with unused parameters can be a symptom of an unfinished refactoring or a bug."
@@ -498,9 +528,19 @@
     "description": "This rule proposes to replace calls to built-in print and println with their equivalents from fmt standard package."
   },
   {
+    "patternId": "use-waitgroup-go",
+    "title": "use-waitgroup-go",
+    "description": "Since Go 1.25 the sync package proposes the WaitGroup.Go method."
+  },
+  {
     "patternId": "useless-break",
     "title": "useless-break",
     "description": "This rule warns on useless break statements in case clauses of switch and select statements. Go,"
+  },
+  {
+    "patternId": "useless-fallthrough",
+    "title": "useless-fallthrough",
+    "description": "This rule warns on useless fallthrough statements in case clauses of switch statements."
   },
   {
     "patternId": "var-declaration",

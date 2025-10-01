@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.11.0",
+  "version": "1.12.0",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -304,6 +304,30 @@
       "enabled": false
     },
     {
+      "patternId": "identical-ifelseif-branches",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "identical-ifelseif-conditions",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "identical-switch-branches",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "identical-switch-conditions",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "if-return",
       "category": "CodeStyle",
       "level": "Info",
@@ -414,6 +438,12 @@
       "category": "CodeStyle",
       "level": "Info",
       "enabled": true
+    },
+    {
+      "patternId": "package-directory-mismatch",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
     },
     {
       "patternId": "range-val-address",
@@ -568,6 +598,12 @@
       "enabled": true
     },
     {
+      "patternId": "unsecure-url-scheme",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "unused-parameter",
       "category": "CodeStyle",
       "level": "Info",
@@ -598,7 +634,19 @@
       "enabled": false
     },
     {
+      "patternId": "use-waitgroup-go",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "useless-break",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "useless-fallthrough",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false
