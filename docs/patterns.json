@@ -488,7 +488,7 @@
       "parameters": [
         {
           "name": "unnamedParam",
-          "default": "preserveScope",
+          "default": "",
           "description": "(list of string) the flags (\"preserveScope\")"
         }
       ],

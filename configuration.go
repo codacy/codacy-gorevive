@@ -17,7 +17,6 @@ const (
 
 // paramValueByType checks the type of parameter according to the tool documentation
 func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.RuleParameter) interface{} {
-
 	switch ruleDefinition.Type {
 	case toolparameters.ListType:
 		return strings.Split(paramValue.(string), ", ")
@@ -39,13 +38,11 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	if param.Value == "" && notFound == nil {
 		param.Value = ruleDefinition.Default
 	}
-
 	if notFound != nil {
 		if isInteger(param.Value) {
 			return int(param.Value.(float64))
 		}
 	}
-
 	// This is to handle rules with sub-parameters
 	for _, p := range ruleDefinition.Parameters {
 		if p.Name == param.Name {
