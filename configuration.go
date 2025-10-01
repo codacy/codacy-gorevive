@@ -67,6 +67,7 @@ func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	if (param.Value == "" || param.Value == nil) && notFound == nil {
 		param.Value = ruleDefinition.Default
 	}
+
 	if notFound != nil {
 		if isInteger(param.Value) {
 			return int(param.Value.(float64))
