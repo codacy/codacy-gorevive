@@ -35,7 +35,7 @@ func paramValueByType(paramValue interface{}, ruleDefinition toolparameters.Rule
 func paramValue(param codacy.PatternParameter, patternID string) interface{} {
 	ruleDefinition, notFound := toolparameters.FindRuleParameterDefinition(patternID)
 
-	if param.Value == "" && notFound == nil {
+	if (param.Value == "" || param.Value == nil) && notFound == nil {
 		param.Value = ruleDefinition.Default
 	}
 	if notFound != nil {
