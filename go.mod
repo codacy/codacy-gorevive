@@ -6,19 +6,19 @@ toolchain go1.24.7
 
 require (
 	github.com/PuerkitoBio/goquery v1.10.3
-	github.com/codacy/codacy-engine-golang-seed/v6 v6.4.0
+	github.com/codacy/codacy-engine-golang-seed/v6 v6.4.7
 	github.com/pelletier/go-toml v1.9.5
-	github.com/stretchr/testify v1.11.0
+	github.com/stretchr/testify v1.11.1
 	github.com/writeas/go-strip-markdown v2.0.1+incompatible
 )
 
 require (
-	github.com/CycloneDX/cyclonedx-go v0.9.2 // indirect
+	github.com/CycloneDX/cyclonedx-go v0.9.3 // indirect
 	github.com/andybalholm/cascadia v1.3.3 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/samber/lo v1.51.0 // indirect
-	github.com/sirupsen/logrus v1.9.3 // indirect
+	github.com/samber/lo v1.52.0 // indirect
+	github.com/sirupsen/logrus v1.9.4 // indirect
 	golang.org/x/net v0.44.0 // indirect
 	golang.org/x/sys v0.36.0 // indirect
 	golang.org/x/text v0.29.0 // indirect
