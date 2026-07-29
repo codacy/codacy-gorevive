@@ -4,7 +4,7 @@ _Description_: Warns when importing block-listed packages.
 
 _Configuration_: block-list of package names (or regular expression package names).
 
-Example:
+Configuration example:
 
 ```toml
 [rule.imports-blocklist]

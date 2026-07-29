@@ -12,7 +12,7 @@ foo, _ := bar(.*Baz).
 //   ^
 ```
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.unchecked-type-assertion]

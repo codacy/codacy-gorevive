@@ -11,7 +11,7 @@ _Configuration_:
 - `allowFloats` (`allowfloats`, `allow-floats`): (string) comma-separated list of allowed floats
 - `ignoreFuncs` (`ignorefuncs`, `ignore-funcs`): (string) comma-separated list of function names regexp patterns to exclude
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.add-constant]

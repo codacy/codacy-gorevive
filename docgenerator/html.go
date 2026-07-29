@@ -16,26 +16,26 @@ func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[strin
 		return nil, err
 	}
 
-	doc.Find("ul").Each(func(index int, externalUlHtml *goquery.Selection) {
-		externalUlHtml.Find("ul").Each(func(index int, internalUlHtml *goquery.Selection) {
-			internalUlHtml.Find("li").Each(func(index int, tablehtml *goquery.Selection) {
-				tablehtml.Find("a").Each(func(indextr int, rowhtml *goquery.Selection) {
-					patternID := rowhtml.Text()
-					_, enabledByDefault := defaultPatterns[patternID]
+	// The rules table of contents is rendered as the first <ul> in the
+	// document (right after the "<!-- toc -->" marker). Older revive
+	// versions nested it one level deeper (ul > ul > li > a); newer
+	// versions render it as a single flat list (ul > li > a). Selecting
+	// the first top-level <ul> and grabbing all its <a> descendants
+	// handles both shapes.
+	doc.Find("ul").First().Find("a").Each(func(index int, rowhtml *goquery.Selection) {
+		patternID := rowhtml.Text()
+		_, enabledByDefault := defaultPatterns[patternID]
 
-					patterns = append(
-						patterns,
-						codacy.Pattern{
-							ID:         patternID,
-							Category:   "CodeStyle",
-							Level:      "Info",
-							Parameters: toolparameters.GetParametersForPattern(patternID),
-							Enabled:    enabledByDefault,
-						},
-					)
-				})
-			})
-		})
+		patterns = append(
+			patterns,
+			codacy.Pattern{
+				ID:         patternID,
+				Category:   "CodeStyle",
+				Level:      "Info",
+				Parameters: toolparameters.GetParametersForPattern(patternID),
+				Enabled:    enabledByDefault,
+			},
+		)
 	})
 
 	return patterns, nil

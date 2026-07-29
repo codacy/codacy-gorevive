@@ -5,7 +5,7 @@ _Description_: This rule warns on unused method receivers. Methods with unused r
 _Configuration_:
 Supports arguments with single of `map[string]any` with option `allowRegex` to provide additional to `_` mask to allowed unused receiver names.
 
-Examples:
+Configuration examples:
 
 This allows any names starting with `_`, not just `_` itself:
 

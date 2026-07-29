@@ -11,7 +11,7 @@ _Configuration_: (string) Specifies the enforced style for slice initialization.
 - "literal": Enforces the usage of `[]type{}`.
 - "nil": Enforces the usage of `var []type`.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.enforce-slice-style]

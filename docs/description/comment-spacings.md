@@ -15,7 +15,7 @@ _Configuration_: ([]string) list of exceptions. For example, to accept comments 
 
 You need to add both `"mypragma:"` and `"+optional"` in the configuration
 
-Example:
+Configuration example:
 
 ```toml
 [rule.comment-spacings]

@@ -29,7 +29,7 @@ _Configuration_: ([]string) rule flags. Available flags are:
 - `allowJump` (`allowjump`, `allow-jump`): suggest a new jump (`return`, `continue` or `break` statement) if it could unnest multiple statements.
 By default, only relocation of _existing_ jumps (i.e. from the `else` clause) are suggested.
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.early-return]

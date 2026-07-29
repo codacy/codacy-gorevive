@@ -5,7 +5,7 @@ metric = _comment lines / (lines of code + comment lines) * 100_
 
 _Configuration_: (int) the minimum expected comments lines density.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.comments-density]

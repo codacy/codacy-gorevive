@@ -4,7 +4,7 @@ _Description_: Functions too long (with many statements and/or lines) can be har
 
 _Configuration_: (int,int) the maximum allowed statements and lines. Must be non-negative integers. Set to 0 to disable the check
 
-Example:
+Configuration example:
 
 ```toml
 [rule.function-length]

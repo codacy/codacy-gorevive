@@ -7,7 +7,7 @@ Enforcing a maximum complexity per function helps to keep code readable and main
 
 _Configuration_: (int) the maximum function complexity
 
-Example:
+Configuration example:
 
 ```toml
 [rule.cognitive-complexity]
