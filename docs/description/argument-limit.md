@@ -5,7 +5,7 @@ Enforcing a maximum number of parameters helps to keep the code readable and mai
 
 _Configuration_: (int) the maximum number of parameters allowed per function.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.argument-limit]

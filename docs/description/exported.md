@@ -20,7 +20,7 @@ by _repetitive_ in failure messages
 - `disableChecksOnTypes` (`disablechecksontypes`, `disable-checks-on-types`) disable all checks on type declarations
 - `disableChecksOnVariables` (`disablechecksonvariables`, `disable-checks-on-variables`) disable all checks on variable declarations
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.exported]

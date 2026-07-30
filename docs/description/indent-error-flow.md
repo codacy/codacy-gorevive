@@ -9,7 +9,7 @@ _Configuration_: ([]string) rule flags. Available flags are:
 
 - `preserveScope` (`preservescope`, `preserve-scope`): do not suggest refactorings that would increase variable scope
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.indent-error-flow]

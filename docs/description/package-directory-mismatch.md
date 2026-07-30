@@ -18,7 +18,7 @@ For files in version directories (`v1`, `v2`, etc.), package name is checked if 
 
 _Configuration_: Named arguments for directory exclusions.
 
-Examples:
+Configuration examples:
 
 Default behavior excludes paths containing `testdata`
 

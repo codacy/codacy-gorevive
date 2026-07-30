@@ -16,14 +16,14 @@ _Note_: If both `allowRegex` and `denyRegex` are provided, the alias must comply
 If none are given (i.e. an empty map), the default value `^[a-z][a-z0-9]{0,}$` for allowRegex is used.
 Unknown keys will result in an error.
 
-Example (1):
+Configuration example (1):
 
 ```toml
 [rule.import-alias-naming]
 arguments = ["^[a-z][a-z0-9]{0,}$"]
 ```
 
-Examples (2):
+Configuration examples (2):
 
 ```toml
 [rule.import-alias-naming]

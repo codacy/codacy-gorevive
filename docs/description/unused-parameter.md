@@ -5,7 +5,7 @@ _Description_: This rule warns on unused parameters. Functions or methods with u
 _Configuration_: Supports arguments with single of `map[string]any` with option `allowRegex` (`allowregex`, `allow-regex`) to provide additional
 to `_` mask to allowed unused parameter names.
 
-Examples:
+Configuration examples:
 
 This allows any names starting with `_`, not just `_` itself:
 

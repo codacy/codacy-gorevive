@@ -5,7 +5,7 @@ Optionally, the rule can be configured to enforce other forms.
 
 _Configuration_: (string) regular expression for source filenames.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.filename-format]

@@ -4,7 +4,7 @@ _Description_: Checks given banned characters in identifiers(func, var, const). 
 
 _Configuration_: This rule requires a slice of strings, the characters to ban.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.banned-characters]

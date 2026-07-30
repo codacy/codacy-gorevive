@@ -4,7 +4,7 @@ _Description_: Warns in the presence of code lines longer than a configured maxi
 
 _Configuration_: (int) maximum line length in characters.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.line-length-limit]

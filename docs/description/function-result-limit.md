@@ -4,7 +4,7 @@ _Description_: Functions returning too many results can be hard to understand/us
 
 _Configuration_: (int) the maximum allowed return values
 
-Example:
+Configuration example:
 
 ```toml
 [rule.function-result-limit]

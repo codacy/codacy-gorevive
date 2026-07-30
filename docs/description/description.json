@@ -155,6 +155,11 @@
     "description": "Sometimes gofmt is not enough to enforce a common formatting of a code-base;"
   },
   {
+    "patternId": "epoch-naming",
+    "title": "epoch-naming",
+    "description": "Variables initialized with epoch time methods (time.Now().Unix(), time.Now().UnixMilli(),"
+  },
+  {
     "patternId": "enforce-map-style",
     "title": "enforce-map-style",
     "description": "This rule enforces consistent usage of make(map[type]type) or map[type]type{} for map initialization."
@@ -224,6 +229,11 @@
     "patternId": "flag-parameter",
     "title": "flag-parameter",
     "description": "If a function controls the flow of another by passing it information on what to do, both functions are said to be control-coupled."
+  },
+  {
+    "patternId": "forbidden-call-in-wg-go",
+    "title": "forbidden-call-in-wg-go",
+    "description": "Since Go 1.25, it is possible to create goroutines with the method waitgroup.Go."
   },
   {
     "patternId": "function-length",
@@ -308,6 +318,11 @@
     "description": "To improve the readability of code, it is recommended to reduce the indentation as much as possible."
   },
   {
+    "patternId": "inefficient-map-lookup",
+    "title": "inefficient-map-lookup",
+    "description": "This rule identifies code that iteratively searches for a key in a map."
+  },
+  {
     "patternId": "line-length-limit",
     "title": "line-length-limit",
     "description": "Warns in the presence of code lines longer than a configured maximum.",
@@ -364,6 +379,11 @@
     "patternId": "package-comments",
     "title": "package-comments",
     "description": "Packages should have comments. This rule warns on undocumented packages and when packages comments are detached to the package keyword."
+  },
+  {
+    "patternId": "package-naming",
+    "title": "package-naming",
+    "description": "This rule checks that package names follow Go conventions and best practices."
   },
   {
     "patternId": "package-directory-mismatch",
@@ -423,7 +443,7 @@
   {
     "patternId": "struct-tag",
     "title": "struct-tag",
-    "description": "Struct tags are not checked at compile time."
+    "description": "The rule spots errors in struct tags."
   },
   {
     "patternId": "superfluous-else",
@@ -483,6 +503,11 @@
     ]
   },
   {
+    "patternId": "unnecessary-if",
+    "title": "unnecessary-if",
+    "description": "Detects unnecessary if-else statements that return or assign a boolean value"
+  },
+  {
     "patternId": "unnecessary-format",
     "title": "unnecessary-format",
     "description": "This rule identifies calls to formatting functions where the format string does not contain any formatting verbs"
@@ -526,6 +551,11 @@
     "patternId": "use-fmt-print",
     "title": "use-fmt-print",
     "description": "This rule proposes to replace calls to built-in print and println with their equivalents from fmt standard package."
+  },
+  {
+    "patternId": "use-slices-sort",
+    "title": "use-slices-sort",
+    "description": "Since Go 1.21 the slices package proposes methods that are faster and easier to use"
   },
   {
     "patternId": "use-waitgroup-go",

@@ -8,7 +8,7 @@ _Configuration_: ([]string) Specifies what to enforced: occurrence and/or positi
 - "allowNoDefault": allows `switch` without `default` case clause.
 - "allowDefaultNotLast": allows `default` case clause to be not the last clause of the `switch`.
 
-Examples:
+Configuration examples:
 
 To enforce that all `switch` statements have a `default` clause as its the last case clause:
 

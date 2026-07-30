@@ -23,7 +23,7 @@ If you need to inverse the semantics you can add a `!` just before the first `/`
 
 3. The third string (optional) is a **message** containing the purpose for the regex, which will be used in lint errors.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.string-format]

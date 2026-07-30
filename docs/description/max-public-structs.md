@@ -7,7 +7,7 @@ This rule warns on files declaring more than a configured, maximum number of pub
 
 _Configuration_: (int) the maximum allowed public structs
 
-Example:
+Configuration example:
 
 ```toml
 [rule.max-public-structs]

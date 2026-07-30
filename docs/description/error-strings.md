@@ -9,7 +9,7 @@ More [information here](https://go.dev/wiki/CodeReviewComments#error-strings).
 _Configuration_: ([]string) the list of additional error functions to check.
 The format of values is `package.FunctionName`.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.error-strings]

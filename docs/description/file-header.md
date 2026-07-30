@@ -4,7 +4,7 @@ _Description_: This rule helps to enforce a common header for all source files i
 
 _Configuration_: (string) the header to look for in source files.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.file-header]

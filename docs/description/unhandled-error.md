@@ -4,7 +4,7 @@ _Description_: This rule warns when errors returned by a function are not explic
 
 _Configuration_: function names regexp patterns to ignore
 
-Example:
+Configuration example:
 
 ```toml
 [rule.unhandled-error]

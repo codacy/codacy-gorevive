@@ -7,7 +7,7 @@ _Configuration_:
 
 - `allowTypesBefore` (`allowtypesbefore`, `allow-types-before`): (string) comma-separated list of types that may be before 'context.Context'
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.context-as-argument]

@@ -8,7 +8,7 @@ _Configuration_: (optional) list of key-value-pair-map (`[]map[string]any`).
 
 - `maxLength` (`maxlength`, `max-length`): (int) max length of receiver name
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.receiver-naming]

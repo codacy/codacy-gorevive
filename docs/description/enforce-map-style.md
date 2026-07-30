@@ -9,7 +9,7 @@ _Configuration_: (string) Specifies the enforced style for map initialization. T
 - "make": Enforces the usage of `make(map[type]type)`.
 - "literal": Enforces the usage of `map[type]type{}`.
 
-Example:
+Configuration example:
 
 ```toml
 [rule.enforce-map-style]

@@ -4,7 +4,7 @@ _Description_: Warns if nesting level of control structures (`if-then-else`, `fo
 
 _Configuration_: (int) maximum accepted nesting level of control structures (defaults to 5)
 
-Example:
+Configuration example:
 
 ```toml
 [rule.max-control-nesting]

@@ -9,7 +9,7 @@ _Configuration_:
 
 - `allowedPackages` (`allowedpackages`, `allowed-packages`): (list of strings) comma-separated list of allowed dot import packages
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.dot-imports]

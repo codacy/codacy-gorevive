@@ -20,7 +20,7 @@ These gotchas are [described here](https://blog.learngoprogramming.com/gotchas-o
 _Configuration_: By default, all warnings are enabled but it is possible selectively enable them through configuration.
 For example to enable only `call-chain` and `loop`:
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.defer]

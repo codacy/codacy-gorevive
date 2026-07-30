@@ -8,7 +8,7 @@ _Configuration_:
 - `skipComments` (`skipcomments`, `skip-comments`): (bool) if true ignore and do not count lines containing just comments (default `false`);
 - `skipBlankLines` (`skipblanklines`, `skip-blank-lines`): (bool) if true ignore and do not count lines made up purely of whitespace (default `false`).
 
-Examples:
+Configuration examples:
 
 ```toml
 [rule.file-length-limit]
