@@ -1,5 +1,7 @@
 ## struct-tag
 
+_Go version_: 1.0; behavior changes in 1.24.
+
 _Description_: The rule spots errors in struct tags.
 This is useful because struct tags are not checked at compile time.
 

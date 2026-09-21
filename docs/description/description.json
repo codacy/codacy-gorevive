@@ -18,12 +18,12 @@
   {
     "patternId": "atomic",
     "title": "atomic",
-    "description": "Check for commonly mistaken usages of the sync/atomic package"
+    "description": "Check for commonly mistaken usages of the sync/atomic package."
   },
   {
     "patternId": "banned-characters",
     "title": "banned-characters",
-    "description": "Checks given banned characters in identifiers(func, var, const). Comments are not checked.",
+    "description": "Checks given banned characters in identifiers (func, var, const). Comments are not checked.",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -34,7 +34,7 @@
   {
     "patternId": "bare-return",
     "title": "bare-return",
-    "description": "Warns on bare (a.k.a. naked) returns"
+    "description": "Warns on bare (a.k.a. naked) returns."
   },
   {
     "patternId": "blank-imports",
@@ -65,7 +65,7 @@
   {
     "patternId": "comment-spacings",
     "title": "comment-spacings",
-    "description": "Spots comments of the form:"
+    "description": "Warns on malformed comments."
   },
   {
     "patternId": "comments-density",
@@ -223,7 +223,7 @@
   {
     "patternId": "filename-format",
     "title": "filename-format",
-    "description": "enforces conventions on source file names. By default, the rule enforces filenames of the form ^A-Za-z0-9*\\.go$."
+    "description": "Enforces conventions on source file names. By default, the rule enforces filenames of the form ^A-Za-z0-9*\\.go$."
   },
   {
     "patternId": "flag-parameter",
@@ -233,7 +233,7 @@
   {
     "patternId": "forbidden-call-in-wg-go",
     "title": "forbidden-call-in-wg-go",
-    "description": "Since Go 1.25, it is possible to create goroutines with the method waitgroup.Go."
+    "description": "Since Go 1.25, it is possible to create goroutines with the method WaitGroup.Go."
   },
   {
     "patternId": "function-length",
@@ -243,7 +243,7 @@
   {
     "patternId": "function-result-limit",
     "title": "function-result-limit",
-    "description": "Functions returning too many results can be hard to understand/use.",
+    "description": "Specifies the maximum number of results a function can return.",
     "parameters": [
       {
         "name": "unnamedParam",
@@ -254,7 +254,7 @@
   {
     "patternId": "get-return",
     "title": "get-return",
-    "description": "Typically, functions with names prefixed with Get are supposed to return a value."
+    "description": "Warns on getters that do not yield any result."
   },
   {
     "patternId": "identical-branches",
@@ -264,22 +264,22 @@
   {
     "patternId": "identical-ifelseif-branches",
     "title": "identical-ifelseif-branches",
-    "description": "an if ... else if chain with identical branches makes maintenance harder"
+    "description": "An if ... else if chain with identical branches makes maintenance harder"
   },
   {
     "patternId": "identical-ifelseif-conditions",
     "title": "identical-ifelseif-conditions",
-    "description": "an if ... else if chain  with identical conditions can lead to"
+    "description": "An if ... else if chain with identical conditions can lead to"
   },
   {
     "patternId": "identical-switch-branches",
     "title": "identical-switch-branches",
-    "description": "a switch with identical branches makes maintenance harder"
+    "description": "A switch with identical branches makes maintenance harder"
   },
   {
     "patternId": "identical-switch-conditions",
     "title": "identical-switch-conditions",
-    "description": "a switch statement with cases with the same condition can lead to"
+    "description": "A switch statement with cases with the same condition can lead to"
   },
   {
     "patternId": "if-return",
@@ -334,6 +334,11 @@
     ]
   },
   {
+    "patternId": "marshal-receiver",
+    "title": "marshal-receiver",
+    "description": "Checks receiver type consistency for common marshal/unmarshal methods."
+  },
+  {
     "patternId": "max-control-nesting",
     "title": "max-control-nesting",
     "description": "Warns if nesting level of control structures (if-then-else, for, switch) exceeds a given maximum.",
@@ -364,6 +369,11 @@
     "patternId": "modifies-value-receiver",
     "title": "modifies-value-receiver",
     "description": "A method that modifies its receiver value can have undesired behavior."
+  },
+  {
+    "patternId": "multiline-if-init",
+    "title": "multiline-if-init",
+    "description": "Flags if statements whose init clause spans multiple lines."
   },
   {
     "patternId": "nested-structs",
@@ -418,7 +428,7 @@
   {
     "patternId": "redundant-build-tag",
     "title": "redundant-build-tag",
-    "description": "This rule warns about redundant build tag comments // +build when //go:build is present."
+    "description": "This rule warns about redundant build tag comments."
   },
   {
     "patternId": "redundant-import-alias",
@@ -464,7 +474,7 @@
   {
     "patternId": "time-equal",
     "title": "time-equal",
-    "description": "This rule warns when using == and != for equality check time.Time and suggest to time.time.Equal method,"
+    "description": "This rule warns when using == and != for equality checks on time.Time and suggests using the time.Time.Equal method."
   },
   {
     "patternId": "time-naming",
@@ -540,7 +550,7 @@
   {
     "patternId": "use-any",
     "title": "use-any",
-    "description": "Since Go 1.18, interface{} has an alias: any. This rule proposes to replace instances of interface{} with any."
+    "description": "This rule proposes to replace instances of interface{} with its alias any."
   },
   {
     "patternId": "use-errors-new",

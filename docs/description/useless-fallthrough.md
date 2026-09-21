@@ -1,5 +1,7 @@
 ## useless-fallthrough
 
+_Go version_: 1.0.
+
 _Description_: This rule warns on useless `fallthrough` statements in case clauses of switch statements.
 A `fallthrough` is considered _useless_ if it's the single statement of a case clause block.
 

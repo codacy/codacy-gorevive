@@ -1,5 +1,7 @@
 ## time-date
 
+_Go version_: 1.0.
+
 _Description_: Reports bad usage of `time.Date`.
 
 _Configuration_: N/A

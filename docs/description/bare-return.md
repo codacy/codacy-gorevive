@@ -1,6 +1,6 @@
 ## bare-return
 
-_Description_: Warns on bare (a.k.a. naked) returns
+_Go version_: 1.0.
 
-_Configuration_: N/A
+_Description_: Warns on bare (a.k.a. naked) returns.
 

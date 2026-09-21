@@ -1,5 +1,7 @@
 ## import-alias-naming
 
+_Go version_: 1.0.
+
 _Description_: Aligns with Go's naming conventions, as outlined in the official
 [blog post](https://go.dev/blog/package-names). It enforces clear and lowercase import alias names, echoing
 the principles of good package naming. Users can follow these guidelines by default or define a custom regex rule.
@@ -9,11 +11,11 @@ _Configuration_ (1): (`string`) as plain string accepts allow regexp pattern for
 
 _Configuration_ (2): (`map[string]string`) as a map accepts two values:
 
-- for a key `allowRegex` (`allowregex`, `allow-regex`) accepts allow regexp pattern
-- for a key `denyRegex` (`denyregex`, `deny-regex`) deny regexp pattern
+- for a key `allow-regex` accepts allow regexp pattern
+- for a key `deny-regex` deny regexp pattern
 
-_Note_: If both `allowRegex` and `denyRegex` are provided, the alias must comply with both of them.
-If none are given (i.e. an empty map), the default value `^[a-z][a-z0-9]{0,}$` for allowRegex is used.
+_Note_: If both `allow-regex` and `deny-regex` are provided, the alias must comply with both of them.
+If none are given (i.e. an empty map), the default value `^[a-z][a-z0-9]{0,}$` for `allow-regex` is used.
 Unknown keys will result in an error.
 
 Configuration example (1):
@@ -23,12 +25,7 @@ Configuration example (1):
 arguments = ["^[a-z][a-z0-9]{0,}$"]
 ```
 
-Configuration examples (2):
-
-```toml
-[rule.import-alias-naming]
-arguments = [{ allowRegex = "^[a-z][a-z0-9]{0,}$", denyRegex = '^v\d+$' }]
-```
+Configuration example (2):
 
 ```toml
 [rule.import-alias-naming]

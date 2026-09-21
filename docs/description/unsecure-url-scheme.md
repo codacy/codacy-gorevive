@@ -1,5 +1,7 @@
 ## unsecure-url-scheme
 
+_Go version_: 1.0.
+
 _Description_: Checks for usage of potentially unsecure URL schemes (`http`, `ws`) in string literals.
 Using unencrypted URL schemes can expose sensitive data during transmission and
 make applications vulnerable to man-in-the-middle attacks.

@@ -1,8 +1,11 @@
 ## function-result-limit
 
-_Description_: Functions returning too many results can be hard to understand/use.
+_Go version_: 1.0.
 
-_Configuration_: (int) the maximum allowed return values
+_Description_: Specifies the maximum number of results a function can return.
+Functions returning too many results can be hard to understand/use.
+
+_Configuration_: (int) the maximum allowed return values. Default: `3`.
 
 Configuration example:
 

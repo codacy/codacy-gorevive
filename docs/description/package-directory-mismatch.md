@@ -1,5 +1,7 @@
 ## package-directory-mismatch
 
+_Go version_: 1.0.
+
 _Description_: It is considered a good practice to name a package after the directory containing it.
 This rule warns when the package name declared in the file does not match the name of the directory containing the file.
 
@@ -37,6 +39,6 @@ Include all directories (`testdata` also)
 
 ```toml
 [rule.package-directory-mismatch]
-arguments = [{ ignoreDirectories = [] }]
+arguments = [{ ignore-directories = [] }]
 ```
 

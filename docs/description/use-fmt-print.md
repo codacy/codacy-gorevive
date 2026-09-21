@@ -1,5 +1,7 @@
 ## use-fmt-print
 
+_Go version_: 1.0.
+
 _Description_: This rule proposes to replace calls to built-in `print` and `println` with their equivalents from `fmt` standard package.
 
 `print` and `println` built-in functions are not recommended for use-cases other than

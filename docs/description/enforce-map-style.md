@@ -1,5 +1,7 @@
 ## enforce-map-style
 
+_Go version_: 1.0.
+
 _Description_: This rule enforces consistent usage of `make(map[type]type)` or `map[type]type{}` for map initialization.
 It does not affect `make(map[type]type, size)` constructions as well as `map[type]type{k1: v1}`.
 

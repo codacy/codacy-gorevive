@@ -1,5 +1,9 @@
 ## error-strings
 
+_Go version_: 1.0.
+
+**_Ported from golint_**
+
 _Description_: By convention, for better readability, error messages should not be capitalized or end with punctuation or a newline.
 By default, the rule analyzes functions for creating errors from `fmt`, `errors`, and `github.com/pkg/errors`.
 Optionally, the rule can be configured to analyze user functions that create errors.

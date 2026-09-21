@@ -1,5 +1,7 @@
 ## enforce-slice-style
 
+_Go version_: 1.0.
+
 _Description_: This rule enforces consistent usage of `make([]type, 0)`, `[]type{}`, or `var []type` for slice initialization.
 It does not affect `make([]type, non_zero_len, or_non_zero_cap)` constructions as well as `[]type{v1}`.
 Nil slices are always permitted.

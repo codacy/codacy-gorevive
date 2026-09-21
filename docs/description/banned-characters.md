@@ -1,6 +1,8 @@
 ## banned-characters
 
-_Description_: Checks given banned characters in identifiers(func, var, const). Comments are not checked.
+_Go version_: 1.0.
+
+_Description_: Checks given banned characters in identifiers (func, var, const). Comments are not checked.
 
 _Configuration_: This rule requires a slice of strings, the characters to ban.
 

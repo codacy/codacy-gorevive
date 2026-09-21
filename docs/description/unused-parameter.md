@@ -1,21 +1,18 @@
 ## unused-parameter
 
+_Go version_: 1.0.
+
 _Description_: This rule warns on unused parameters. Functions or methods with unused parameters can be a symptom of an unfinished refactoring or a bug.
 
-_Configuration_: Supports arguments with single of `map[string]any` with option `allowRegex` (`allowregex`, `allow-regex`) to provide additional
-to `_` mask to allowed unused parameter names.
+_Configuration_: Supports a single `map[string]any` argument with an `allow-regex` option to
+specify additional allowed patterns for unused parameter names beyond the default `_`.
 
-Configuration examples:
+Configuration example:
 
 This allows any names starting with `_`, not just `_` itself:
 
 ```go
 func SomeFunc(_someObj *MyStruct) {} // matches rule
-```
-
-```toml
-[rule.unused-parameter]
-arguments = [{ allowRegex = "^_" }]
 ```
 
 ```toml
