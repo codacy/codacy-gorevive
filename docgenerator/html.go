@@ -24,6 +24,12 @@ func getPatternsListFromDocumentationHTML(data string, defaultPatterns map[strin
 	// handles both shapes.
 	doc.Find("ul").First().Find("a").Each(func(index int, rowhtml *goquery.Selection) {
 		patternID := rowhtml.Text()
+		// The TOC can also link to non-rule sections (e.g. "Configuration
+		// options format"); real rule names are single kebab-case tokens
+		// with no whitespace, so skip anything else.
+		if strings.ContainsAny(patternID, " \n\t") {
+			return
+		}
 		_, enabledByDefault := defaultPatterns[patternID]
 
 		patterns = append(

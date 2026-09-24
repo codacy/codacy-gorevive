@@ -1,9 +1,11 @@
 ## argument-limit
 
+_Go version_: 1.0.
+
 _Description_: Warns when a function receives more parameters than the maximum set by the rule's configuration.
 Enforcing a maximum number of parameters helps to keep the code readable and maintainable.
 
-_Configuration_: (int) the maximum number of parameters allowed per function.
+_Configuration_: (int) the maximum number of parameters allowed per function. Default: `8`.
 
 Configuration example:
 

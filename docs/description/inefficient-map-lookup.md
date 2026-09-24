@@ -1,5 +1,9 @@
 ## inefficient-map-lookup
 
+_Go version_: 1.0.
+
+**_Typed_**
+
 _Description_: This rule identifies code that iteratively searches for a key in a map.
 
 This inefficiency is usually introduced when refactoring code from using a slice to a map.
@@ -29,14 +33,14 @@ aValue := false
 
 // Inefficient map lookup
 for k := range aMap {
-  if k == aValue {
-    // do something
-  }
+	if k == aValue {
+		// do something
+	}
 }
 
 // Simpler and more efficient version
 if _, ok := aMap[aValue]; ok {
-  // do something
+	// do something
 }
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "revive",
-  "version": "1.15.0",
+  "version": "1.16.0",
   "patterns": [
     {
       "patternId": "add-constant",
@@ -402,6 +402,12 @@
       "enabled": false
     },
     {
+      "patternId": "marshal-receiver",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
       "patternId": "max-control-nesting",
       "category": "CodeStyle",
       "level": "Info",
@@ -435,6 +441,12 @@
     },
     {
       "patternId": "modifies-value-receiver",
+      "category": "CodeStyle",
+      "level": "Info",
+      "enabled": false
+    },
+    {
+      "patternId": "multiline-if-init",
       "category": "CodeStyle",
       "level": "Info",
       "enabled": false

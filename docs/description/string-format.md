@@ -1,5 +1,7 @@
 ## string-format
 
+_Go version_: 1.0.
+
 _Description_: This rule allows you to configure a list of regular expressions that string literals in certain function calls are checked against.
 This is geared towards user facing applications where string literals are often used for messages that will be presented to users,
 so it may be desirable to enforce consistent formatting.

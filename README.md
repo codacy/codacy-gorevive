@@ -92,7 +92,7 @@ This section is written for an AI coding agent (or a human) tasked with updating
 
 ### 1. What this repository is
 
-This is a **Codacy engine**: a small Go program (built on `github.com/codacy/codacy-engine-golang-seed/v6`, see `go.mod`, `main.go`, `implementation.go`) that packages [revive](https://github.com/mgechev/revive) — a Go linter — as a Docker image Codacy's platform can run against a customer's source code. The wrapped version is pinned in a single plain-text file, `.tool_version` (currently `1.12.0`), which both `Dockerfile` and `.circleci/config.yml` read from.
+This is a **Codacy engine**: a small Go program (built on `github.com/codacy/codacy-engine-golang-seed/v6`, see `go.mod`, `main.go`, `implementation.go`) that packages [revive](https://github.com/mgechev/revive) — a Go linter — as a Docker image Codacy's platform can run against a customer's source code. The wrapped version is pinned in a single plain-text file, `.tool_version` (currently `1.16.0`), which both `Dockerfile` and `.circleci/config.yml` read from.
 
 The `docs/` directory is not just documentation — it is **machine-consumed configuration**:
 
@@ -110,7 +110,7 @@ Separately, `toolparameters/parameters.go` hand-maintains the list of configurab
 | File | What it controls | What to check |
 |---|---|---|
 | `.tool_version` | Which revive release is installed/bundled | Bump to the target version (e.g. `1.12.0` → `1.13.0`); confirm a matching upstream tag (`v<version>`) exists on `mgechev/revive`. |
-| `Dockerfile` → `go install github.com/mgechev/revive@v${TOOL_VERSION}` | Installs revive into the image at the version passed via `--build-arg TOOL_VERSION` (sourced from `.tool_version` via the Makefile) | No direct edit needed if only bumping `.tool_version`, but confirm the `golang:1.25-alpine3.22` / `alpine:3.22` base images are still current if doing a base-image bump — note the builder's Go version must satisfy the wrapped revive release's own `go.mod` minimum (e.g. revive v1.15.0 requires Go ≥ 1.25). |
+| `Dockerfile` → `go install github.com/mgechev/revive@v${TOOL_VERSION}` | Installs revive into the image at the version passed via `--build-arg TOOL_VERSION` (sourced from `.tool_version` via the Makefile) | No direct edit needed if only bumping `.tool_version`, but confirm the `golang:1.26-alpine3.22` / `alpine:3.22` base images are still current if doing a base-image bump — note the builder's Go version must satisfy the wrapped revive release's own `go.mod` minimum (e.g. revive v1.16.0 requires Go ≥ 1.26). |
 | `.circleci/config.yml` → `codacy: codacy/base@12.1.5` orb | Shared CircleCI checkout/publish/tag steps | Check the latest published version if doing an infra bump. |
 | `.circleci/config.yml` → `codacy_plugins_test: codacy/plugins-test@2.0.11` orb | Runs `codacy-plugins-test` (`plugins_test` job) in CI | Same as above. |
 | `.circleci/config.yml` → `lint` job's own `go install github.com/mgechev/revive@v$(cat .tool_version)` | CI lints this repo's own Go code using the same revive version being bumped | Automatically picks up `.tool_version`; no separate edit needed. |

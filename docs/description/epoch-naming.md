@@ -1,5 +1,9 @@
 ## epoch-naming
 
+_Go version_: 1.0.
+
+**_Typed_**
+
 _Description_: Variables initialized with epoch time methods (`time.Now().Unix()`, `time.Now().UnixMilli()`,
 `time.Now().UnixMicro()`, `time.Now().UnixNano()`) should have names that clearly indicate their time unit to
 prevent confusion and potential bugs when working with different time scales.

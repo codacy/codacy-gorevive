@@ -1,6 +1,6 @@
 ## if-return
 
-_Description_: Checking if an error is _nil_ to just after return the error or nil is redundant.
+_Go version_: 1.0.
 
-_Configuration_: N/A
+_Description_: Checking if an error is _nil_ to just after return the error or nil is redundant.
 

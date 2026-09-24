@@ -1,5 +1,7 @@
 ## optimize-operands-order
 
+_Go version_: 1.0.
+
 _Description_: Conditional expressions can be written to take advantage of short circuit evaluation and speed up its average evaluation time
 by forcing the evaluation of less time-consuming terms before more costly ones.
 This rule spots logical expressions where the order of evaluation of terms seems non optimal.
